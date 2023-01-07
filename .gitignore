@@ -28,3 +28,4 @@ pubspec.lock
 coverage/
 .test_coverage.dart
 coverage_badge.svg
+example/_internal.dart
