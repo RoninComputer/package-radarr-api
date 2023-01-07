@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      # Freezed
+      freezed:
+        enabled: true
+      # JSON Serializable
+      json_serializable:
+        enabled: true
+        options:
+          explicit_to_json: true
+          include_if_null: false
+      # Retrofit
+      retrofit_generator|retrofit:
+        enabled: true

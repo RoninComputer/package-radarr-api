@@ -1,0 +1,21 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/types/file_system_entity.dart';
+import 'package:radarr_api/mixins/json_serializable.dart';
+
+part 'directory.freezed.dart';
+part 'directory.g.dart';
+
+@Freezed()
+class RadarrFileSystemDirectory
+    with _$RadarrFileSystemDirectory, JsonSerializableMixin {
+  const factory RadarrFileSystemDirectory({
+    required RadarrFileSystemEntity type,
+    required String name,
+    required String path,
+    required int size,
+    required DateTime lastModified,
+  }) = _RadarrFileSystemDirectory;
+
+  factory RadarrFileSystemDirectory.fromJson(Map<String, Object?> json) =>
+      _$RadarrFileSystemDirectoryFromJson(json);
+}
