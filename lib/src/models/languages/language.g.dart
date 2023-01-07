@@ -10,6 +10,7 @@ _$_RadarrLanguage _$$_RadarrLanguageFromJson(Map<String, dynamic> json) =>
     _$_RadarrLanguage(
       id: json['id'] as int,
       name: json['name'] as String?,
+      nameLower: json['nameLower'] as String?,
     );
 
 Map<String, dynamic> _$$_RadarrLanguageToJson(_$_RadarrLanguage instance) {
@@ -24,5 +25,6 @@ Map<String, dynamic> _$$_RadarrLanguageToJson(_$_RadarrLanguage instance) {
   }
 
   writeNotNull('name', instance.name);
+  writeNotNull('nameLower', instance.nameLower);
   return val;
 }

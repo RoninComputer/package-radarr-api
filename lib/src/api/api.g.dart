@@ -873,6 +873,54 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrLanguage>> getLanguages() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrLanguage>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'language',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => RadarrLanguage.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrLanguage> getLanguage({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrLanguage>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'language/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrLanguage.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrMovie>> getMovies({tmdbId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'tmdbId': tmdbId};
@@ -899,6 +947,30 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<RadarrMovie> createMovie({required movie}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(movie.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrMovie>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMovie.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<RadarrMovie> getMovie({required id}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -919,6 +991,54 @@ class _RadarrAPI implements RadarrAPI {
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
     return value;
+  }
+
+  @override
+  Future<RadarrMovie> updateMovie({
+    required id,
+    required movie,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(movie.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrMovie>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMovie.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> deleteMovie({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'movie/${id}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
   }
 
   @override

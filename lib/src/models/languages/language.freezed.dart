@@ -22,6 +22,7 @@ RadarrLanguage _$RadarrLanguageFromJson(Map<String, dynamic> json) {
 mixin _$RadarrLanguage {
   int get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get nameLower => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $RadarrLanguageCopyWith<$Res> {
           RadarrLanguage value, $Res Function(RadarrLanguage) then) =
       _$RadarrLanguageCopyWithImpl<$Res, RadarrLanguage>;
   @useResult
-  $Res call({int id, String? name});
+  $Res call({int id, String? name, String? nameLower});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$RadarrLanguageCopyWithImpl<$Res, $Val extends RadarrLanguage>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? nameLower = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +64,10 @@ class _$RadarrLanguageCopyWithImpl<$Res, $Val extends RadarrLanguage>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameLower: freezed == nameLower
+          ? _value.nameLower
+          : nameLower // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -75,7 +81,7 @@ abstract class _$$_RadarrLanguageCopyWith<$Res>
       __$$_RadarrLanguageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String? name});
+  $Res call({int id, String? name, String? nameLower});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$_RadarrLanguageCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? nameLower = freezed,
   }) {
     return _then(_$_RadarrLanguage(
       id: null == id
@@ -101,6 +108,10 @@ class __$$_RadarrLanguageCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      nameLower: freezed == nameLower
+          ? _value.nameLower
+          : nameLower // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -108,7 +119,7 @@ class __$$_RadarrLanguageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RadarrLanguage implements _RadarrLanguage {
-  const _$_RadarrLanguage({required this.id, this.name});
+  const _$_RadarrLanguage({required this.id, this.name, this.nameLower});
 
   factory _$_RadarrLanguage.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrLanguageFromJson(json);
@@ -117,10 +128,12 @@ class _$_RadarrLanguage implements _RadarrLanguage {
   final int id;
   @override
   final String? name;
+  @override
+  final String? nameLower;
 
   @override
   String toString() {
-    return 'RadarrLanguage(id: $id, name: $name)';
+    return 'RadarrLanguage(id: $id, name: $name, nameLower: $nameLower)';
   }
 
   @override
@@ -129,12 +142,14 @@ class _$_RadarrLanguage implements _RadarrLanguage {
         (other.runtimeType == runtimeType &&
             other is _$_RadarrLanguage &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.nameLower, nameLower) ||
+                other.nameLower == nameLower));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, nameLower);
 
   @JsonKey(ignore: true)
   @override
@@ -151,8 +166,10 @@ class _$_RadarrLanguage implements _RadarrLanguage {
 }
 
 abstract class _RadarrLanguage implements RadarrLanguage {
-  const factory _RadarrLanguage({required final int id, final String? name}) =
-      _$_RadarrLanguage;
+  const factory _RadarrLanguage(
+      {required final int id,
+      final String? name,
+      final String? nameLower}) = _$_RadarrLanguage;
 
   factory _RadarrLanguage.fromJson(Map<String, dynamic> json) =
       _$_RadarrLanguage.fromJson;
@@ -161,6 +178,8 @@ abstract class _RadarrLanguage implements RadarrLanguage {
   int get id;
   @override
   String? get name;
+  @override
+  String? get nameLower;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrLanguageCopyWith<_$_RadarrLanguage> get copyWith =>

@@ -58,7 +58,7 @@ class RadarrMovie with _$RadarrMovie, JsonSerializableMixin {
     RadarrMovieFile? movieFile,
     RadarrCollection? collection,
     required double popularity,
-    required int id,
+    int? id,
   }) = _RadarrMovie;
 
   factory RadarrMovie.fromJson(Map<String, Object?> json) =>

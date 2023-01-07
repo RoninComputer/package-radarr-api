@@ -73,7 +73,7 @@ _$_RadarrMovie _$$_RadarrMovieFromJson(Map<String, dynamic> json) =>
           : RadarrCollection.fromJson(
               json['collection'] as Map<String, dynamic>),
       popularity: (json['popularity'] as num).toDouble(),
-      id: json['id'] as int,
+      id: json['id'] as int?,
     );
 
 Map<String, dynamic> _$$_RadarrMovieToJson(_$_RadarrMovie instance) {
@@ -130,7 +130,7 @@ Map<String, dynamic> _$$_RadarrMovieToJson(_$_RadarrMovie instance) {
   writeNotNull('movieFile', instance.movieFile?.toJson());
   writeNotNull('collection', instance.collection?.toJson());
   val['popularity'] = instance.popularity;
-  val['id'] = instance.id;
+  writeNotNull('id', instance.id);
   return val;
 }
 

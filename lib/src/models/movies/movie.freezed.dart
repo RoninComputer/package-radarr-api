@@ -65,7 +65,7 @@ mixin _$RadarrMovie {
   RadarrMovieFile? get movieFile => throw _privateConstructorUsedError;
   RadarrCollection? get collection => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -123,7 +123,7 @@ abstract class $RadarrMovieCopyWith<$Res> {
       RadarrMovieFile? movieFile,
       RadarrCollection? collection,
       double popularity,
-      int id});
+      int? id});
 
   $RadarrLanguageCopyWith<$Res> get originalLanguage;
   $RadarrMovieAddOptionsCopyWith<$Res>? get addOptions;
@@ -188,7 +188,7 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
     Object? movieFile = freezed,
     Object? collection = freezed,
     Object? popularity = null,
-    Object? id = null,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -363,10 +363,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 
@@ -475,7 +475,7 @@ abstract class _$$_RadarrMovieCopyWith<$Res>
       RadarrMovieFile? movieFile,
       RadarrCollection? collection,
       double popularity,
-      int id});
+      int? id});
 
   @override
   $RadarrLanguageCopyWith<$Res> get originalLanguage;
@@ -543,7 +543,7 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
     Object? movieFile = freezed,
     Object? collection = freezed,
     Object? popularity = null,
-    Object? id = null,
+    Object? id = freezed,
   }) {
     return _then(_$_RadarrMovie(
       title: freezed == title
@@ -718,10 +718,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -773,7 +773,7 @@ class _$_RadarrMovie implements _RadarrMovie {
       this.movieFile,
       this.collection,
       required this.popularity,
-      required this.id})
+      this.id})
       : _alternateTitles = alternateTitles,
         _images = images,
         _genres = genres,
@@ -901,7 +901,7 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final double popularity;
   @override
-  final int id;
+  final int? id;
 
   @override
   String toString() {
@@ -1095,7 +1095,7 @@ abstract class _RadarrMovie implements RadarrMovie {
       final RadarrMovieFile? movieFile,
       final RadarrCollection? collection,
       required final double popularity,
-      required final int id}) = _$_RadarrMovie;
+      final int? id}) = _$_RadarrMovie;
 
   factory _RadarrMovie.fromJson(Map<String, dynamic> json) =
       _$_RadarrMovie.fromJson;
@@ -1187,7 +1187,7 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   double get popularity;
   @override
-  int get id;
+  int? get id;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrMovieCopyWith<_$_RadarrMovie> get copyWith =>

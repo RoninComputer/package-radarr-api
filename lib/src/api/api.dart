@@ -12,6 +12,7 @@ import 'package:radarr_api/src/models/custom_formats/custom_format.dart';
 import 'package:radarr_api/src/models/delay_profiles/delay_profile.dart';
 import 'package:radarr_api/src/models/disk_spaces/disk_space.dart';
 import 'package:radarr_api/src/models/file_system/file_system.dart';
+import 'package:radarr_api/src/models/languages/language.dart';
 import 'package:radarr_api/src/models/movie_files/extra_file.dart';
 import 'package:radarr_api/src/models/movies/alternate_title.dart';
 import 'package:radarr_api/src/models/movies/movie.dart';
@@ -236,15 +237,44 @@ abstract class RadarrAPI {
         bool? allowFoldersWithoutTrailingSlashes,
   });
 
-  /// Get a list of all movies in the library.
+  /// Get a list of all available languages.
+  @GET('language')
+  Future<List<RadarrLanguage>> getLanguages();
+
+  /// Get a single language by ID.
+  @GET('language/{id}')
+  Future<RadarrLanguage> getLanguage({
+    @Path('id') required int id,
+  });
+
+  /// Get a list of all added movies.
   @GET('movie')
   Future<List<RadarrMovie>> getMovies({
     @Query('tmdbId') int? tmdbId,
   });
 
-  /// Get a single movie from the library.
+  /// Create a new movie.
+  @POST('movie')
+  Future<RadarrMovie> createMovie({
+    @Body() required RadarrMovie movie,
+  });
+
+  /// Get a single movie by ID.
   @GET('movie/{id}')
   Future<RadarrMovie> getMovie({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing movie.
+  @PUT('movie/{id}')
+  Future<RadarrMovie> updateMovie({
+    @Path('id') required int id,
+    @Body() required RadarrMovie movie,
+  });
+
+  /// Delete a movie.
+  @DELETE('movie/{id}')
+  Future<void> deleteMovie({
     @Path('id') required int id,
   });
 

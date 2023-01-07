@@ -9,6 +9,7 @@ class RadarrLanguage with _$RadarrLanguage, JsonSerializableMixin {
   const factory RadarrLanguage({
     required int id,
     String? name,
+    String? nameLower,
   }) = _RadarrLanguage;
 
   factory RadarrLanguage.fromJson(Map<String, Object?> json) =>
