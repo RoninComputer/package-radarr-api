@@ -262,6 +262,28 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get a list of all created root folders.
+  @GET('rootfolder')
+  Future<List<RadarrRootFolder>> getRootFolders();
+
+  /// Create a new root folder.
+  @POST('rootfolder')
+  Future<RadarrRootFolder> createRootFolder({
+    @Body() required RadarrRootFolder rootFolder,
+  });
+
+  /// Get a single root folder by ID.
+  @GET('rootfolder/{id}')
+  Future<RadarrRootFolder> getRootFolder({
+    @Path('id') required int id,
+  });
+
+  /// Delete a root folder.
+  @DELETE('rootfolder/{id}')
+  Future<void> deleteRootFolder({
+    @Path('id') required int id,
+  });
+
   /// Get a list of all backups currently available.
   @GET('system/backup')
   Future<List<RadarrBackup>> getBackups();

@@ -1,5 +1,5 @@
 name: radarr_api
-description: Dart API abstraction for Radarr's public API
+description: Dart abstraction for Radarr's public API
 version: 0.0.1-pre.1
 homepage: https://github.com/RoninComputer/dart-radarr-api
 repository: https://github.com/RoninComputer/dart-radarr-api
