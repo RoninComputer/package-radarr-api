@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:radarr_api/radarr_api.dart';
 import 'package:radarr_api/src/api/config.dart';
 import 'package:radarr_api/src/models/backups/backup.dart';
 import 'package:radarr_api/src/models/blocklists/blocklist.dart';
@@ -293,4 +294,8 @@ abstract class RadarrAPI {
   Future<void> restoreBackup({
     @Path('id') required int id,
   });
+
+  /// Get a list of Radarr updates.
+  @GET('update')
+  Future<List<RadarrUpdate>> getUpdates();
 }
