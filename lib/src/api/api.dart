@@ -1,23 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:radarr_api/radarr_api.dart';
 import 'package:radarr_api/src/api/config.dart';
-import 'package:radarr_api/src/models/backups/backup.dart';
-import 'package:radarr_api/src/models/blocklists/blocklist.dart';
-import 'package:radarr_api/src/models/collections/collection.dart';
-import 'package:radarr_api/src/models/collections/update.dart';
-import 'package:radarr_api/src/models/commands/command.dart';
-import 'package:radarr_api/src/models/commands/run_command.dart';
-import 'package:radarr_api/src/models/credits/credit.dart';
-import 'package:radarr_api/src/models/custom_filters/custom_filter.dart';
-import 'package:radarr_api/src/models/custom_formats/custom_format.dart';
-import 'package:radarr_api/src/models/delay_profiles/delay_profile.dart';
-import 'package:radarr_api/src/models/disk_spaces/disk_space.dart';
-import 'package:radarr_api/src/models/file_system/file_system.dart';
-import 'package:radarr_api/src/models/languages/language.dart';
-import 'package:radarr_api/src/models/movie_files/extra_file.dart';
-import 'package:radarr_api/src/models/movies/alternate_title.dart';
-import 'package:radarr_api/src/models/movies/movie.dart';
-import 'package:radarr_api/src/models/paged_results/paged_result.dart';
+import 'package:radarr_api/src/models.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api.g.dart';
