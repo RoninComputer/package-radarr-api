@@ -32,5 +32,6 @@ export 'models/qualities/quality.dart';
 export 'models/qualities/revision.dart';
 export 'models/ratings/rating.dart';
 export 'models/ratings/ratings.dart';
+export 'models/tags/tag.dart';
 export 'models/updates/changes.dart';
 export 'models/updates/update.dart';

@@ -278,6 +278,35 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get a list of all created tags.
+  @GET('tag')
+  Future<List<RadarrTag>> getTags();
+
+  /// Create a new tag.
+  @POST('tag')
+  Future<RadarrTag> createTag({
+    @Body() required RadarrTag tag,
+  });
+
+  /// Get a single tag by ID.
+  @GET('tag/{id}')
+  Future<RadarrTag> getTag({
+    @Path('id') required int id,
+  });
+
+  /// Update a tag.
+  @PUT('tag/{id}')
+  Future<RadarrTag> updateTag({
+    @Path('id') required int id,
+    @Body() required RadarrTag tag,
+  });
+
+  /// Delete a tag.
+  @DELETE('tag/{id}')
+  Future<void> deleteTag({
+    @Path('id') required int id,
+  });
+
   /// Get a list of Radarr updates.
   @GET('update')
   Future<List<RadarrUpdate>> getUpdates();
