@@ -10,7 +10,7 @@ class RadarrRootFolder with _$RadarrRootFolder, JsonSerializableMixin {
   const factory RadarrRootFolder({
     int? id,
     String? path,
-    required bool accessible,
+    bool? accessible,
     int? freeSpace,
     List<RadarrUnmappedFolder>? unmappedFolders,
   }) = _RadarrRootFolder;

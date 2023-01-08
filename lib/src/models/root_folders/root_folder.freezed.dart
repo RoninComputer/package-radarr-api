@@ -22,7 +22,7 @@ RadarrRootFolder _$RadarrRootFolderFromJson(Map<String, dynamic> json) {
 mixin _$RadarrRootFolder {
   int? get id => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
-  bool get accessible => throw _privateConstructorUsedError;
+  bool? get accessible => throw _privateConstructorUsedError;
   int? get freeSpace => throw _privateConstructorUsedError;
   List<RadarrUnmappedFolder>? get unmappedFolders =>
       throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $RadarrRootFolderCopyWith<$Res> {
   $Res call(
       {int? id,
       String? path,
-      bool accessible,
+      bool? accessible,
       int? freeSpace,
       List<RadarrUnmappedFolder>? unmappedFolders});
 }
@@ -62,7 +62,7 @@ class _$RadarrRootFolderCopyWithImpl<$Res, $Val extends RadarrRootFolder>
   $Res call({
     Object? id = freezed,
     Object? path = freezed,
-    Object? accessible = null,
+    Object? accessible = freezed,
     Object? freeSpace = freezed,
     Object? unmappedFolders = freezed,
   }) {
@@ -75,10 +75,10 @@ class _$RadarrRootFolderCopyWithImpl<$Res, $Val extends RadarrRootFolder>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessible: null == accessible
+      accessible: freezed == accessible
           ? _value.accessible
           : accessible // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       freeSpace: freezed == freeSpace
           ? _value.freeSpace
           : freeSpace // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$$_RadarrRootFolderCopyWith<$Res>
   $Res call(
       {int? id,
       String? path,
-      bool accessible,
+      bool? accessible,
       int? freeSpace,
       List<RadarrUnmappedFolder>? unmappedFolders});
 }
@@ -120,7 +120,7 @@ class __$$_RadarrRootFolderCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? path = freezed,
-    Object? accessible = null,
+    Object? accessible = freezed,
     Object? freeSpace = freezed,
     Object? unmappedFolders = freezed,
   }) {
@@ -133,10 +133,10 @@ class __$$_RadarrRootFolderCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
-      accessible: null == accessible
+      accessible: freezed == accessible
           ? _value.accessible
           : accessible // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       freeSpace: freezed == freeSpace
           ? _value.freeSpace
           : freeSpace // ignore: cast_nullable_to_non_nullable
@@ -155,7 +155,7 @@ class _$_RadarrRootFolder implements _RadarrRootFolder {
   const _$_RadarrRootFolder(
       {this.id,
       this.path,
-      required this.accessible,
+      this.accessible,
       this.freeSpace,
       final List<RadarrUnmappedFolder>? unmappedFolders})
       : _unmappedFolders = unmappedFolders;
@@ -168,7 +168,7 @@ class _$_RadarrRootFolder implements _RadarrRootFolder {
   @override
   final String? path;
   @override
-  final bool accessible;
+  final bool? accessible;
   @override
   final int? freeSpace;
   final List<RadarrUnmappedFolder>? _unmappedFolders;
@@ -224,7 +224,7 @@ abstract class _RadarrRootFolder implements RadarrRootFolder {
   const factory _RadarrRootFolder(
       {final int? id,
       final String? path,
-      required final bool accessible,
+      final bool? accessible,
       final int? freeSpace,
       final List<RadarrUnmappedFolder>? unmappedFolders}) = _$_RadarrRootFolder;
 
@@ -236,7 +236,7 @@ abstract class _RadarrRootFolder implements RadarrRootFolder {
   @override
   String? get path;
   @override
-  bool get accessible;
+  bool? get accessible;
   @override
   int? get freeSpace;
   @override
