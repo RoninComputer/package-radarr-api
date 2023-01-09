@@ -10,7 +10,7 @@ class RadarrQualityRevision
   const factory RadarrQualityRevision({
     required int version,
     required int real,
-    required bool isRepack,
+    bool? isRepack,
   }) = _RadarrQualityRevision;
 
   factory RadarrQualityRevision.fromJson(Map<String, Object?> json) =>

@@ -21,11 +21,11 @@ RadarrMovieAddOptions _$RadarrMovieAddOptionsFromJson(
 
 /// @nodoc
 mixin _$RadarrMovieAddOptions {
-  bool get ignoreEpisodesWithFiles => throw _privateConstructorUsedError;
-  bool get ignoreEpisodesWithoutFiles => throw _privateConstructorUsedError;
-  RadarrMonitorType get monitor => throw _privateConstructorUsedError;
-  bool get searchForMovie => throw _privateConstructorUsedError;
-  RadarrAddMethod get addMethod => throw _privateConstructorUsedError;
+  bool? get ignoreEpisodesWithFiles => throw _privateConstructorUsedError;
+  bool? get ignoreEpisodesWithoutFiles => throw _privateConstructorUsedError;
+  RadarrMonitorType? get monitor => throw _privateConstructorUsedError;
+  bool? get searchForMovie => throw _privateConstructorUsedError;
+  RadarrAddMethod? get addMethod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,11 +40,11 @@ abstract class $RadarrMovieAddOptionsCopyWith<$Res> {
       _$RadarrMovieAddOptionsCopyWithImpl<$Res, RadarrMovieAddOptions>;
   @useResult
   $Res call(
-      {bool ignoreEpisodesWithFiles,
-      bool ignoreEpisodesWithoutFiles,
-      RadarrMonitorType monitor,
-      bool searchForMovie,
-      RadarrAddMethod addMethod});
+      {bool? ignoreEpisodesWithFiles,
+      bool? ignoreEpisodesWithoutFiles,
+      RadarrMonitorType? monitor,
+      bool? searchForMovie,
+      RadarrAddMethod? addMethod});
 }
 
 /// @nodoc
@@ -61,33 +61,33 @@ class _$RadarrMovieAddOptionsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ignoreEpisodesWithFiles = null,
-    Object? ignoreEpisodesWithoutFiles = null,
-    Object? monitor = null,
-    Object? searchForMovie = null,
-    Object? addMethod = null,
+    Object? ignoreEpisodesWithFiles = freezed,
+    Object? ignoreEpisodesWithoutFiles = freezed,
+    Object? monitor = freezed,
+    Object? searchForMovie = freezed,
+    Object? addMethod = freezed,
   }) {
     return _then(_value.copyWith(
-      ignoreEpisodesWithFiles: null == ignoreEpisodesWithFiles
+      ignoreEpisodesWithFiles: freezed == ignoreEpisodesWithFiles
           ? _value.ignoreEpisodesWithFiles
           : ignoreEpisodesWithFiles // ignore: cast_nullable_to_non_nullable
-              as bool,
-      ignoreEpisodesWithoutFiles: null == ignoreEpisodesWithoutFiles
+              as bool?,
+      ignoreEpisodesWithoutFiles: freezed == ignoreEpisodesWithoutFiles
           ? _value.ignoreEpisodesWithoutFiles
           : ignoreEpisodesWithoutFiles // ignore: cast_nullable_to_non_nullable
-              as bool,
-      monitor: null == monitor
+              as bool?,
+      monitor: freezed == monitor
           ? _value.monitor
           : monitor // ignore: cast_nullable_to_non_nullable
-              as RadarrMonitorType,
-      searchForMovie: null == searchForMovie
+              as RadarrMonitorType?,
+      searchForMovie: freezed == searchForMovie
           ? _value.searchForMovie
           : searchForMovie // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addMethod: null == addMethod
+              as bool?,
+      addMethod: freezed == addMethod
           ? _value.addMethod
           : addMethod // ignore: cast_nullable_to_non_nullable
-              as RadarrAddMethod,
+              as RadarrAddMethod?,
     ) as $Val);
   }
 }
@@ -101,11 +101,11 @@ abstract class _$$_RadarrMovieAddOptionsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool ignoreEpisodesWithFiles,
-      bool ignoreEpisodesWithoutFiles,
-      RadarrMonitorType monitor,
-      bool searchForMovie,
-      RadarrAddMethod addMethod});
+      {bool? ignoreEpisodesWithFiles,
+      bool? ignoreEpisodesWithoutFiles,
+      RadarrMonitorType? monitor,
+      bool? searchForMovie,
+      RadarrAddMethod? addMethod});
 }
 
 /// @nodoc
@@ -119,33 +119,33 @@ class __$$_RadarrMovieAddOptionsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ignoreEpisodesWithFiles = null,
-    Object? ignoreEpisodesWithoutFiles = null,
-    Object? monitor = null,
-    Object? searchForMovie = null,
-    Object? addMethod = null,
+    Object? ignoreEpisodesWithFiles = freezed,
+    Object? ignoreEpisodesWithoutFiles = freezed,
+    Object? monitor = freezed,
+    Object? searchForMovie = freezed,
+    Object? addMethod = freezed,
   }) {
     return _then(_$_RadarrMovieAddOptions(
-      ignoreEpisodesWithFiles: null == ignoreEpisodesWithFiles
+      ignoreEpisodesWithFiles: freezed == ignoreEpisodesWithFiles
           ? _value.ignoreEpisodesWithFiles
           : ignoreEpisodesWithFiles // ignore: cast_nullable_to_non_nullable
-              as bool,
-      ignoreEpisodesWithoutFiles: null == ignoreEpisodesWithoutFiles
+              as bool?,
+      ignoreEpisodesWithoutFiles: freezed == ignoreEpisodesWithoutFiles
           ? _value.ignoreEpisodesWithoutFiles
           : ignoreEpisodesWithoutFiles // ignore: cast_nullable_to_non_nullable
-              as bool,
-      monitor: null == monitor
+              as bool?,
+      monitor: freezed == monitor
           ? _value.monitor
           : monitor // ignore: cast_nullable_to_non_nullable
-              as RadarrMonitorType,
-      searchForMovie: null == searchForMovie
+              as RadarrMonitorType?,
+      searchForMovie: freezed == searchForMovie
           ? _value.searchForMovie
           : searchForMovie // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addMethod: null == addMethod
+              as bool?,
+      addMethod: freezed == addMethod
           ? _value.addMethod
           : addMethod // ignore: cast_nullable_to_non_nullable
-              as RadarrAddMethod,
+              as RadarrAddMethod?,
     ));
   }
 }
@@ -154,25 +154,25 @@ class __$$_RadarrMovieAddOptionsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RadarrMovieAddOptions implements _RadarrMovieAddOptions {
   const _$_RadarrMovieAddOptions(
-      {required this.ignoreEpisodesWithFiles,
-      required this.ignoreEpisodesWithoutFiles,
-      required this.monitor,
-      required this.searchForMovie,
-      required this.addMethod});
+      {this.ignoreEpisodesWithFiles,
+      this.ignoreEpisodesWithoutFiles,
+      this.monitor,
+      this.searchForMovie,
+      this.addMethod});
 
   factory _$_RadarrMovieAddOptions.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrMovieAddOptionsFromJson(json);
 
   @override
-  final bool ignoreEpisodesWithFiles;
+  final bool? ignoreEpisodesWithFiles;
   @override
-  final bool ignoreEpisodesWithoutFiles;
+  final bool? ignoreEpisodesWithoutFiles;
   @override
-  final RadarrMonitorType monitor;
+  final RadarrMonitorType? monitor;
   @override
-  final bool searchForMovie;
+  final bool? searchForMovie;
   @override
-  final RadarrAddMethod addMethod;
+  final RadarrAddMethod? addMethod;
 
   @override
   String toString() {
@@ -220,25 +220,25 @@ class _$_RadarrMovieAddOptions implements _RadarrMovieAddOptions {
 
 abstract class _RadarrMovieAddOptions implements RadarrMovieAddOptions {
   const factory _RadarrMovieAddOptions(
-      {required final bool ignoreEpisodesWithFiles,
-      required final bool ignoreEpisodesWithoutFiles,
-      required final RadarrMonitorType monitor,
-      required final bool searchForMovie,
-      required final RadarrAddMethod addMethod}) = _$_RadarrMovieAddOptions;
+      {final bool? ignoreEpisodesWithFiles,
+      final bool? ignoreEpisodesWithoutFiles,
+      final RadarrMonitorType? monitor,
+      final bool? searchForMovie,
+      final RadarrAddMethod? addMethod}) = _$_RadarrMovieAddOptions;
 
   factory _RadarrMovieAddOptions.fromJson(Map<String, dynamic> json) =
       _$_RadarrMovieAddOptions.fromJson;
 
   @override
-  bool get ignoreEpisodesWithFiles;
+  bool? get ignoreEpisodesWithFiles;
   @override
-  bool get ignoreEpisodesWithoutFiles;
+  bool? get ignoreEpisodesWithoutFiles;
   @override
-  RadarrMonitorType get monitor;
+  RadarrMonitorType? get monitor;
   @override
-  bool get searchForMovie;
+  bool? get searchForMovie;
   @override
-  RadarrAddMethod get addMethod;
+  RadarrAddMethod? get addMethod;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrMovieAddOptionsCopyWith<_$_RadarrMovieAddOptions> get copyWith =>

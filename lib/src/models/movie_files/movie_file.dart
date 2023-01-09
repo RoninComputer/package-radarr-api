@@ -11,7 +11,7 @@ part 'movie_file.g.dart';
 @Freezed()
 class RadarrMovieFile with _$RadarrMovieFile, JsonSerializableMixin {
   const factory RadarrMovieFile({
-    required int id,
+    int? id,
     required int movieId,
     String? relativePath,
     String? path,

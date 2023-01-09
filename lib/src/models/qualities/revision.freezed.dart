@@ -23,7 +23,7 @@ RadarrQualityRevision _$RadarrQualityRevisionFromJson(
 mixin _$RadarrQualityRevision {
   int get version => throw _privateConstructorUsedError;
   int get real => throw _privateConstructorUsedError;
-  bool get isRepack => throw _privateConstructorUsedError;
+  bool? get isRepack => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $RadarrQualityRevisionCopyWith<$Res> {
           $Res Function(RadarrQualityRevision) then) =
       _$RadarrQualityRevisionCopyWithImpl<$Res, RadarrQualityRevision>;
   @useResult
-  $Res call({int version, int real, bool isRepack});
+  $Res call({int version, int real, bool? isRepack});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$RadarrQualityRevisionCopyWithImpl<$Res,
   $Res call({
     Object? version = null,
     Object? real = null,
-    Object? isRepack = null,
+    Object? isRepack = freezed,
   }) {
     return _then(_value.copyWith(
       version: null == version
@@ -67,10 +67,10 @@ class _$RadarrQualityRevisionCopyWithImpl<$Res,
           ? _value.real
           : real // ignore: cast_nullable_to_non_nullable
               as int,
-      isRepack: null == isRepack
+      isRepack: freezed == isRepack
           ? _value.isRepack
           : isRepack // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$_RadarrQualityRevisionCopyWith<$Res>
       __$$_RadarrQualityRevisionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int version, int real, bool isRepack});
+  $Res call({int version, int real, bool? isRepack});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$_RadarrQualityRevisionCopyWithImpl<$Res>
   $Res call({
     Object? version = null,
     Object? real = null,
-    Object? isRepack = null,
+    Object? isRepack = freezed,
   }) {
     return _then(_$_RadarrQualityRevision(
       version: null == version
@@ -110,10 +110,10 @@ class __$$_RadarrQualityRevisionCopyWithImpl<$Res>
           ? _value.real
           : real // ignore: cast_nullable_to_non_nullable
               as int,
-      isRepack: null == isRepack
+      isRepack: freezed == isRepack
           ? _value.isRepack
           : isRepack // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -122,7 +122,7 @@ class __$$_RadarrQualityRevisionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RadarrQualityRevision implements _RadarrQualityRevision {
   const _$_RadarrQualityRevision(
-      {required this.version, required this.real, required this.isRepack});
+      {required this.version, required this.real, this.isRepack});
 
   factory _$_RadarrQualityRevision.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrQualityRevisionFromJson(json);
@@ -132,7 +132,7 @@ class _$_RadarrQualityRevision implements _RadarrQualityRevision {
   @override
   final int real;
   @override
-  final bool isRepack;
+  final bool? isRepack;
 
   @override
   String toString() {
@@ -173,7 +173,7 @@ abstract class _RadarrQualityRevision implements RadarrQualityRevision {
   const factory _RadarrQualityRevision(
       {required final int version,
       required final int real,
-      required final bool isRepack}) = _$_RadarrQualityRevision;
+      final bool? isRepack}) = _$_RadarrQualityRevision;
 
   factory _RadarrQualityRevision.fromJson(Map<String, dynamic> json) =
       _$_RadarrQualityRevision.fromJson;
@@ -183,7 +183,7 @@ abstract class _RadarrQualityRevision implements RadarrQualityRevision {
   @override
   int get real;
   @override
-  bool get isRepack;
+  bool? get isRepack;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrQualityRevisionCopyWith<_$_RadarrQualityRevision> get copyWith =>

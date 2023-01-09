@@ -44,7 +44,7 @@ https://radarr.video/docs/api
 - [ ] MetadataConfig
 - [x] Movie
 - [ ] MovieEditor
-- [ ] MovieFile
+- [x] MovieFile
 - [ ] MovieImport
 - [ ] MovieLookup
 - [ ] NamingConfig

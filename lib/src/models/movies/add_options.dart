@@ -10,11 +10,11 @@ part 'add_options.g.dart';
 class RadarrMovieAddOptions
     with _$RadarrMovieAddOptions, JsonSerializableMixin {
   const factory RadarrMovieAddOptions({
-    required bool ignoreEpisodesWithFiles,
-    required bool ignoreEpisodesWithoutFiles,
-    required RadarrMonitorType monitor,
-    required bool searchForMovie,
-    required RadarrAddMethod addMethod,
+    bool? ignoreEpisodesWithFiles,
+    bool? ignoreEpisodesWithoutFiles,
+    RadarrMonitorType? monitor,
+    bool? searchForMovie,
+    RadarrAddMethod? addMethod,
   }) = _RadarrMovieAddOptions;
 
   factory RadarrMovieAddOptions.fromJson(Map<String, Object?> json) =>

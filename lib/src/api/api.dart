@@ -276,6 +276,38 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get movie files by movie ID or file IDs.
+  @GET('moviefile')
+  Future<List<RadarrMovieFile>> getMovieFiles({
+    @Query('movieId') int? movieId,
+    @Query('movieFileIds') List<int>? movieFileIds,
+  });
+
+  /// Get a single movie file by ID.
+  @GET('moviefile/{id}')
+  Future<RadarrMovieFile> getMovieFile({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing movie file.
+  @PUT('moviefile/{id}')
+  Future<RadarrMovieFile> updateMovieFile({
+    @Path('id') required int id,
+    @Body() required RadarrMovieFile movieFile,
+  });
+
+  /// Delete a movie file.
+  @DELETE('moviefile/{id}')
+  Future<void> deleteMovieFile({
+    @Path('id') required int id,
+  });
+
+  /// Edit an existing movie file.
+  @PUT('moviefile/editor')
+  Future<List<RadarrMovieFile>> editMovieFile({
+    @Body() required RadarrMovieFileEditorOptions options,
+  });
+
   /// Get a list of all created root folders.
   @GET('rootfolder')
   Future<List<RadarrRootFolder>> getRootFolders();

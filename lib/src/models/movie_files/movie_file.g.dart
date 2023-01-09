@@ -8,7 +8,7 @@ part of 'movie_file.dart';
 
 _$_RadarrMovieFile _$$_RadarrMovieFileFromJson(Map<String, dynamic> json) =>
     _$_RadarrMovieFile(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       movieId: json['movieId'] as int,
       relativePath: json['relativePath'] as String?,
       path: json['path'] as String?,
@@ -33,10 +33,7 @@ _$_RadarrMovieFile _$$_RadarrMovieFileFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$_RadarrMovieFileToJson(_$_RadarrMovieFile instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'movieId': instance.movieId,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -44,6 +41,8 @@ Map<String, dynamic> _$$_RadarrMovieFileToJson(_$_RadarrMovieFile instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
+  val['movieId'] = instance.movieId;
   writeNotNull('relativePath', instance.relativePath);
   writeNotNull('path', instance.path);
   val['size'] = instance.size;

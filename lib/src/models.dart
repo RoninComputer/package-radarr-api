@@ -21,6 +21,7 @@ export 'models/file_system/file.dart';
 export 'models/languages/language.dart';
 export 'models/logs/log.dart';
 export 'models/media_covers/media_cover.dart';
+export 'models/movie_files/editor_options.dart';
 export 'models/movie_files/extra_file.dart';
 export 'models/movie_files/media_info.dart';
 export 'models/movie_files/movie_file.dart';

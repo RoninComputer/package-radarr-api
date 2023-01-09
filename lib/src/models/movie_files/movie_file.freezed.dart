@@ -20,7 +20,7 @@ RadarrMovieFile _$RadarrMovieFileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RadarrMovieFile {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   int get movieId => throw _privateConstructorUsedError;
   String? get relativePath => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $RadarrMovieFileCopyWith<$Res> {
       _$RadarrMovieFileCopyWithImpl<$Res, RadarrMovieFile>;
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       int movieId,
       String? relativePath,
       String? path,
@@ -85,7 +85,7 @@ class _$RadarrMovieFileCopyWithImpl<$Res, $Val extends RadarrMovieFile>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? movieId = null,
     Object? relativePath = freezed,
     Object? path = freezed,
@@ -103,10 +103,10 @@ class _$RadarrMovieFileCopyWithImpl<$Res, $Val extends RadarrMovieFile>
     Object? edition = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       movieId: null == movieId
           ? _value.movieId
           : movieId // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ abstract class _$$_RadarrMovieFileCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       int movieId,
       String? relativePath,
       String? path,
@@ -230,7 +230,7 @@ class __$$_RadarrMovieFileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? movieId = null,
     Object? relativePath = freezed,
     Object? path = freezed,
@@ -248,10 +248,10 @@ class __$$_RadarrMovieFileCopyWithImpl<$Res>
     Object? edition = freezed,
   }) {
     return _then(_$_RadarrMovieFile(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       movieId: null == movieId
           ? _value.movieId
           : movieId // ignore: cast_nullable_to_non_nullable
@@ -320,7 +320,7 @@ class __$$_RadarrMovieFileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RadarrMovieFile implements _RadarrMovieFile {
   const _$_RadarrMovieFile(
-      {required this.id,
+      {this.id,
       required this.movieId,
       this.relativePath,
       this.path,
@@ -343,7 +343,7 @@ class _$_RadarrMovieFile implements _RadarrMovieFile {
       _$$_RadarrMovieFileFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final int movieId;
   @override
@@ -466,7 +466,7 @@ class _$_RadarrMovieFile implements _RadarrMovieFile {
 
 abstract class _RadarrMovieFile implements RadarrMovieFile {
   const factory _RadarrMovieFile(
-      {required final int id,
+      {final int? id,
       required final int movieId,
       final String? relativePath,
       final String? path,
@@ -487,7 +487,7 @@ abstract class _RadarrMovieFile implements RadarrMovieFile {
       _$_RadarrMovieFile.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
   int get movieId;
   @override
