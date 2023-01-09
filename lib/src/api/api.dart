@@ -33,7 +33,12 @@ abstract class RadarrAPI {
 
   /// Get all entries from the blocklist.
   @GET('blocklist')
-  Future<RadarrPagedResult<RadarrBlocklist>> getBlocklist();
+  Future<RadarrPagedResult<RadarrBlocklist>> getBlocklist({
+    @Query('page') int? page,
+    @Query('pageSize') int? pageSize,
+    @Query('sortKey') String? sortKey,
+    @Query('sortDirection') String? sortDirection,
+  });
 
   /// Get all blocklist entries for a specific movie.
   @GET('blocklist/movie')
@@ -229,6 +234,15 @@ abstract class RadarrAPI {
   @GET('language/{id}')
   Future<RadarrLanguage> getLanguage({
     @Path('id') required int id,
+  });
+
+  /// Get a list of logs.
+  @GET('log')
+  Future<RadarrPagedResult<RadarrLog>> getLogs({
+    @Query('page') int? page,
+    @Query('pageSize') int? pageSize,
+    @Query('sortKey') String? sortKey,
+    @Query('sortDirection') String? sortDirection,
   });
 
   /// Get a list of all added movies.

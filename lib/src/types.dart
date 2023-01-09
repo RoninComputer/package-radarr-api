@@ -12,6 +12,7 @@ export 'types/extra_file_type.dart';
 export 'types/file_system_entity.dart';
 export 'types/filter_key.dart';
 export 'types/filter_type.dart';
+export 'types/log_level.dart';
 export 'types/monitor_type.dart';
 export 'types/movie_status.dart';
 export 'types/quality_modifier.dart';

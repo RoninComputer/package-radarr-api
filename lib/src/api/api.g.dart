@@ -75,9 +75,20 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrPagedResult<RadarrBlocklist>> getBlocklist() async {
+  Future<RadarrPagedResult<RadarrBlocklist>> getBlocklist({
+    page,
+    pageSize,
+    sortKey,
+    sortDirection,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'pageSize': pageSize,
+      r'sortKey': sortKey,
+      r'sortDirection': sortDirection,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -917,6 +928,43 @@ class _RadarrAPI implements RadarrAPI {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrLanguage.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrPagedResult<RadarrLog>> getLogs({
+    page,
+    pageSize,
+    sortKey,
+    sortDirection,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'pageSize': pageSize,
+      r'sortKey': sortKey,
+      r'sortDirection': sortDirection,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrPagedResult<RadarrLog>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'log',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrPagedResult<RadarrLog>.fromJson(
+      _result.data!,
+      (json) => RadarrLog.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
