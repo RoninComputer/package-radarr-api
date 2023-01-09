@@ -353,6 +353,16 @@ abstract class RadarrAPI {
     @Body() required RadarrTag tag,
   });
 
+  /// Get detailed information about all created tags.
+  @GET('tag/detail')
+  Future<List<RadarrTagDetails>> getTagsDetails();
+
+  /// Get detailed information about a single tag by ID.
+  @GET('tag/detail/{id}')
+  Future<RadarrTagDetails> getTagDetails({
+    @Path('id') required int id,
+  });
+
   /// Delete a tag.
   @DELETE('tag/{id}')
   Future<void> deleteTag({

@@ -1412,6 +1412,55 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrTagDetails>> getTagsDetails() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrTagDetails>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'tag/detail',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map(
+            (dynamic i) => RadarrTagDetails.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrTagDetails> getTagDetails({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrTagDetails>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'tag/detail/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrTagDetails.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<void> deleteTag({required id}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

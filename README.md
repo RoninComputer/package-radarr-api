@@ -65,7 +65,7 @@ https://radarr.video/docs/api
 - [x] RootFolder
 - [ ] System
 - [x] Tag
-- [ ] TagDetails
+- [x] TagDetails
 - [x] Task
 - [ ] UiConfig
 - [x] Update
