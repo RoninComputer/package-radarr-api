@@ -1219,6 +1219,33 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview(
+      {required movieId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'movieId': movieId};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RadarrMovieRenamePreview>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'rename',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrMovieRenamePreview.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<List<RadarrRootFolder>> getRootFolders() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

@@ -28,6 +28,7 @@ export 'models/movie_files/movie_file.dart';
 export 'models/movies/add_options.dart';
 export 'models/movies/alternate_title.dart';
 export 'models/movies/movie.dart';
+export 'models/movies/rename_preview.dart';
 export 'models/paged_results/paged_result.dart';
 export 'models/qualities/model.dart';
 export 'models/qualities/quality.dart';

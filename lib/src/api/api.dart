@@ -308,6 +308,11 @@ abstract class RadarrAPI {
     @Body() required RadarrMovieFileEditorOptions options,
   });
 
+  @GET('rename')
+  Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview({
+    @Query('movieId') required int movieId,
+  });
+
   /// Get a list of all created root folders.
   @GET('rootfolder')
   Future<List<RadarrRootFolder>> getRootFolders();
