@@ -385,6 +385,18 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Restart the instance of Radarr.
+  @POST('system/restart')
+  Future<void> restartInstance();
+
+  /// Shutdown the instance of Radarr.
+  @POST('system/shutdown')
+  Future<void> shutdownInstance();
+
+  /// Get system status information.
+  @GET('system/status')
+  Future<RadarrSystemStatus> getSystemStatus();
+
   /// Get a list of all system tasks.
   @GET('system/task')
   Future<List<RadarrTask>> getTasks();

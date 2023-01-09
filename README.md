@@ -63,7 +63,7 @@ https://radarr.video/docs/api
 - [ ] RenameMovie
 - [ ] Restriction
 - [x] RootFolder
-- [ ] System
+- [x] System
 - [x] Tag
 - [x] TagDetails
 - [x] Task
