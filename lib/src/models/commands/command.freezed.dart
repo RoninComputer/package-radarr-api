@@ -30,6 +30,7 @@ mixin _$RadarrCommand {
   DateTime get queued => throw _privateConstructorUsedError;
   DateTime? get started => throw _privateConstructorUsedError;
   DateTime? get ended => throw _privateConstructorUsedError;
+  String? get duration => throw _privateConstructorUsedError;
   String? get exception => throw _privateConstructorUsedError;
   RadarrCommandTrigger get trigger => throw _privateConstructorUsedError;
   String? get clientUserAgent => throw _privateConstructorUsedError;
@@ -61,6 +62,7 @@ abstract class $RadarrCommandCopyWith<$Res> {
       DateTime queued,
       DateTime? started,
       DateTime? ended,
+      String? duration,
       String? exception,
       RadarrCommandTrigger trigger,
       String? clientUserAgent,
@@ -95,6 +97,7 @@ class _$RadarrCommandCopyWithImpl<$Res, $Val extends RadarrCommand>
     Object? queued = null,
     Object? started = freezed,
     Object? ended = freezed,
+    Object? duration = freezed,
     Object? exception = freezed,
     Object? trigger = null,
     Object? clientUserAgent = freezed,
@@ -144,6 +147,10 @@ class _$RadarrCommandCopyWithImpl<$Res, $Val extends RadarrCommand>
           ? _value.ended
           : ended // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      duration: freezed == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String?,
       exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
@@ -203,6 +210,7 @@ abstract class _$$_RadarrCommandCopyWith<$Res>
       DateTime queued,
       DateTime? started,
       DateTime? ended,
+      String? duration,
       String? exception,
       RadarrCommandTrigger trigger,
       String? clientUserAgent,
@@ -236,6 +244,7 @@ class __$$_RadarrCommandCopyWithImpl<$Res>
     Object? queued = null,
     Object? started = freezed,
     Object? ended = freezed,
+    Object? duration = freezed,
     Object? exception = freezed,
     Object? trigger = null,
     Object? clientUserAgent = freezed,
@@ -285,6 +294,10 @@ class __$$_RadarrCommandCopyWithImpl<$Res>
           ? _value.ended
           : ended // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      duration: freezed == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String?,
       exception: freezed == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
@@ -331,6 +344,7 @@ class _$_RadarrCommand implements _RadarrCommand {
       required this.queued,
       this.started,
       this.ended,
+      this.duration,
       this.exception,
       required this.trigger,
       this.clientUserAgent,
@@ -363,6 +377,8 @@ class _$_RadarrCommand implements _RadarrCommand {
   @override
   final DateTime? ended;
   @override
+  final String? duration;
+  @override
   final String? exception;
   @override
   final RadarrCommandTrigger trigger;
@@ -379,7 +395,7 @@ class _$_RadarrCommand implements _RadarrCommand {
 
   @override
   String toString() {
-    return 'RadarrCommand(id: $id, name: $name, commandName: $commandName, message: $message, body: $body, priority: $priority, status: $status, queued: $queued, started: $started, ended: $ended, exception: $exception, trigger: $trigger, clientUserAgent: $clientUserAgent, stateChangeTime: $stateChangeTime, sendUpdatesToClient: $sendUpdatesToClient, updateScheduledTask: $updateScheduledTask, lastExecutionTime: $lastExecutionTime)';
+    return 'RadarrCommand(id: $id, name: $name, commandName: $commandName, message: $message, body: $body, priority: $priority, status: $status, queued: $queued, started: $started, ended: $ended, duration: $duration, exception: $exception, trigger: $trigger, clientUserAgent: $clientUserAgent, stateChangeTime: $stateChangeTime, sendUpdatesToClient: $sendUpdatesToClient, updateScheduledTask: $updateScheduledTask, lastExecutionTime: $lastExecutionTime)';
   }
 
   @override
@@ -399,6 +415,8 @@ class _$_RadarrCommand implements _RadarrCommand {
             (identical(other.queued, queued) || other.queued == queued) &&
             (identical(other.started, started) || other.started == started) &&
             (identical(other.ended, ended) || other.ended == ended) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
             (identical(other.exception, exception) ||
                 other.exception == exception) &&
             (identical(other.trigger, trigger) || other.trigger == trigger) &&
@@ -428,6 +446,7 @@ class _$_RadarrCommand implements _RadarrCommand {
       queued,
       started,
       ended,
+      duration,
       exception,
       trigger,
       clientUserAgent,
@@ -462,6 +481,7 @@ abstract class _RadarrCommand implements RadarrCommand {
       required final DateTime queued,
       final DateTime? started,
       final DateTime? ended,
+      final String? duration,
       final String? exception,
       required final RadarrCommandTrigger trigger,
       final String? clientUserAgent,
@@ -493,6 +513,8 @@ abstract class _RadarrCommand implements RadarrCommand {
   DateTime? get started;
   @override
   DateTime? get ended;
+  @override
+  String? get duration;
   @override
   String? get exception;
   @override

@@ -330,22 +330,6 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
-  /// Get a list of all backups currently available.
-  @GET('system/backup')
-  Future<List<RadarrBackup>> getBackups();
-
-  /// Delete a backup by ID.
-  @DELETE('system/backup/{id}')
-  Future<void> deleteBackup({
-    @Path('id') required int id,
-  });
-
-  /// Restore a backup by ID.
-  @POST('system/backup/restore/{id}')
-  Future<void> restoreBackup({
-    @Path('id') required int id,
-  });
-
   /// Get a list of all created tags.
   @GET('tag')
   Future<List<RadarrTag>> getTags();
@@ -372,6 +356,32 @@ abstract class RadarrAPI {
   /// Delete a tag.
   @DELETE('tag/{id}')
   Future<void> deleteTag({
+    @Path('id') required int id,
+  });
+
+  /// Get a list of all system backups.
+  @GET('system/backup')
+  Future<List<RadarrBackup>> getBackups();
+
+  /// Delete a system backup by ID.
+  @DELETE('system/backup/{id}')
+  Future<void> deleteBackup({
+    @Path('id') required int id,
+  });
+
+  /// Restore a system backup by ID.
+  @POST('system/backup/restore/{id}')
+  Future<void> restoreBackup({
+    @Path('id') required int id,
+  });
+
+  /// Get a list of all system tasks.
+  @GET('system/task')
+  Future<List<RadarrTask>> getTasks();
+
+  /// Get a single system task by ID.
+  @GET('system/task/{id}')
+  Future<RadarrTask> getTask({
     @Path('id') required int id,
   });
 

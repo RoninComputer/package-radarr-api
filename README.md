@@ -50,7 +50,6 @@ https://radarr.video/docs/api
 - [ ] NamingConfig
 - [ ] Notification
 - [ ] Parse
-- [ ] Ping
 - [ ] QualityDefinition
 - [ ] QualityProfile
 - [ ] QualityProfileSchema
@@ -67,7 +66,7 @@ https://radarr.video/docs/api
 - [ ] System
 - [x] Tag
 - [ ] TagDetails
-- [ ] Task
+- [x] Task
 - [ ] UiConfig
 - [x] Update
 - [ ] UpdateLogFile

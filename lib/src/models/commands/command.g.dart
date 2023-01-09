@@ -22,6 +22,7 @@ _$_RadarrCommand _$$_RadarrCommandFromJson(Map<String, dynamic> json) =>
       ended: json['ended'] == null
           ? null
           : DateTime.parse(json['ended'] as String),
+      duration: json['duration'] as String?,
       exception: json['exception'] as String?,
       trigger: $enumDecode(_$RadarrCommandTriggerEnumMap, json['trigger']),
       clientUserAgent: json['clientUserAgent'] as String?,
@@ -55,6 +56,7 @@ Map<String, dynamic> _$$_RadarrCommandToJson(_$_RadarrCommand instance) {
   val['queued'] = instance.queued.toIso8601String();
   writeNotNull('started', instance.started?.toIso8601String());
   writeNotNull('ended', instance.ended?.toIso8601String());
+  writeNotNull('duration', instance.duration);
   writeNotNull('exception', instance.exception);
   val['trigger'] = _$RadarrCommandTriggerEnumMap[instance.trigger]!;
   writeNotNull('clientUserAgent', instance.clientUserAgent);

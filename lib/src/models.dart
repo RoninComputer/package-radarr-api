@@ -37,5 +37,6 @@ export 'models/ratings/ratings.dart';
 export 'models/root_folders/root_folder.dart';
 export 'models/root_folders/unmapped_folder.dart';
 export 'models/tags/tag.dart';
+export 'models/tasks/task.dart';
 export 'models/updates/changes.dart';
 export 'models/updates/update.dart';
