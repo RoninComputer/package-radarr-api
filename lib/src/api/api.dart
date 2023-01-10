@@ -147,6 +147,16 @@ abstract class RadarrAPI {
     @Body() required RadarrIndexerConfig config,
   });
 
+  /// Get the media management configuration.
+  @GET('config/mediamanagement')
+  Future<RadarrMediaManagementConfig> getMediaManagementConfig();
+
+  /// Update the media management configuration.
+  @PUT('config/mediamanagement')
+  Future<RadarrMediaManagementConfig> updateMediaManagementConfig({
+    @Body() required RadarrMediaManagementConfig config,
+  });
+
   /// Get the UI configuration.
   @GET('config/ui')
   Future<RadarrUiConfig> getUiConfig();

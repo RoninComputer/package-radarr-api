@@ -39,7 +39,7 @@ https://radarr.video/docs/api
 - [x] LogFile
 - [ ] ManualImport
 - [ ] MediaCover
-- [ ] MediaManagementConfig
+- [x] MediaManagementConfig
 - [ ] Metadata
 - [ ] MetadataConfig
 - [x] Movie
