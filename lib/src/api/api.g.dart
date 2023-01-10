@@ -884,6 +884,56 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrFileSystemMediaFile>> getFileSystemMediaFiles(
+      {required path}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'path': path};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RadarrFileSystemMediaFile>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'filesystem/mediafiles',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrFileSystemMediaFile.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrFileSystemType> getFileSystemType({required path}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'path': path};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrFileSystemType>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'filesystem/type',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrFileSystemType.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrLanguage>> getLanguages() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

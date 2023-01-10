@@ -23,7 +23,7 @@ https://radarr.video/docs/api
 - [ ] DownloadClient
 - [ ] DownloadClientConfig
 - [x] ExtraFile
-- [ ] FileSystem
+- [x] FileSystem
 - [ ] Health
 - [ ] History
 - [ ] HostConfig
@@ -61,7 +61,7 @@ https://radarr.video/docs/api
 - [ ] ReleasePush
 - [x] RemotePathMapping
 - [x] RenameMovie
-- [ ] Restriction
+- [x] Restriction
 - [x] RootFolder
 - [x] System
 - [x] Tag

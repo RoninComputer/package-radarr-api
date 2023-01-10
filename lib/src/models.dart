@@ -18,6 +18,8 @@ export 'models/fields/select_option.dart';
 export 'models/file_system/directory.dart';
 export 'models/file_system/file_system.dart';
 export 'models/file_system/file.dart';
+export 'models/file_system/media_file.dart';
+export 'models/file_system/type.dart';
 export 'models/languages/language.dart';
 export 'models/logs/log.dart';
 export 'models/media_covers/media_cover.dart';

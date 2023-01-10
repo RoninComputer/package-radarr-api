@@ -226,6 +226,18 @@ abstract class RadarrAPI {
         bool? allowFoldersWithoutTrailingSlashes,
   });
 
+  /// Get a list of all media files at the given path in the filesystem.
+  @GET('filesystem/mediafiles')
+  Future<List<RadarrFileSystemMediaFile>> getFileSystemMediaFiles({
+    @Query('path') required String path,
+  });
+
+  /// Get the type of the entity at the given path in the filesystem.
+  @GET('filesystem/type')
+  Future<RadarrFileSystemType> getFileSystemType({
+    @Query('path') required String path,
+  });
+
   /// Get a list of all available languages.
   @GET('language')
   Future<List<RadarrLanguage>> getLanguages();
