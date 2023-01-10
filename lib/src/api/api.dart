@@ -127,6 +127,16 @@ abstract class RadarrAPI {
     @Body() required RadarrHostConfig config,
   });
 
+  /// Get the import list configuration.
+  @GET('config/importlist')
+  Future<RadarrImportListConfig> getImportListConfig();
+
+  /// Update the import list configuration.
+  @PUT('config/importlist')
+  Future<RadarrImportListConfig> updateImportListConfig({
+    @Body() required RadarrImportListConfig config,
+  });
+
   /// Get the UI configuration.
   @GET('config/ui')
   Future<RadarrUiConfig> getUiConfig();

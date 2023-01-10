@@ -29,7 +29,7 @@ https://radarr.video/docs/api
 - [x] HostConfig
 - [ ] ImportExclusions
 - [ ] ImportList
-- [ ] ImportListConfig
+- [x] ImportListConfig
 - [ ] ImportListMovies
 - [ ] Indexer
 - [ ] IndexerConfig
