@@ -342,6 +342,35 @@ abstract class RadarrAPI {
     @Query('movieId') required int movieId,
   });
 
+  /// Get a list of all created restrictions.
+  @GET('restriction')
+  Future<List<RadarrRestriction>> getRestrictions();
+
+  /// Create a new restriction.
+  @POST('restriction')
+  Future<RadarrRestriction> createRestriction({
+    @Body() required RadarrRestriction restriction,
+  });
+
+  /// Get a single restriction by ID.
+  @GET('restriction/{id}')
+  Future<RadarrRestriction> getRestriction({
+    @Path('id') required int id,
+  });
+
+  /// Delete a restriction.
+  @DELETE('restriction/{id}')
+  Future<void> deleteRestriction({
+    @Path('id') required int id,
+  });
+
+  /// Update a restriction.
+  @PUT('restriction/{id}')
+  Future<RadarrRestriction> updateRestriction({
+    @Path('id') required int id,
+    @Body() required RadarrRestriction restriction,
+  });
+
   /// Get a list of all created root folders.
   @GET('rootfolder')
   Future<List<RadarrRootFolder>> getRootFolders();
