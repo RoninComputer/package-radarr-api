@@ -242,6 +242,10 @@ abstract class RadarrAPI {
   @GET('health')
   Future<List<RadarrHealth>> getHealth();
 
+  /// Get a list of all available indexer flags.
+  @GET('indexerflag')
+  Future<List<RadarrIndexerFlag>> getIndexerFlags();
+
   /// Get a list of all available languages.
   @GET('language')
   Future<List<RadarrLanguage>> getLanguages();

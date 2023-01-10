@@ -959,6 +959,32 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrIndexerFlag>> getIndexerFlags() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrIndexerFlag>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'indexerflag',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrIndexerFlag.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<List<RadarrLanguage>> getLanguages() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

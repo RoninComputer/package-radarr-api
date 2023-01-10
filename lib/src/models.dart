@@ -21,6 +21,7 @@ export 'models/file_system/file.dart';
 export 'models/file_system/media_file.dart';
 export 'models/file_system/type.dart';
 export 'models/health/health.dart';
+export 'models/indexers/flag.dart';
 export 'models/languages/language.dart';
 export 'models/logs/file.dart';
 export 'models/logs/log.dart';

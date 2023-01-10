@@ -33,7 +33,7 @@ https://radarr.video/docs/api
 - [ ] ImportListMovies
 - [ ] Indexer
 - [ ] IndexerConfig
-- [ ] IndexerFlag
+- [x] IndexerFlag
 - [x] Language
 - [x] Log
 - [x] LogFile
