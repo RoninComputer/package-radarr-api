@@ -31,4 +31,5 @@ export 'types/runtime_format.dart';
 export 'types/runtime_mode.dart';
 export 'types/sort_direction.dart';
 export 'types/title_source.dart';
+export 'types/tmdb_country_code.dart';
 export 'types/update_mechanism.dart';

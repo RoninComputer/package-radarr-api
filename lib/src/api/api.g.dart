@@ -622,6 +622,53 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<RadarrMetadataConfig> getMetadataConfig() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrMetadataConfig>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'config/metadata',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMetadataConfig.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrMetadataConfig> updateMetadataConfig({required config}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(config.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrMetadataConfig>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'config/metadata',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMetadataConfig.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<RadarrUiConfig> getUiConfig() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

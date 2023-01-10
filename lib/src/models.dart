@@ -11,6 +11,7 @@ export 'models/configs/host.dart';
 export 'models/configs/import_list.dart';
 export 'models/configs/indexer.dart';
 export 'models/configs/media_management.dart';
+export 'models/configs/metadata.dart';
 export 'models/configs/ui.dart';
 export 'models/credits/credit.dart';
 export 'models/custom_filters/custom_filter.dart';
