@@ -59,7 +59,7 @@ https://radarr.video/docs/api
 - [ ] QueueStatus
 - [ ] Release
 - [ ] ReleasePush
-- [ ] RemotePathMapping
+- [x] RemotePathMapping
 - [x] RenameMovie
 - [ ] Restriction
 - [x] RootFolder

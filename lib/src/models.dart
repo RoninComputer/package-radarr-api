@@ -35,6 +35,7 @@ export 'models/qualities/quality.dart';
 export 'models/qualities/revision.dart';
 export 'models/ratings/rating.dart';
 export 'models/ratings/ratings.dart';
+export 'models/remote_path_mappings/remote_path_mapping.dart';
 export 'models/root_folders/root_folder.dart';
 export 'models/root_folders/unmapped_folder.dart';
 export 'models/system/status.dart';

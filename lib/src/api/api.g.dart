@@ -1219,6 +1219,128 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrRemotePathMapping>> getRemotePathMappings() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RadarrRemotePathMapping>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'remotepathmapping',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrRemotePathMapping.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrRemotePathMapping> createRemotePathMapping(
+      {required mapping}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mapping.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrRemotePathMapping>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'remotepathmapping',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrRemotePathMapping.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrRemotePathMapping> getRemotePathMapping({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrRemotePathMapping>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'remotepathmapping/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrRemotePathMapping.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> deleteRemotePathMapping({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'remotepathmapping/${id}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
+  Future<RadarrRemotePathMapping> updateRemotePathMapping({
+    required id,
+    required mapping,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(mapping.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrRemotePathMapping>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'remotepathmapping/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrRemotePathMapping.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview(
       {required movieId}) async {
     const _extra = <String, dynamic>{};
@@ -1412,6 +1534,27 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<void> deleteTag({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'tag/${id}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    return null;
+  }
+
+  @override
   Future<RadarrTag> updateTag({
     required id,
     required tag,
@@ -1485,27 +1628,6 @@ class _RadarrAPI implements RadarrAPI {
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTagDetails.fromJson(_result.data!);
     return value;
-  }
-
-  @override
-  Future<void> deleteTag({required id}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'tag/${id}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override

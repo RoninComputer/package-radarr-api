@@ -308,6 +308,35 @@ abstract class RadarrAPI {
     @Body() required RadarrMovieFileEditorOptions options,
   });
 
+  /// Get a list of all created remote path mappings.
+  @GET('remotepathmapping')
+  Future<List<RadarrRemotePathMapping>> getRemotePathMappings();
+
+  /// Create a new remote path mapping.
+  @POST('remotepathmapping')
+  Future<RadarrRemotePathMapping> createRemotePathMapping({
+    @Body() required RadarrRemotePathMapping mapping,
+  });
+
+  /// Get a single remote path mapping by ID.
+  @GET('remotepathmapping/{id}')
+  Future<RadarrRemotePathMapping> getRemotePathMapping({
+    @Path('id') required int id,
+  });
+
+  /// Delete a remote path mapping.
+  @DELETE('remotepathmapping/{id}')
+  Future<void> deleteRemotePathMapping({
+    @Path('id') required int id,
+  });
+
+  /// Update a remote path mapping.
+  @PUT('remotepathmapping/{id}')
+  Future<RadarrRemotePathMapping> updateRemotePathMapping({
+    @Path('id') required int id,
+    @Body() required RadarrRemotePathMapping mapping,
+  });
+
   @GET('rename')
   Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview({
     @Query('movieId') required int movieId,
@@ -351,6 +380,12 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Delete a tag.
+  @DELETE('tag/{id}')
+  Future<void> deleteTag({
+    @Path('id') required int id,
+  });
+
   /// Update a tag.
   @PUT('tag/{id}')
   Future<RadarrTag> updateTag({
@@ -365,12 +400,6 @@ abstract class RadarrAPI {
   /// Get detailed information about a single tag by ID.
   @GET('tag/detail/{id}')
   Future<RadarrTagDetails> getTagDetails({
-    @Path('id') required int id,
-  });
-
-  /// Delete a tag.
-  @DELETE('tag/{id}')
-  Future<void> deleteTag({
     @Path('id') required int id,
   });
 
