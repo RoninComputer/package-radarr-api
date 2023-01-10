@@ -1499,24 +1499,26 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<String> getLogFileData({required name}) async {
+  Future<List<int>> getLogFileData({required name}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<int>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
+      responseType: ResponseType.bytes,
     )
-        .compose(
-          _dio.options,
-          'log/file/${name}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data!;
+            .compose(
+              _dio.options,
+              'log/file/${name}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!.cast<int>();
     return value;
   }
 
@@ -1546,24 +1548,80 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<String> getUpdateLogFileData({required name}) async {
+  Future<List<int>> getUpdateLogFileData({required name}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<int>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
+      responseType: ResponseType.bytes,
     )
-        .compose(
-          _dio.options,
-          'log/file/update/${name}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data!;
+            .compose(
+              _dio.options,
+              'log/file/update/${name}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!.cast<int>();
+    return value;
+  }
+
+  @override
+  Future<List<int>> getFanartImage({
+    required movieId,
+    required size,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<int>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+      responseType: ResponseType.bytes,
+    )
+            .compose(
+              _dio.options,
+              'mediacover/${movieId}/fanart${size.name}.jpg',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!.cast<int>();
+    return value;
+  }
+
+  @override
+  Future<List<int>> getPosterImage({
+    required movieId,
+    required size,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<int>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+      responseType: ResponseType.bytes,
+    )
+            .compose(
+              _dio.options,
+              'mediacover/${movieId}/poster${size.name}.jpg',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data!.cast<int>();
     return value;
   }
 

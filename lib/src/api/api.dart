@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:radarr_api/src/api/config.dart';
 import 'package:radarr_api/src/models.dart';
+import 'package:radarr_api/src/types.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api.g.dart';
@@ -357,7 +358,8 @@ abstract class RadarrAPI {
 
   /// Get a specific log file data.
   @GET('log/file/{name}')
-  Future<String> getLogFileData({
+  @DioResponseType(ResponseType.bytes)
+  Future<List<int>> getLogFileData({
     @Path('name') required String name,
   });
 
@@ -367,8 +369,25 @@ abstract class RadarrAPI {
 
   /// Get a specific update log file data.
   @GET('log/file/update/{name}')
-  Future<String> getUpdateLogFileData({
+  @DioResponseType(ResponseType.bytes)
+  Future<List<int>> getUpdateLogFileData({
     @Path('name') required String name,
+  });
+
+  /// Get a fanart image from Radarr's media cover cache.
+  @GET('mediacover/{movieId}/fanart{size}.jpg')
+  @DioResponseType(ResponseType.bytes)
+  Future<List<int>> getFanartImage({
+    @Path('movieId') required int movieId,
+    @Path('size') required RadarrImageSizeFanart size,
+  });
+
+  /// Get a poster image from Radarr's media cover cache.
+  @GET('mediacover/{movieId}/poster{size}.jpg')
+  @DioResponseType(ResponseType.bytes)
+  Future<List<int>> getPosterImage({
+    @Path('movieId') required int movieId,
+    @Path('size') required RadarrImageSizePoster size,
   });
 
   /// Get a list of all added movies.
