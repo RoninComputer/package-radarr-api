@@ -238,6 +238,10 @@ abstract class RadarrAPI {
     @Query('path') required String path,
   });
 
+  /// Get any current health messages.
+  @GET('health')
+  Future<List<RadarrHealth>> getHealth();
+
   /// Get a list of all available languages.
   @GET('language')
   Future<List<RadarrLanguage>> getLanguages();

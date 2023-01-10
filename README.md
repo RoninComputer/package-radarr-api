@@ -24,7 +24,7 @@ https://radarr.video/docs/api
 - [ ] DownloadClientConfig
 - [x] ExtraFile
 - [x] FileSystem
-- [ ] Health
+- [x] Health
 - [ ] History
 - [ ] HostConfig
 - [ ] ImportExclusions
