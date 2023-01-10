@@ -1,7 +1,7 @@
 typedef RadarrTimeSpan = String;
 
 extension RadarrTimeSpanExtension on RadarrTimeSpan {
-  /// Convert a string in the  [C# TimeSpan format](https://learn.microsoft.com/en-us/dotnet/api/system.timespan)
+  /// Convert a string in the [C# TimeSpan format](https://learn.microsoft.com/en-us/dotnet/api/system.timespan)
   /// using the "c" format specifier to a Dart [Duration] type.
   Duration toDuration() {
     int timeOffset = 0;

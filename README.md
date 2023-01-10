@@ -20,7 +20,7 @@ https://radarr.video/docs/api
 - [x] CustomFormat
 - [x] DelayProfile
 - [x] DiskSpace
-- [ ] DownloadClient
+- [x] DownloadClient
 - [x] DownloadClientConfig
 - [x] ExtraFile
 - [x] FileSystem
@@ -38,7 +38,7 @@ https://radarr.video/docs/api
 - [x] Log
 - [x] LogFile
 - [ ] ManualImport
-- [ ] MediaCover
+- [x] MediaCover
 - [x] MediaManagementConfig
 - [ ] Metadata
 - [x] MetadataConfig

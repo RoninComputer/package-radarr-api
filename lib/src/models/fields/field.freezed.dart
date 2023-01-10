@@ -26,7 +26,7 @@ mixin _$RadarrField {
   String? get unit => throw _privateConstructorUsedError;
   String? get helpText => throw _privateConstructorUsedError;
   String? get helpLink => throw _privateConstructorUsedError;
-  String? get value => throw _privateConstructorUsedError;
+  dynamic get value => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   bool get advanced => throw _privateConstructorUsedError;
   List<RadarrSelectOption>? get selectOptions =>
@@ -61,7 +61,7 @@ abstract class $RadarrFieldCopyWith<$Res> {
       String? unit,
       String? helpText,
       String? helpLink,
-      String? value,
+      dynamic value,
       String? type,
       bool advanced,
       List<RadarrSelectOption>? selectOptions,
@@ -139,7 +139,7 @@ class _$RadarrFieldCopyWithImpl<$Res, $Val extends RadarrField>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ abstract class _$$_RadarrFieldCopyWith<$Res>
       String? unit,
       String? helpText,
       String? helpLink,
-      String? value,
+      dynamic value,
       String? type,
       bool advanced,
       List<RadarrSelectOption>? selectOptions,
@@ -287,7 +287,7 @@ class __$$_RadarrFieldCopyWithImpl<$Res>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -386,7 +386,7 @@ class _$_RadarrField implements _RadarrField {
   @override
   final String? helpLink;
   @override
-  final String? value;
+  final dynamic value;
   @override
   final String? type;
   @override
@@ -440,7 +440,7 @@ class _$_RadarrField implements _RadarrField {
                 other.helpText == helpText) &&
             (identical(other.helpLink, helpLink) ||
                 other.helpLink == helpLink) &&
-            (identical(other.value, value) || other.value == value) &&
+            const DeepCollectionEquality().equals(other.value, value) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.advanced, advanced) ||
                 other.advanced == advanced) &&
@@ -476,7 +476,7 @@ class _$_RadarrField implements _RadarrField {
         unit,
         helpText,
         helpLink,
-        value,
+        const DeepCollectionEquality().hash(value),
         type,
         advanced,
         const DeepCollectionEquality().hash(_selectOptions),
@@ -514,7 +514,7 @@ abstract class _RadarrField implements RadarrField {
       final String? unit,
       final String? helpText,
       final String? helpLink,
-      final String? value,
+      final dynamic value,
       final String? type,
       required final bool advanced,
       final List<RadarrSelectOption>? selectOptions,
@@ -545,7 +545,7 @@ abstract class _RadarrField implements RadarrField {
   @override
   String? get helpLink;
   @override
-  String? get value;
+  dynamic get value;
   @override
   String? get type;
   @override

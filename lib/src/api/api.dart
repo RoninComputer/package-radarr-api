@@ -253,6 +253,10 @@ abstract class RadarrAPI {
     @Body() required RadarrCustomFormat format,
   });
 
+  /// Get all schemas for the available custom formats.
+  @GET('customformat/schema')
+  Future<List<RadarrCustomFormatSchema>> getCustomFormatSchemas();
+
   /// Delete a custom format.
   @DELETE('customformat/{id}')
   Future<void> deleteCustomFormat({
@@ -291,6 +295,56 @@ abstract class RadarrAPI {
   /// Get a list of disk spaces.
   @GET('diskspace')
   Future<List<RadarrDiskSpace>> getDiskSpace();
+
+  /// Get a list of all added download clients.
+  @GET('downloadclient')
+  Future<List<RadarrDownloadClient>> getDownloadClients();
+
+  /// Create a new download client.
+  @POST('downloadclient')
+  Future<RadarrDownloadClient> createDownloadClient({
+    @Body() required RadarrDownloadClient client,
+  });
+
+  /// Get a single download client by ID.
+  @GET('downloadclient/{id}')
+  Future<RadarrDownloadClient> getDownloadClient({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing download client.
+  @PUT('downloadclient/{id}')
+  Future<RadarrDownloadClient> updateDownloadClient({
+    @Path('id') required int id,
+    @Body() required RadarrDownloadClient client,
+  });
+
+  /// Delete a download client.
+  @DELETE('downloadclient/{id}')
+  Future<void> deleteDownloadClient({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available download clients.
+  @GET('downloadclient/schema')
+  Future<List<RadarrDownloadClient>> getDownloadClientSchemas();
+
+  /// Test a single download client configuration.
+  @POST('downloadclient/test')
+  Future<void> testDownloadClient({
+    @Body() required RadarrDownloadClient client,
+  });
+
+  /// Test all added download client configurations.
+  @POST('downloadclient/testall')
+  Future<List<RadarrDownloadClientTestResult>> testAllDownloadClients();
+
+  /// Trigger a download client action by action name.
+  @POST('downloadclient/action/{action}')
+  Future<void> triggerDownloadClientAction({
+    @Path('action') required String action,
+    @Body() required RadarrDownloadClient client,
+  });
 
   /// Get a list of all available extra files for a given movie.
   @GET('extrafile')

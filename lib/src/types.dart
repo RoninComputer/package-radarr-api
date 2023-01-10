@@ -25,6 +25,7 @@ export 'types/log_level.dart';
 export 'types/monitor_type.dart';
 export 'types/movie_status.dart';
 export 'types/proper_download_type.dart';
+export 'types/provider_message_type.dart';
 export 'types/proxy_type.dart';
 export 'types/quality_modifier.dart';
 export 'types/quality_source.dart';

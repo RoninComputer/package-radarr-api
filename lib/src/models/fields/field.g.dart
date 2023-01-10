@@ -14,7 +14,7 @@ _$_RadarrField _$$_RadarrFieldFromJson(Map<String, dynamic> json) =>
       unit: json['unit'] as String?,
       helpText: json['helpText'] as String?,
       helpLink: json['helpLink'] as String?,
-      value: json['value'] as String?,
+      value: json['value'],
       type: json['type'] as String?,
       advanced: json['advanced'] as bool,
       selectOptions: (json['selectOptions'] as List<dynamic>?)
