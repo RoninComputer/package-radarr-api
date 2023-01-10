@@ -2,6 +2,7 @@ export 'types/add_method.dart';
 export 'types/authentication_type.dart';
 export 'types/backup_type.dart';
 export 'types/certificate_validation.dart';
+export 'types/colon_replacement_format.dart';
 export 'types/command_name.dart';
 export 'types/command_priority.dart';
 export 'types/command_status.dart';

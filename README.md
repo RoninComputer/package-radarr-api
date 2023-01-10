@@ -41,13 +41,13 @@ https://radarr.video/docs/api
 - [ ] MediaCover
 - [x] MediaManagementConfig
 - [ ] Metadata
-- [ ] MetadataConfig
+- [x] MetadataConfig
 - [x] Movie
 - [ ] MovieEditor
 - [x] MovieFile
 - [ ] MovieImport
 - [ ] MovieLookup
-- [ ] NamingConfig
+- [x] NamingConfig
 - [ ] Notification
 - [ ] Parse
 - [ ] QualityDefinition

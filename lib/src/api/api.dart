@@ -167,6 +167,16 @@ abstract class RadarrAPI {
     @Body() required RadarrMetadataConfig config,
   });
 
+  /// Get the naming configuration.
+  @GET('config/naming')
+  Future<RadarrNamingConfig> getNamingConfig();
+
+  /// Update the naming configuration.
+  @PUT('config/naming')
+  Future<RadarrNamingConfig> updateNamingConfig({
+    @Body() required RadarrNamingConfig config,
+  });
+
   /// Get the UI configuration.
   @GET('config/ui')
   Future<RadarrUiConfig> getUiConfig();
