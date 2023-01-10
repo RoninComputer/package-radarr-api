@@ -1,3 +1,13 @@
+# 0.0.1-pre.5
+
+- support /config/downloadclient endpoint
+- support /config/host endpoint
+- support /config/importlist endpoint
+- support /config/indexer endpoint
+- support /config/mediamanagement endpoint
+- support /config/metadata endpoint
+- support /config/ui endpoint
+
 # 0.0.1-pre.4
 
 - support /filesystem/[type|mediafiles] endpoint
