@@ -137,6 +137,16 @@ abstract class RadarrAPI {
     @Body() required RadarrImportListConfig config,
   });
 
+  /// Get the indexer configuration.
+  @GET('config/indexer')
+  Future<RadarrIndexerConfig> getIndexerConfig();
+
+  /// Update the indexer configuration.
+  @PUT('config/indexer')
+  Future<RadarrIndexerConfig> updateIndexerConfig({
+    @Body() required RadarrIndexerConfig config,
+  });
+
   /// Get the UI configuration.
   @GET('config/ui')
   Future<RadarrUiConfig> getUiConfig();

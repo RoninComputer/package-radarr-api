@@ -9,6 +9,7 @@ export 'models/commands/run_command.dart';
 export 'models/configs/download_client.dart';
 export 'models/configs/host.dart';
 export 'models/configs/import_list.dart';
+export 'models/configs/indexer.dart';
 export 'models/configs/ui.dart';
 export 'models/credits/credit.dart';
 export 'models/custom_filters/custom_filter.dart';
