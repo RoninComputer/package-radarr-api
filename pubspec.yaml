@@ -1,6 +1,6 @@
 name: radarr_api
 description: Dart abstraction for Radarr's public API (https://radarr.video)
-version: 0.0.1-pre.5
+version: 0.0.1-pre.6
 homepage: https://github.com/RoninComputer/dart-radarr-api
 repository: https://github.com/RoninComputer/dart-radarr-api
 issue_tracker: https://github.com/RoninComputer/dart-radarr-api/issues

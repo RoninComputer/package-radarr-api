@@ -1,3 +1,9 @@
+# 0.0.1-pre.6
+
+- support /mediacover/{movieId}/[poster|fanart] endpoint
+- fix: `getLogFileData` now returns `List<int>` bytes instead of a string
+- fix: `getUpdateLogFileData` now returns `List<int>` bytes instead of a string
+
 # 0.0.1-pre.5
 
 - support /config/downloadclient endpoint
