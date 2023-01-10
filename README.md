@@ -21,12 +21,12 @@ https://radarr.video/docs/api
 - [x] DelayProfile
 - [x] DiskSpace
 - [ ] DownloadClient
-- [ ] DownloadClientConfig
+- [x] DownloadClientConfig
 - [x] ExtraFile
 - [x] FileSystem
 - [x] Health
 - [ ] History
-- [ ] HostConfig
+- [x] HostConfig
 - [ ] ImportExclusions
 - [ ] ImportList
 - [ ] ImportListConfig
@@ -67,7 +67,7 @@ https://radarr.video/docs/api
 - [x] Tag
 - [x] TagDetails
 - [x] Task
-- [ ] UiConfig
+- [x] UiConfig
 - [x] Update
 - [x] UpdateLogFile
 

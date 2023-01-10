@@ -107,6 +107,36 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get the download client configuration.
+  @GET('config/downloadclient')
+  Future<RadarrDownloadClientConfig> getDownloadClientConfig();
+
+  /// Update the download client configuration.
+  @PUT('config/downloadclient')
+  Future<RadarrDownloadClientConfig> updateDownloadClientConfig({
+    @Body() required RadarrDownloadClientConfig config,
+  });
+
+  /// Get the host configuration.
+  @GET('config/host')
+  Future<RadarrHostConfig> getHostConfig();
+
+  /// Update the host configuration.
+  @PUT('config/host')
+  Future<RadarrHostConfig> updateHostConfig({
+    @Body() required RadarrHostConfig config,
+  });
+
+  /// Get the UI configuration.
+  @GET('config/ui')
+  Future<RadarrUiConfig> getUiConfig();
+
+  /// Update the UI configuration.
+  @PUT('config/ui')
+  Future<RadarrUiConfig> updateUiConfig({
+    @Body() required RadarrUiConfig config,
+  });
+
   /// Get all credits for a movie.
   @GET('credit')
   Future<List<RadarrCredit>> getCredits({
@@ -240,7 +270,13 @@ abstract class RadarrAPI {
 
   /// Get any current health messages.
   @GET('health')
-  Future<List<RadarrHealth>> getHealth();
+  Future<List<RadarrHealth>> getAllHealth();
+
+  /// Get any current health by ID.
+  @GET('health/{id}')
+  Future<List<RadarrHealth>> getHealth({
+    @Path('id') required int id,
+  });
 
   /// Get a list of all available indexer flags.
   @GET('indexerflag')
@@ -433,6 +469,44 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get a list of all system backups.
+  @GET('system/backup')
+  Future<List<RadarrBackup>> getBackups();
+
+  /// Delete a system backup by ID.
+  @DELETE('system/backup/{id}')
+  Future<void> deleteBackup({
+    @Path('id') required int id,
+  });
+
+  /// Restore a system backup by ID.
+  @POST('system/backup/restore/{id}')
+  Future<void> restoreBackup({
+    @Path('id') required int id,
+  });
+
+  /// Restart the instance of Radarr.
+  @POST('system/restart')
+  Future<void> restartInstance();
+
+  /// Shutdown the instance of Radarr.
+  @POST('system/shutdown')
+  Future<void> shutdownInstance();
+
+  /// Get system status information.
+  @GET('system/status')
+  Future<RadarrSystemStatus> getSystemStatus();
+
+  /// Get a list of all system tasks.
+  @GET('system/task')
+  Future<List<RadarrTask>> getTasks();
+
+  /// Get a single system task by ID.
+  @GET('system/task/{id}')
+  Future<RadarrTask> getTask({
+    @Path('id') required int id,
+  });
+
   /// Get a list of all created tags.
   @GET('tag')
   Future<List<RadarrTag>> getTags();
@@ -469,44 +543,6 @@ abstract class RadarrAPI {
   /// Get detailed information about a single tag by ID.
   @GET('tag/detail/{id}')
   Future<RadarrTagDetails> getTagDetails({
-    @Path('id') required int id,
-  });
-
-  /// Get a list of all system backups.
-  @GET('system/backup')
-  Future<List<RadarrBackup>> getBackups();
-
-  /// Delete a system backup by ID.
-  @DELETE('system/backup/{id}')
-  Future<void> deleteBackup({
-    @Path('id') required int id,
-  });
-
-  /// Restore a system backup by ID.
-  @POST('system/backup/restore/{id}')
-  Future<void> restoreBackup({
-    @Path('id') required int id,
-  });
-
-  /// Restart the instance of Radarr.
-  @POST('system/restart')
-  Future<void> restartInstance();
-
-  /// Shutdown the instance of Radarr.
-  @POST('system/shutdown')
-  Future<void> shutdownInstance();
-
-  /// Get system status information.
-  @GET('system/status')
-  Future<RadarrSystemStatus> getSystemStatus();
-
-  /// Get a list of all system tasks.
-  @GET('system/task')
-  Future<List<RadarrTask>> getTasks();
-
-  /// Get a single system task by ID.
-  @GET('system/task/{id}')
-  Future<RadarrTask> getTask({
     @Path('id') required int id,
   });
 
