@@ -261,6 +261,26 @@ abstract class RadarrAPI {
     @Query('sortDirection') String? sortDirection,
   });
 
+  /// Get a list of log files.
+  @GET('log/file')
+  Future<List<RadarrLogFile>> getLogFiles();
+
+  /// Get a specific log file data.
+  @GET('log/file/{name}')
+  Future<String> getLogFileData({
+    @Path('name') required String name,
+  });
+
+  /// Get a list of update log files.
+  @GET('log/file/update')
+  Future<List<RadarrLogFile>> getUpdateLogFiles();
+
+  /// Get a specific update log file data.
+  @GET('log/file/update/{name}')
+  Future<String> getUpdateLogFileData({
+    @Path('name') required String name,
+  });
+
   /// Get a list of all added movies.
   @GET('movie')
   Future<List<RadarrMovie>> getMovies({

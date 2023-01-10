@@ -36,7 +36,7 @@ https://radarr.video/docs/api
 - [ ] IndexerFlag
 - [x] Language
 - [x] Log
-- [ ] LogFile
+- [x] LogFile
 - [ ] ManualImport
 - [ ] MediaCover
 - [ ] MediaManagementConfig
@@ -69,7 +69,7 @@ https://radarr.video/docs/api
 - [x] Task
 - [ ] UiConfig
 - [x] Update
-- [ ] UpdateLogFile
+- [x] UpdateLogFile
 
 [license-shield]: https://img.shields.io/github/license/RoninComputer/dart-radarr-api?style=for-the-badge
 [pubdev]: https://pub.dev/packages/radarr_api/
