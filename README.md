@@ -16,7 +16,6 @@ https://radarr.video/docs/api
 - MovieEditor
 - MovieImport
 - MovieLookup
-- Notification
 - Parse
 - QualityDefinition
 - QualityProfile

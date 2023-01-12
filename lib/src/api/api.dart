@@ -390,7 +390,7 @@ abstract class RadarrAPI {
   /// Create a new import list.
   @POST('importlist')
   Future<RadarrImportList> createImportList({
-    @Body() required RadarrImportList indexer,
+    @Body() required RadarrImportList list,
   });
 
   /// Get a single import list by ID.
@@ -412,7 +412,7 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
-  /// Get all schemas for the available import Lists.
+  /// Get all schemas for the available import lists.
   @GET('importlist/schema')
   Future<List<RadarrImportList>> getImportListSchemas();
 
@@ -617,6 +617,56 @@ abstract class RadarrAPI {
   @PUT('moviefile/editor')
   Future<List<RadarrMovieFile>> editMovieFile({
     @Body() required RadarrMovieFileEditorOptions options,
+  });
+
+  /// Get a list of all added notification agents.
+  @GET('notification')
+  Future<List<RadarrNotification>> getNotificationAgents();
+
+  /// Create a new notification agent.
+  @POST('notification')
+  Future<RadarrNotification> createNotificationAgent({
+    @Body() required RadarrNotification indexer,
+  });
+
+  /// Get a single notification agent by ID.
+  @GET('notification/{id}')
+  Future<RadarrNotification> getNotificationAgent({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing notification agent.
+  @PUT('notification/{id}')
+  Future<RadarrNotification> updateNotificationAgent({
+    @Path('id') required int id,
+    @Body() required RadarrNotification list,
+  });
+
+  /// Delete a notification agent.
+  @DELETE('notification/{id}')
+  Future<void> deleteNotificationAgent({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available notification agents.
+  @GET('notification/schema')
+  Future<List<RadarrNotification>> getNotificationAgentSchemas();
+
+  /// Test a single notification agent configuration.
+  @POST('notification/test')
+  Future<void> testNotificationAgent({
+    @Body() required RadarrNotification list,
+  });
+
+  /// Test all added notification agent configurations.
+  @POST('notification/testall')
+  Future<List<RadarrNotificationTestResult>> testAllNotificationAgents();
+
+  /// Trigger a notification agent action by action name.
+  @POST('notification/action/{action}')
+  Future<void> triggerNotificationAgentAction({
+    @Path('action') required String action,
+    @Body() required RadarrImportList list,
   });
 
   /// Get a list of all created remote path mappings.
