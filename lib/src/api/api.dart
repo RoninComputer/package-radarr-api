@@ -433,6 +433,18 @@ abstract class RadarrAPI {
     @Body() required RadarrImportList list,
   });
 
+  /// Get a list of movies available through import lists.
+  @GET('importlist/movie')
+  Future<List<RadarrMovie>> getImportListMovies({
+    @Query('includeRecommendations') bool? includeRecommendations,
+  });
+
+  /// Add a list of movies fetched through import lists.
+  @POST('importlist/movie')
+  Future<List<RadarrMovie>> addImportListMovies({
+    @Body() required List<RadarrMovie> movies,
+  });
+
   /// Get a list of all added indexers.
   @GET('indexer')
   Future<List<RadarrIndexer>> getIndexers();

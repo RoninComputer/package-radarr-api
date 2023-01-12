@@ -10,14 +10,16 @@ _$_RadarrMovie _$$_RadarrMovieFromJson(Map<String, dynamic> json) =>
     _$_RadarrMovie(
       title: json['title'] as String?,
       originalTitle: json['originalTitle'] as String?,
-      originalLanguage: RadarrLanguage.fromJson(
-          json['originalLanguage'] as Map<String, dynamic>),
+      originalLanguage: json['originalLanguage'] == null
+          ? null
+          : RadarrLanguage.fromJson(
+              json['originalLanguage'] as Map<String, dynamic>),
       alternateTitles: (json['alternateTitles'] as List<dynamic>?)
           ?.map((e) =>
               RadarrMovieAlternateTitle.fromJson(e as Map<String, dynamic>))
           .toList(),
       secondaryYear: json['secondaryYear'] as int?,
-      secondaryYearSourceId: json['secondaryYearSourceId'] as int,
+      secondaryYearSourceId: json['secondaryYearSourceId'] as int?,
       sortTitle: json['sortTitle'] as String?,
       sizeOnDisk: json['sizeOnDisk'] as int?,
       status: $enumDecode(_$RadarrMovieStatusEnumMap, json['status']),
@@ -38,15 +40,15 @@ _$_RadarrMovie _$$_RadarrMovieFromJson(Map<String, dynamic> json) =>
       website: json['website'] as String?,
       remotePoster: json['remotePoster'] as String?,
       year: json['year'] as int,
-      hasFile: json['hasFile'] as bool,
+      hasFile: json['hasFile'] as bool?,
       youTubeTrailerId: json['youTubeTrailerId'] as String?,
       studio: json['studio'] as String?,
       path: json['path'] as String?,
-      qualityProfileId: json['qualityProfileId'] as int,
-      monitored: json['monitored'] as bool,
-      minimumAvailability:
-          $enumDecode(_$RadarrMovieStatusEnumMap, json['minimumAvailability']),
-      isAvailable: json['isAvailable'] as bool,
+      qualityProfileId: json['qualityProfileId'] as int?,
+      monitored: json['monitored'] as bool?,
+      minimumAvailability: $enumDecodeNullable(
+          _$RadarrMovieStatusEnumMap, json['minimumAvailability']),
+      isAvailable: json['isAvailable'] as bool?,
       folderName: json['folderName'] as String?,
       runtime: json['runtime'] as int,
       cleanTitle: json['cleanTitle'] as String?,
@@ -59,7 +61,9 @@ _$_RadarrMovie _$$_RadarrMovieFromJson(Map<String, dynamic> json) =>
       genres:
           (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      added: DateTime.parse(json['added'] as String),
+      added: json['added'] == null
+          ? null
+          : DateTime.parse(json['added'] as String),
       addOptions: json['addOptions'] == null
           ? null
           : RadarrMovieAddOptions.fromJson(
@@ -72,7 +76,11 @@ _$_RadarrMovie _$$_RadarrMovieFromJson(Map<String, dynamic> json) =>
           ? null
           : RadarrCollection.fromJson(
               json['collection'] as Map<String, dynamic>),
-      popularity: (json['popularity'] as num).toDouble(),
+      popularity: (json['popularity'] as num?)?.toDouble(),
+      isExcluded: json['isExcluded'] as bool?,
+      isExisting: json['isExisting'] as bool?,
+      isRecommendation: json['isRecommendation'] as bool?,
+      lists: (json['lists'] as List<dynamic>?)?.map((e) => e as int).toList(),
       id: json['id'] as int?,
     );
 
@@ -87,11 +95,11 @@ Map<String, dynamic> _$$_RadarrMovieToJson(_$_RadarrMovie instance) {
 
   writeNotNull('title', instance.title);
   writeNotNull('originalTitle', instance.originalTitle);
-  val['originalLanguage'] = instance.originalLanguage.toJson();
+  writeNotNull('originalLanguage', instance.originalLanguage?.toJson());
   writeNotNull('alternateTitles',
       instance.alternateTitles?.map((e) => e.toJson()).toList());
   writeNotNull('secondaryYear', instance.secondaryYear);
-  val['secondaryYearSourceId'] = instance.secondaryYearSourceId;
+  writeNotNull('secondaryYearSourceId', instance.secondaryYearSourceId);
   writeNotNull('sortTitle', instance.sortTitle);
   writeNotNull('sizeOnDisk', instance.sizeOnDisk);
   val['status'] = _$RadarrMovieStatusEnumMap[instance.status]!;
@@ -104,15 +112,15 @@ Map<String, dynamic> _$$_RadarrMovieToJson(_$_RadarrMovie instance) {
   writeNotNull('website', instance.website);
   writeNotNull('remotePoster', instance.remotePoster);
   val['year'] = instance.year;
-  val['hasFile'] = instance.hasFile;
+  writeNotNull('hasFile', instance.hasFile);
   writeNotNull('youTubeTrailerId', instance.youTubeTrailerId);
   writeNotNull('studio', instance.studio);
   writeNotNull('path', instance.path);
-  val['qualityProfileId'] = instance.qualityProfileId;
-  val['monitored'] = instance.monitored;
-  val['minimumAvailability'] =
-      _$RadarrMovieStatusEnumMap[instance.minimumAvailability]!;
-  val['isAvailable'] = instance.isAvailable;
+  writeNotNull('qualityProfileId', instance.qualityProfileId);
+  writeNotNull('monitored', instance.monitored);
+  writeNotNull('minimumAvailability',
+      _$RadarrMovieStatusEnumMap[instance.minimumAvailability]);
+  writeNotNull('isAvailable', instance.isAvailable);
   writeNotNull('folderName', instance.folderName);
   val['runtime'] = instance.runtime;
   writeNotNull('cleanTitle', instance.cleanTitle);
@@ -124,12 +132,16 @@ Map<String, dynamic> _$$_RadarrMovieToJson(_$_RadarrMovie instance) {
   writeNotNull('certification', instance.certification);
   writeNotNull('genres', instance.genres);
   writeNotNull('tags', instance.tags);
-  val['added'] = instance.added.toIso8601String();
+  writeNotNull('added', instance.added?.toIso8601String());
   writeNotNull('addOptions', instance.addOptions?.toJson());
   val['ratings'] = instance.ratings.toJson();
   writeNotNull('movieFile', instance.movieFile?.toJson());
   writeNotNull('collection', instance.collection?.toJson());
-  val['popularity'] = instance.popularity;
+  writeNotNull('popularity', instance.popularity);
+  writeNotNull('isExcluded', instance.isExcluded);
+  writeNotNull('isExisting', instance.isExisting);
+  writeNotNull('isRecommendation', instance.isRecommendation);
+  writeNotNull('lists', instance.lists);
   writeNotNull('id', instance.id);
   return val;
 }

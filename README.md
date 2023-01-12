@@ -11,7 +11,6 @@ https://radarr.video/docs/api
 
 - History
 - ImportExclusions
-- ImportListMovies
 - ManualImport
 - Metadata
 - MovieEditor

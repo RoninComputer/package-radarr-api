@@ -22,11 +22,11 @@ RadarrMovie _$RadarrMovieFromJson(Map<String, dynamic> json) {
 mixin _$RadarrMovie {
   String? get title => throw _privateConstructorUsedError;
   String? get originalTitle => throw _privateConstructorUsedError;
-  RadarrLanguage get originalLanguage => throw _privateConstructorUsedError;
+  RadarrLanguage? get originalLanguage => throw _privateConstructorUsedError;
   List<RadarrMovieAlternateTitle>? get alternateTitles =>
       throw _privateConstructorUsedError;
   int? get secondaryYear => throw _privateConstructorUsedError;
-  int get secondaryYearSourceId => throw _privateConstructorUsedError;
+  int? get secondaryYearSourceId => throw _privateConstructorUsedError;
   String? get sortTitle => throw _privateConstructorUsedError;
   int? get sizeOnDisk => throw _privateConstructorUsedError;
   RadarrMovieStatus get status => throw _privateConstructorUsedError;
@@ -39,15 +39,15 @@ mixin _$RadarrMovie {
   String? get website => throw _privateConstructorUsedError;
   String? get remotePoster => throw _privateConstructorUsedError;
   int get year => throw _privateConstructorUsedError;
-  bool get hasFile => throw _privateConstructorUsedError;
+  bool? get hasFile => throw _privateConstructorUsedError;
   String? get youTubeTrailerId => throw _privateConstructorUsedError;
   String? get studio => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
-  int get qualityProfileId => throw _privateConstructorUsedError;
-  bool get monitored => throw _privateConstructorUsedError;
-  RadarrMovieStatus get minimumAvailability =>
+  int? get qualityProfileId => throw _privateConstructorUsedError;
+  bool? get monitored => throw _privateConstructorUsedError;
+  RadarrMovieStatus? get minimumAvailability =>
       throw _privateConstructorUsedError;
-  bool get isAvailable => throw _privateConstructorUsedError;
+  bool? get isAvailable => throw _privateConstructorUsedError;
   String? get folderName => throw _privateConstructorUsedError;
   int get runtime => throw _privateConstructorUsedError;
   String? get cleanTitle => throw _privateConstructorUsedError;
@@ -59,12 +59,16 @@ mixin _$RadarrMovie {
   String? get certification => throw _privateConstructorUsedError;
   List<String>? get genres => throw _privateConstructorUsedError;
   List<int>? get tags => throw _privateConstructorUsedError;
-  DateTime get added => throw _privateConstructorUsedError;
+  DateTime? get added => throw _privateConstructorUsedError;
   RadarrMovieAddOptions? get addOptions => throw _privateConstructorUsedError;
   RadarrRatings get ratings => throw _privateConstructorUsedError;
   RadarrMovieFile? get movieFile => throw _privateConstructorUsedError;
   RadarrCollection? get collection => throw _privateConstructorUsedError;
-  double get popularity => throw _privateConstructorUsedError;
+  double? get popularity => throw _privateConstructorUsedError;
+  bool? get isExcluded => throw _privateConstructorUsedError;
+  bool? get isExisting => throw _privateConstructorUsedError;
+  bool? get isRecommendation => throw _privateConstructorUsedError;
+  List<int>? get lists => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -82,10 +86,10 @@ abstract class $RadarrMovieCopyWith<$Res> {
   $Res call(
       {String? title,
       String? originalTitle,
-      RadarrLanguage originalLanguage,
+      RadarrLanguage? originalLanguage,
       List<RadarrMovieAlternateTitle>? alternateTitles,
       int? secondaryYear,
-      int secondaryYearSourceId,
+      int? secondaryYearSourceId,
       String? sortTitle,
       int? sizeOnDisk,
       RadarrMovieStatus status,
@@ -98,14 +102,14 @@ abstract class $RadarrMovieCopyWith<$Res> {
       String? website,
       String? remotePoster,
       int year,
-      bool hasFile,
+      bool? hasFile,
       String? youTubeTrailerId,
       String? studio,
       String? path,
-      int qualityProfileId,
-      bool monitored,
-      RadarrMovieStatus minimumAvailability,
-      bool isAvailable,
+      int? qualityProfileId,
+      bool? monitored,
+      RadarrMovieStatus? minimumAvailability,
+      bool? isAvailable,
       String? folderName,
       int runtime,
       String? cleanTitle,
@@ -117,15 +121,19 @@ abstract class $RadarrMovieCopyWith<$Res> {
       String? certification,
       List<String>? genres,
       List<int>? tags,
-      DateTime added,
+      DateTime? added,
       RadarrMovieAddOptions? addOptions,
       RadarrRatings ratings,
       RadarrMovieFile? movieFile,
       RadarrCollection? collection,
-      double popularity,
+      double? popularity,
+      bool? isExcluded,
+      bool? isExisting,
+      bool? isRecommendation,
+      List<int>? lists,
       int? id});
 
-  $RadarrLanguageCopyWith<$Res> get originalLanguage;
+  $RadarrLanguageCopyWith<$Res>? get originalLanguage;
   $RadarrMovieAddOptionsCopyWith<$Res>? get addOptions;
   $RadarrRatingsCopyWith<$Res> get ratings;
   $RadarrMovieFileCopyWith<$Res>? get movieFile;
@@ -147,10 +155,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
   $Res call({
     Object? title = freezed,
     Object? originalTitle = freezed,
-    Object? originalLanguage = null,
+    Object? originalLanguage = freezed,
     Object? alternateTitles = freezed,
     Object? secondaryYear = freezed,
-    Object? secondaryYearSourceId = null,
+    Object? secondaryYearSourceId = freezed,
     Object? sortTitle = freezed,
     Object? sizeOnDisk = freezed,
     Object? status = null,
@@ -163,14 +171,14 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
     Object? website = freezed,
     Object? remotePoster = freezed,
     Object? year = null,
-    Object? hasFile = null,
+    Object? hasFile = freezed,
     Object? youTubeTrailerId = freezed,
     Object? studio = freezed,
     Object? path = freezed,
-    Object? qualityProfileId = null,
-    Object? monitored = null,
-    Object? minimumAvailability = null,
-    Object? isAvailable = null,
+    Object? qualityProfileId = freezed,
+    Object? monitored = freezed,
+    Object? minimumAvailability = freezed,
+    Object? isAvailable = freezed,
     Object? folderName = freezed,
     Object? runtime = null,
     Object? cleanTitle = freezed,
@@ -182,12 +190,16 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
     Object? certification = freezed,
     Object? genres = freezed,
     Object? tags = freezed,
-    Object? added = null,
+    Object? added = freezed,
     Object? addOptions = freezed,
     Object? ratings = null,
     Object? movieFile = freezed,
     Object? collection = freezed,
-    Object? popularity = null,
+    Object? popularity = freezed,
+    Object? isExcluded = freezed,
+    Object? isExisting = freezed,
+    Object? isRecommendation = freezed,
+    Object? lists = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -199,10 +211,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalLanguage: null == originalLanguage
+      originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as RadarrLanguage,
+              as RadarrLanguage?,
       alternateTitles: freezed == alternateTitles
           ? _value.alternateTitles
           : alternateTitles // ignore: cast_nullable_to_non_nullable
@@ -211,10 +223,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.secondaryYear
           : secondaryYear // ignore: cast_nullable_to_non_nullable
               as int?,
-      secondaryYearSourceId: null == secondaryYearSourceId
+      secondaryYearSourceId: freezed == secondaryYearSourceId
           ? _value.secondaryYearSourceId
           : secondaryYearSourceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sortTitle: freezed == sortTitle
           ? _value.sortTitle
           : sortTitle // ignore: cast_nullable_to_non_nullable
@@ -263,10 +275,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int,
-      hasFile: null == hasFile
+      hasFile: freezed == hasFile
           ? _value.hasFile
           : hasFile // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       youTubeTrailerId: freezed == youTubeTrailerId
           ? _value.youTubeTrailerId
           : youTubeTrailerId // ignore: cast_nullable_to_non_nullable
@@ -279,22 +291,22 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
-      qualityProfileId: null == qualityProfileId
+      qualityProfileId: freezed == qualityProfileId
           ? _value.qualityProfileId
           : qualityProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      monitored: null == monitored
+              as int?,
+      monitored: freezed == monitored
           ? _value.monitored
           : monitored // ignore: cast_nullable_to_non_nullable
-              as bool,
-      minimumAvailability: null == minimumAvailability
+              as bool?,
+      minimumAvailability: freezed == minimumAvailability
           ? _value.minimumAvailability
           : minimumAvailability // ignore: cast_nullable_to_non_nullable
-              as RadarrMovieStatus,
-      isAvailable: null == isAvailable
+              as RadarrMovieStatus?,
+      isAvailable: freezed == isAvailable
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       folderName: freezed == folderName
           ? _value.folderName
           : folderName // ignore: cast_nullable_to_non_nullable
@@ -339,10 +351,10 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      added: null == added
+      added: freezed == added
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       addOptions: freezed == addOptions
           ? _value.addOptions
           : addOptions // ignore: cast_nullable_to_non_nullable
@@ -359,10 +371,26 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as RadarrCollection?,
-      popularity: null == popularity
+      popularity: freezed == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
+      isExcluded: freezed == isExcluded
+          ? _value.isExcluded
+          : isExcluded // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isExisting: freezed == isExisting
+          ? _value.isExisting
+          : isExisting // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRecommendation: freezed == isRecommendation
+          ? _value.isRecommendation
+          : isRecommendation // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lists: freezed == lists
+          ? _value.lists
+          : lists // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -372,8 +400,12 @@ class _$RadarrMovieCopyWithImpl<$Res, $Val extends RadarrMovie>
 
   @override
   @pragma('vm:prefer-inline')
-  $RadarrLanguageCopyWith<$Res> get originalLanguage {
-    return $RadarrLanguageCopyWith<$Res>(_value.originalLanguage, (value) {
+  $RadarrLanguageCopyWith<$Res>? get originalLanguage {
+    if (_value.originalLanguage == null) {
+      return null;
+    }
+
+    return $RadarrLanguageCopyWith<$Res>(_value.originalLanguage!, (value) {
       return _then(_value.copyWith(originalLanguage: value) as $Val);
     });
   }
@@ -434,10 +466,10 @@ abstract class _$$_RadarrMovieCopyWith<$Res>
   $Res call(
       {String? title,
       String? originalTitle,
-      RadarrLanguage originalLanguage,
+      RadarrLanguage? originalLanguage,
       List<RadarrMovieAlternateTitle>? alternateTitles,
       int? secondaryYear,
-      int secondaryYearSourceId,
+      int? secondaryYearSourceId,
       String? sortTitle,
       int? sizeOnDisk,
       RadarrMovieStatus status,
@@ -450,14 +482,14 @@ abstract class _$$_RadarrMovieCopyWith<$Res>
       String? website,
       String? remotePoster,
       int year,
-      bool hasFile,
+      bool? hasFile,
       String? youTubeTrailerId,
       String? studio,
       String? path,
-      int qualityProfileId,
-      bool monitored,
-      RadarrMovieStatus minimumAvailability,
-      bool isAvailable,
+      int? qualityProfileId,
+      bool? monitored,
+      RadarrMovieStatus? minimumAvailability,
+      bool? isAvailable,
       String? folderName,
       int runtime,
       String? cleanTitle,
@@ -469,16 +501,20 @@ abstract class _$$_RadarrMovieCopyWith<$Res>
       String? certification,
       List<String>? genres,
       List<int>? tags,
-      DateTime added,
+      DateTime? added,
       RadarrMovieAddOptions? addOptions,
       RadarrRatings ratings,
       RadarrMovieFile? movieFile,
       RadarrCollection? collection,
-      double popularity,
+      double? popularity,
+      bool? isExcluded,
+      bool? isExisting,
+      bool? isRecommendation,
+      List<int>? lists,
       int? id});
 
   @override
-  $RadarrLanguageCopyWith<$Res> get originalLanguage;
+  $RadarrLanguageCopyWith<$Res>? get originalLanguage;
   @override
   $RadarrMovieAddOptionsCopyWith<$Res>? get addOptions;
   @override
@@ -502,10 +538,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
   $Res call({
     Object? title = freezed,
     Object? originalTitle = freezed,
-    Object? originalLanguage = null,
+    Object? originalLanguage = freezed,
     Object? alternateTitles = freezed,
     Object? secondaryYear = freezed,
-    Object? secondaryYearSourceId = null,
+    Object? secondaryYearSourceId = freezed,
     Object? sortTitle = freezed,
     Object? sizeOnDisk = freezed,
     Object? status = null,
@@ -518,14 +554,14 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
     Object? website = freezed,
     Object? remotePoster = freezed,
     Object? year = null,
-    Object? hasFile = null,
+    Object? hasFile = freezed,
     Object? youTubeTrailerId = freezed,
     Object? studio = freezed,
     Object? path = freezed,
-    Object? qualityProfileId = null,
-    Object? monitored = null,
-    Object? minimumAvailability = null,
-    Object? isAvailable = null,
+    Object? qualityProfileId = freezed,
+    Object? monitored = freezed,
+    Object? minimumAvailability = freezed,
+    Object? isAvailable = freezed,
     Object? folderName = freezed,
     Object? runtime = null,
     Object? cleanTitle = freezed,
@@ -537,12 +573,16 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
     Object? certification = freezed,
     Object? genres = freezed,
     Object? tags = freezed,
-    Object? added = null,
+    Object? added = freezed,
     Object? addOptions = freezed,
     Object? ratings = null,
     Object? movieFile = freezed,
     Object? collection = freezed,
-    Object? popularity = null,
+    Object? popularity = freezed,
+    Object? isExcluded = freezed,
+    Object? isExisting = freezed,
+    Object? isRecommendation = freezed,
+    Object? lists = freezed,
     Object? id = freezed,
   }) {
     return _then(_$_RadarrMovie(
@@ -554,10 +594,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalLanguage: null == originalLanguage
+      originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as RadarrLanguage,
+              as RadarrLanguage?,
       alternateTitles: freezed == alternateTitles
           ? _value._alternateTitles
           : alternateTitles // ignore: cast_nullable_to_non_nullable
@@ -566,10 +606,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.secondaryYear
           : secondaryYear // ignore: cast_nullable_to_non_nullable
               as int?,
-      secondaryYearSourceId: null == secondaryYearSourceId
+      secondaryYearSourceId: freezed == secondaryYearSourceId
           ? _value.secondaryYearSourceId
           : secondaryYearSourceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sortTitle: freezed == sortTitle
           ? _value.sortTitle
           : sortTitle // ignore: cast_nullable_to_non_nullable
@@ -618,10 +658,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as int,
-      hasFile: null == hasFile
+      hasFile: freezed == hasFile
           ? _value.hasFile
           : hasFile // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       youTubeTrailerId: freezed == youTubeTrailerId
           ? _value.youTubeTrailerId
           : youTubeTrailerId // ignore: cast_nullable_to_non_nullable
@@ -634,22 +674,22 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
               as String?,
-      qualityProfileId: null == qualityProfileId
+      qualityProfileId: freezed == qualityProfileId
           ? _value.qualityProfileId
           : qualityProfileId // ignore: cast_nullable_to_non_nullable
-              as int,
-      monitored: null == monitored
+              as int?,
+      monitored: freezed == monitored
           ? _value.monitored
           : monitored // ignore: cast_nullable_to_non_nullable
-              as bool,
-      minimumAvailability: null == minimumAvailability
+              as bool?,
+      minimumAvailability: freezed == minimumAvailability
           ? _value.minimumAvailability
           : minimumAvailability // ignore: cast_nullable_to_non_nullable
-              as RadarrMovieStatus,
-      isAvailable: null == isAvailable
+              as RadarrMovieStatus?,
+      isAvailable: freezed == isAvailable
           ? _value.isAvailable
           : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       folderName: freezed == folderName
           ? _value.folderName
           : folderName // ignore: cast_nullable_to_non_nullable
@@ -694,10 +734,10 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      added: null == added
+      added: freezed == added
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       addOptions: freezed == addOptions
           ? _value.addOptions
           : addOptions // ignore: cast_nullable_to_non_nullable
@@ -714,10 +754,26 @@ class __$$_RadarrMovieCopyWithImpl<$Res>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as RadarrCollection?,
-      popularity: null == popularity
+      popularity: freezed == popularity
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
+      isExcluded: freezed == isExcluded
+          ? _value.isExcluded
+          : isExcluded // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isExisting: freezed == isExisting
+          ? _value.isExisting
+          : isExisting // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRecommendation: freezed == isRecommendation
+          ? _value.isRecommendation
+          : isRecommendation // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lists: freezed == lists
+          ? _value._lists
+          : lists // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -732,10 +788,10 @@ class _$_RadarrMovie implements _RadarrMovie {
   const _$_RadarrMovie(
       {this.title,
       this.originalTitle,
-      required this.originalLanguage,
+      this.originalLanguage,
       final List<RadarrMovieAlternateTitle>? alternateTitles,
       this.secondaryYear,
-      required this.secondaryYearSourceId,
+      this.secondaryYearSourceId,
       this.sortTitle,
       this.sizeOnDisk,
       required this.status,
@@ -748,14 +804,14 @@ class _$_RadarrMovie implements _RadarrMovie {
       this.website,
       this.remotePoster,
       required this.year,
-      required this.hasFile,
+      this.hasFile,
       this.youTubeTrailerId,
       this.studio,
       this.path,
-      required this.qualityProfileId,
-      required this.monitored,
-      required this.minimumAvailability,
-      required this.isAvailable,
+      this.qualityProfileId,
+      this.monitored,
+      this.minimumAvailability,
+      this.isAvailable,
       this.folderName,
       required this.runtime,
       this.cleanTitle,
@@ -767,17 +823,22 @@ class _$_RadarrMovie implements _RadarrMovie {
       this.certification,
       final List<String>? genres,
       final List<int>? tags,
-      required this.added,
+      this.added,
       this.addOptions,
       required this.ratings,
       this.movieFile,
       this.collection,
-      required this.popularity,
+      this.popularity,
+      this.isExcluded,
+      this.isExisting,
+      this.isRecommendation,
+      final List<int>? lists,
       this.id})
       : _alternateTitles = alternateTitles,
         _images = images,
         _genres = genres,
-        _tags = tags;
+        _tags = tags,
+        _lists = lists;
 
   factory _$_RadarrMovie.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrMovieFromJson(json);
@@ -787,7 +848,7 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final String? originalTitle;
   @override
-  final RadarrLanguage originalLanguage;
+  final RadarrLanguage? originalLanguage;
   final List<RadarrMovieAlternateTitle>? _alternateTitles;
   @override
   List<RadarrMovieAlternateTitle>? get alternateTitles {
@@ -801,7 +862,7 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final int? secondaryYear;
   @override
-  final int secondaryYearSourceId;
+  final int? secondaryYearSourceId;
   @override
   final String? sortTitle;
   @override
@@ -835,7 +896,7 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final int year;
   @override
-  final bool hasFile;
+  final bool? hasFile;
   @override
   final String? youTubeTrailerId;
   @override
@@ -843,13 +904,13 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final String? path;
   @override
-  final int qualityProfileId;
+  final int? qualityProfileId;
   @override
-  final bool monitored;
+  final bool? monitored;
   @override
-  final RadarrMovieStatus minimumAvailability;
+  final RadarrMovieStatus? minimumAvailability;
   @override
-  final bool isAvailable;
+  final bool? isAvailable;
   @override
   final String? folderName;
   @override
@@ -889,7 +950,7 @@ class _$_RadarrMovie implements _RadarrMovie {
   }
 
   @override
-  final DateTime added;
+  final DateTime? added;
   @override
   final RadarrMovieAddOptions? addOptions;
   @override
@@ -899,13 +960,29 @@ class _$_RadarrMovie implements _RadarrMovie {
   @override
   final RadarrCollection? collection;
   @override
-  final double popularity;
+  final double? popularity;
+  @override
+  final bool? isExcluded;
+  @override
+  final bool? isExisting;
+  @override
+  final bool? isRecommendation;
+  final List<int>? _lists;
+  @override
+  List<int>? get lists {
+    final value = _lists;
+    if (value == null) return null;
+    if (_lists is EqualUnmodifiableListView) return _lists;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int? id;
 
   @override
   String toString() {
-    return 'RadarrMovie(title: $title, originalTitle: $originalTitle, originalLanguage: $originalLanguage, alternateTitles: $alternateTitles, secondaryYear: $secondaryYear, secondaryYearSourceId: $secondaryYearSourceId, sortTitle: $sortTitle, sizeOnDisk: $sizeOnDisk, status: $status, overview: $overview, inCinemas: $inCinemas, physicalRelease: $physicalRelease, digitalRelease: $digitalRelease, physicalReleaseNote: $physicalReleaseNote, images: $images, website: $website, remotePoster: $remotePoster, year: $year, hasFile: $hasFile, youTubeTrailerId: $youTubeTrailerId, studio: $studio, path: $path, qualityProfileId: $qualityProfileId, monitored: $monitored, minimumAvailability: $minimumAvailability, isAvailable: $isAvailable, folderName: $folderName, runtime: $runtime, cleanTitle: $cleanTitle, imdbId: $imdbId, tmdbId: $tmdbId, titleSlug: $titleSlug, rootFolderPath: $rootFolderPath, folder: $folder, certification: $certification, genres: $genres, tags: $tags, added: $added, addOptions: $addOptions, ratings: $ratings, movieFile: $movieFile, collection: $collection, popularity: $popularity, id: $id)';
+    return 'RadarrMovie(title: $title, originalTitle: $originalTitle, originalLanguage: $originalLanguage, alternateTitles: $alternateTitles, secondaryYear: $secondaryYear, secondaryYearSourceId: $secondaryYearSourceId, sortTitle: $sortTitle, sizeOnDisk: $sizeOnDisk, status: $status, overview: $overview, inCinemas: $inCinemas, physicalRelease: $physicalRelease, digitalRelease: $digitalRelease, physicalReleaseNote: $physicalReleaseNote, images: $images, website: $website, remotePoster: $remotePoster, year: $year, hasFile: $hasFile, youTubeTrailerId: $youTubeTrailerId, studio: $studio, path: $path, qualityProfileId: $qualityProfileId, monitored: $monitored, minimumAvailability: $minimumAvailability, isAvailable: $isAvailable, folderName: $folderName, runtime: $runtime, cleanTitle: $cleanTitle, imdbId: $imdbId, tmdbId: $tmdbId, titleSlug: $titleSlug, rootFolderPath: $rootFolderPath, folder: $folder, certification: $certification, genres: $genres, tags: $tags, added: $added, addOptions: $addOptions, ratings: $ratings, movieFile: $movieFile, collection: $collection, popularity: $popularity, isExcluded: $isExcluded, isExisting: $isExisting, isRecommendation: $isRecommendation, lists: $lists, id: $id)';
   }
 
   @override
@@ -983,6 +1060,13 @@ class _$_RadarrMovie implements _RadarrMovie {
                 other.collection == collection) &&
             (identical(other.popularity, popularity) ||
                 other.popularity == popularity) &&
+            (identical(other.isExcluded, isExcluded) ||
+                other.isExcluded == isExcluded) &&
+            (identical(other.isExisting, isExisting) ||
+                other.isExisting == isExisting) &&
+            (identical(other.isRecommendation, isRecommendation) ||
+                other.isRecommendation == isRecommendation) &&
+            const DeepCollectionEquality().equals(other._lists, _lists) &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -1033,6 +1117,10 @@ class _$_RadarrMovie implements _RadarrMovie {
         movieFile,
         collection,
         popularity,
+        isExcluded,
+        isExisting,
+        isRecommendation,
+        const DeepCollectionEquality().hash(_lists),
         id
       ]);
 
@@ -1054,10 +1142,10 @@ abstract class _RadarrMovie implements RadarrMovie {
   const factory _RadarrMovie(
       {final String? title,
       final String? originalTitle,
-      required final RadarrLanguage originalLanguage,
+      final RadarrLanguage? originalLanguage,
       final List<RadarrMovieAlternateTitle>? alternateTitles,
       final int? secondaryYear,
-      required final int secondaryYearSourceId,
+      final int? secondaryYearSourceId,
       final String? sortTitle,
       final int? sizeOnDisk,
       required final RadarrMovieStatus status,
@@ -1070,14 +1158,14 @@ abstract class _RadarrMovie implements RadarrMovie {
       final String? website,
       final String? remotePoster,
       required final int year,
-      required final bool hasFile,
+      final bool? hasFile,
       final String? youTubeTrailerId,
       final String? studio,
       final String? path,
-      required final int qualityProfileId,
-      required final bool monitored,
-      required final RadarrMovieStatus minimumAvailability,
-      required final bool isAvailable,
+      final int? qualityProfileId,
+      final bool? monitored,
+      final RadarrMovieStatus? minimumAvailability,
+      final bool? isAvailable,
       final String? folderName,
       required final int runtime,
       final String? cleanTitle,
@@ -1089,12 +1177,16 @@ abstract class _RadarrMovie implements RadarrMovie {
       final String? certification,
       final List<String>? genres,
       final List<int>? tags,
-      required final DateTime added,
+      final DateTime? added,
       final RadarrMovieAddOptions? addOptions,
       required final RadarrRatings ratings,
       final RadarrMovieFile? movieFile,
       final RadarrCollection? collection,
-      required final double popularity,
+      final double? popularity,
+      final bool? isExcluded,
+      final bool? isExisting,
+      final bool? isRecommendation,
+      final List<int>? lists,
       final int? id}) = _$_RadarrMovie;
 
   factory _RadarrMovie.fromJson(Map<String, dynamic> json) =
@@ -1105,13 +1197,13 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   String? get originalTitle;
   @override
-  RadarrLanguage get originalLanguage;
+  RadarrLanguage? get originalLanguage;
   @override
   List<RadarrMovieAlternateTitle>? get alternateTitles;
   @override
   int? get secondaryYear;
   @override
-  int get secondaryYearSourceId;
+  int? get secondaryYearSourceId;
   @override
   String? get sortTitle;
   @override
@@ -1137,7 +1229,7 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   int get year;
   @override
-  bool get hasFile;
+  bool? get hasFile;
   @override
   String? get youTubeTrailerId;
   @override
@@ -1145,13 +1237,13 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   String? get path;
   @override
-  int get qualityProfileId;
+  int? get qualityProfileId;
   @override
-  bool get monitored;
+  bool? get monitored;
   @override
-  RadarrMovieStatus get minimumAvailability;
+  RadarrMovieStatus? get minimumAvailability;
   @override
-  bool get isAvailable;
+  bool? get isAvailable;
   @override
   String? get folderName;
   @override
@@ -1175,7 +1267,7 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   List<int>? get tags;
   @override
-  DateTime get added;
+  DateTime? get added;
   @override
   RadarrMovieAddOptions? get addOptions;
   @override
@@ -1185,7 +1277,15 @@ abstract class _RadarrMovie implements RadarrMovie {
   @override
   RadarrCollection? get collection;
   @override
-  double get popularity;
+  double? get popularity;
+  @override
+  bool? get isExcluded;
+  @override
+  bool? get isExisting;
+  @override
+  bool? get isRecommendation;
+  @override
+  List<int>? get lists;
   @override
   int? get id;
   @override
