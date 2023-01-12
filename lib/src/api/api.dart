@@ -346,6 +346,41 @@ abstract class RadarrAPI {
     @Body() required RadarrDownloadClient client,
   });
 
+  /// Get a list of import exclusions.
+  @GET('exclusions')
+  Future<List<RadarrExclusion>> getExclusions();
+
+  /// Create a new import exclusion.
+  @POST('exclusions')
+  Future<RadarrExclusion> createExclusion({
+    @Body() required RadarrExclusion exclusion,
+  });
+
+  /// Get a single import exclusion by ID.
+  @GET('exclusions/{id}')
+  Future<RadarrExclusion> getExclusion({
+    @Path('id') required int id,
+  });
+
+  /// Update an import exclusion.
+  @PUT('exclusions/{id}')
+  Future<RadarrExclusion> updateExclusion({
+    @Path('id') required int id,
+    @Body() required RadarrExclusion exclusion,
+  });
+
+  /// Delete an existing import exclusion.
+  @DELETE('exclusions/{id}')
+  Future<void> deleteExclusion({
+    @Path('id') required int id,
+  });
+
+  /// Create multiple import exclusions.
+  @POST('exclusions/bulk')
+  Future<List<RadarrExclusion>> createExclusions({
+    @Body() required List<RadarrExclusion> exclusions,
+  });
+
   /// Get a list of all available extra files for a given movie.
   @GET('extrafile')
   Future<List<RadarrExtraFile>> getExtraFiles({
@@ -585,6 +620,8 @@ abstract class RadarrAPI {
   @DELETE('movie/{id}')
   Future<void> deleteMovie({
     @Path('id') required int id,
+    @Query('deleteFiles') bool? deleteFiles,
+    @Query('addImportExclusion') bool? addImportExclusion,
   });
 
   /// Get movie files by movie ID or file IDs.

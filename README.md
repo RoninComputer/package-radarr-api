@@ -10,7 +10,6 @@ Dart library package providing an abstraction for [Radarr](https://radarr.video)
 https://radarr.video/docs/api
 
 - History
-- ImportExclusions
 - ManualImport
 - Metadata
 - MovieEditor

@@ -25,6 +25,7 @@ export 'models/disk_spaces/disk_space.dart';
 export 'models/download_clients/download_client.dart';
 export 'models/download_clients/test_result.dart';
 export 'models/download_clients/validation_failure.dart';
+export 'models/exclusions/exclusion.dart';
 export 'models/fields/field.dart';
 export 'models/fields/select_option.dart';
 export 'models/file_system/directory.dart';
