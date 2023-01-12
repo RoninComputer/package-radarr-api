@@ -383,6 +383,56 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get a list of all added import lists.
+  @GET('importlist')
+  Future<List<RadarrImportList>> getImportLists();
+
+  /// Create a new import list.
+  @POST('importlist')
+  Future<RadarrImportList> createImportList({
+    @Body() required RadarrImportList indexer,
+  });
+
+  /// Get a single import list by ID.
+  @GET('importlist/{id}')
+  Future<RadarrImportList> getImportList({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing import list.
+  @PUT('importlist/{id}')
+  Future<RadarrImportList> updateImportList({
+    @Path('id') required int id,
+    @Body() required RadarrImportList list,
+  });
+
+  /// Delete a import list.
+  @DELETE('importlist/{id}')
+  Future<void> deleteImportList({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available import Lists.
+  @GET('importlist/schema')
+  Future<List<RadarrImportList>> getImportListSchemas();
+
+  /// Test a single import list configuration.
+  @POST('importlist/test')
+  Future<void> testImportList({
+    @Body() required RadarrImportList list,
+  });
+
+  /// Test all added import list configurations.
+  @POST('importlist/testall')
+  Future<List<RadarrImportListTestResult>> testAllImportLists();
+
+  /// Trigger a import list action by action name.
+  @POST('importlist/action/{action}')
+  Future<void> triggerImportListAction({
+    @Path('action') required String action,
+    @Body() required RadarrImportList list,
+  });
+
   /// Get a list of all added indexers.
   @GET('indexer')
   Future<List<RadarrIndexer>> getIndexers();
