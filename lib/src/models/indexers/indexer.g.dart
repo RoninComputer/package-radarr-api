@@ -1,21 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'download_client.dart';
+part of 'indexer.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RadarrDownloadClient _$$_RadarrDownloadClientFromJson(
-        Map<String, dynamic> json) =>
-    _$_RadarrDownloadClient(
+_$_RadarrIndexer _$$_RadarrIndexerFromJson(Map<String, dynamic> json) =>
+    _$_RadarrIndexer(
       id: json['id'] as int?,
       name: json['name'] as String?,
       fields: (json['fields'] as List<dynamic>?)
           ?.map((e) => RadarrField.fromJson(e as Map<String, dynamic>))
           .toList(),
       presets: (json['presets'] as List<dynamic>?)
-          ?.map((e) => RadarrDownloadClient.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => RadarrIndexer.fromJson(e as Map<String, dynamic>))
           .toList(),
       implementationName: json['implementationName'] as String?,
       implementation: json['implementation'] as String?,
@@ -26,15 +25,17 @@ _$_RadarrDownloadClient _$$_RadarrDownloadClientFromJson(
           : RadarrProviderMessage.fromJson(
               json['message'] as Map<String, dynamic>),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      enable: json['enable'] as bool,
+      enableRss: json['enableRss'] as bool,
+      enableAutomaticSearch: json['enableAutomaticSearch'] as bool,
+      enableInteractiveSearch: json['enableInteractiveSearch'] as bool,
+      supportsRss: json['supportsRss'] as bool,
+      supportsSearch: json['supportsSearch'] as bool,
       protocol: $enumDecode(_$RadarrDownloadProtocolEnumMap, json['protocol']),
       priority: json['priority'] as int,
-      removeCompletedDownloads: json['removeCompletedDownloads'] as bool,
-      removeFailedDownloads: json['removeFailedDownloads'] as bool,
+      downloadClientId: json['downloadClientId'] as int?,
     );
 
-Map<String, dynamic> _$$_RadarrDownloadClientToJson(
-    _$_RadarrDownloadClient instance) {
+Map<String, dynamic> _$$_RadarrIndexerToJson(_$_RadarrIndexer instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -53,11 +54,14 @@ Map<String, dynamic> _$$_RadarrDownloadClientToJson(
   writeNotNull('infoLink', instance.infoLink);
   writeNotNull('message', instance.message?.toJson());
   writeNotNull('tags', instance.tags);
-  val['enable'] = instance.enable;
+  val['enableRss'] = instance.enableRss;
+  val['enableAutomaticSearch'] = instance.enableAutomaticSearch;
+  val['enableInteractiveSearch'] = instance.enableInteractiveSearch;
+  val['supportsRss'] = instance.supportsRss;
+  val['supportsSearch'] = instance.supportsSearch;
   val['protocol'] = _$RadarrDownloadProtocolEnumMap[instance.protocol]!;
   val['priority'] = instance.priority;
-  val['removeCompletedDownloads'] = instance.removeCompletedDownloads;
-  val['removeFailedDownloads'] = instance.removeFailedDownloads;
+  writeNotNull('downloadClientId', instance.downloadClientId);
   return val;
 }
 

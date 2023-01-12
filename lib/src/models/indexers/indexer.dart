@@ -4,29 +4,32 @@ import 'package:radarr_api/src/models/fields/field.dart';
 import 'package:radarr_api/src/models/providers/message.dart';
 import 'package:radarr_api/src/types/download_protocol.dart';
 
-part 'download_client.freezed.dart';
-part 'download_client.g.dart';
+part 'indexer.freezed.dart';
+part 'indexer.g.dart';
 
 @Freezed()
-class RadarrDownloadClient with _$RadarrDownloadClient, JsonSerializableMixin {
-  const factory RadarrDownloadClient({
+class RadarrIndexer with _$RadarrIndexer, JsonSerializableMixin {
+  const factory RadarrIndexer({
     int? id,
     String? name,
     List<RadarrField>? fields,
-    List<RadarrDownloadClient>? presets,
+    List<RadarrIndexer>? presets,
     String? implementationName,
     String? implementation,
     String? configContract,
     String? infoLink,
     RadarrProviderMessage? message,
     List<int>? tags,
-    required bool enable,
+    required bool enableRss,
+    required bool enableAutomaticSearch,
+    required bool enableInteractiveSearch,
+    required bool supportsRss,
+    required bool supportsSearch,
     required RadarrDownloadProtocol protocol,
     required int priority,
-    required bool removeCompletedDownloads,
-    required bool removeFailedDownloads,
-  }) = _RadarrDownloadClient;
+    int? downloadClientId,
+  }) = _RadarrIndexer;
 
-  factory RadarrDownloadClient.fromJson(Map<String, Object?> json) =>
-      _$RadarrDownloadClientFromJson(json);
+  factory RadarrIndexer.fromJson(Map<String, Object?> json) =>
+      _$RadarrIndexerFromJson(json);
 }

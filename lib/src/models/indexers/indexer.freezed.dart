@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'download_client.dart';
+part of 'indexer.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,65 +14,70 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RadarrDownloadClient _$RadarrDownloadClientFromJson(Map<String, dynamic> json) {
-  return _RadarrDownloadClient.fromJson(json);
+RadarrIndexer _$RadarrIndexerFromJson(Map<String, dynamic> json) {
+  return _RadarrIndexer.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RadarrDownloadClient {
+mixin _$RadarrIndexer {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   List<RadarrField>? get fields => throw _privateConstructorUsedError;
-  List<RadarrDownloadClient>? get presets => throw _privateConstructorUsedError;
+  List<RadarrIndexer>? get presets => throw _privateConstructorUsedError;
   String? get implementationName => throw _privateConstructorUsedError;
   String? get implementation => throw _privateConstructorUsedError;
   String? get configContract => throw _privateConstructorUsedError;
   String? get infoLink => throw _privateConstructorUsedError;
   RadarrProviderMessage? get message => throw _privateConstructorUsedError;
   List<int>? get tags => throw _privateConstructorUsedError;
-  bool get enable => throw _privateConstructorUsedError;
+  bool get enableRss => throw _privateConstructorUsedError;
+  bool get enableAutomaticSearch => throw _privateConstructorUsedError;
+  bool get enableInteractiveSearch => throw _privateConstructorUsedError;
+  bool get supportsRss => throw _privateConstructorUsedError;
+  bool get supportsSearch => throw _privateConstructorUsedError;
   RadarrDownloadProtocol get protocol => throw _privateConstructorUsedError;
   int get priority => throw _privateConstructorUsedError;
-  bool get removeCompletedDownloads => throw _privateConstructorUsedError;
-  bool get removeFailedDownloads => throw _privateConstructorUsedError;
+  int? get downloadClientId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RadarrDownloadClientCopyWith<RadarrDownloadClient> get copyWith =>
+  $RadarrIndexerCopyWith<RadarrIndexer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RadarrDownloadClientCopyWith<$Res> {
-  factory $RadarrDownloadClientCopyWith(RadarrDownloadClient value,
-          $Res Function(RadarrDownloadClient) then) =
-      _$RadarrDownloadClientCopyWithImpl<$Res, RadarrDownloadClient>;
+abstract class $RadarrIndexerCopyWith<$Res> {
+  factory $RadarrIndexerCopyWith(
+          RadarrIndexer value, $Res Function(RadarrIndexer) then) =
+      _$RadarrIndexerCopyWithImpl<$Res, RadarrIndexer>;
   @useResult
   $Res call(
       {int? id,
       String? name,
       List<RadarrField>? fields,
-      List<RadarrDownloadClient>? presets,
+      List<RadarrIndexer>? presets,
       String? implementationName,
       String? implementation,
       String? configContract,
       String? infoLink,
       RadarrProviderMessage? message,
       List<int>? tags,
-      bool enable,
+      bool enableRss,
+      bool enableAutomaticSearch,
+      bool enableInteractiveSearch,
+      bool supportsRss,
+      bool supportsSearch,
       RadarrDownloadProtocol protocol,
       int priority,
-      bool removeCompletedDownloads,
-      bool removeFailedDownloads});
+      int? downloadClientId});
 
   $RadarrProviderMessageCopyWith<$Res>? get message;
 }
 
 /// @nodoc
-class _$RadarrDownloadClientCopyWithImpl<$Res,
-        $Val extends RadarrDownloadClient>
-    implements $RadarrDownloadClientCopyWith<$Res> {
-  _$RadarrDownloadClientCopyWithImpl(this._value, this._then);
+class _$RadarrIndexerCopyWithImpl<$Res, $Val extends RadarrIndexer>
+    implements $RadarrIndexerCopyWith<$Res> {
+  _$RadarrIndexerCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -92,11 +97,14 @@ class _$RadarrDownloadClientCopyWithImpl<$Res,
     Object? infoLink = freezed,
     Object? message = freezed,
     Object? tags = freezed,
-    Object? enable = null,
+    Object? enableRss = null,
+    Object? enableAutomaticSearch = null,
+    Object? enableInteractiveSearch = null,
+    Object? supportsRss = null,
+    Object? supportsSearch = null,
     Object? protocol = null,
     Object? priority = null,
-    Object? removeCompletedDownloads = null,
-    Object? removeFailedDownloads = null,
+    Object? downloadClientId = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -114,7 +122,7 @@ class _$RadarrDownloadClientCopyWithImpl<$Res,
       presets: freezed == presets
           ? _value.presets
           : presets // ignore: cast_nullable_to_non_nullable
-              as List<RadarrDownloadClient>?,
+              as List<RadarrIndexer>?,
       implementationName: freezed == implementationName
           ? _value.implementationName
           : implementationName // ignore: cast_nullable_to_non_nullable
@@ -139,9 +147,25 @@ class _$RadarrDownloadClientCopyWithImpl<$Res,
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      enable: null == enable
-          ? _value.enable
-          : enable // ignore: cast_nullable_to_non_nullable
+      enableRss: null == enableRss
+          ? _value.enableRss
+          : enableRss // ignore: cast_nullable_to_non_nullable
+              as bool,
+      enableAutomaticSearch: null == enableAutomaticSearch
+          ? _value.enableAutomaticSearch
+          : enableAutomaticSearch // ignore: cast_nullable_to_non_nullable
+              as bool,
+      enableInteractiveSearch: null == enableInteractiveSearch
+          ? _value.enableInteractiveSearch
+          : enableInteractiveSearch // ignore: cast_nullable_to_non_nullable
+              as bool,
+      supportsRss: null == supportsRss
+          ? _value.supportsRss
+          : supportsRss // ignore: cast_nullable_to_non_nullable
+              as bool,
+      supportsSearch: null == supportsSearch
+          ? _value.supportsSearch
+          : supportsSearch // ignore: cast_nullable_to_non_nullable
               as bool,
       protocol: null == protocol
           ? _value.protocol
@@ -151,14 +175,10 @@ class _$RadarrDownloadClientCopyWithImpl<$Res,
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int,
-      removeCompletedDownloads: null == removeCompletedDownloads
-          ? _value.removeCompletedDownloads
-          : removeCompletedDownloads // ignore: cast_nullable_to_non_nullable
-              as bool,
-      removeFailedDownloads: null == removeFailedDownloads
-          ? _value.removeFailedDownloads
-          : removeFailedDownloads // ignore: cast_nullable_to_non_nullable
-              as bool,
+      downloadClientId: freezed == downloadClientId
+          ? _value.downloadClientId
+          : downloadClientId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -176,40 +196,43 @@ class _$RadarrDownloadClientCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_RadarrDownloadClientCopyWith<$Res>
-    implements $RadarrDownloadClientCopyWith<$Res> {
-  factory _$$_RadarrDownloadClientCopyWith(_$_RadarrDownloadClient value,
-          $Res Function(_$_RadarrDownloadClient) then) =
-      __$$_RadarrDownloadClientCopyWithImpl<$Res>;
+abstract class _$$_RadarrIndexerCopyWith<$Res>
+    implements $RadarrIndexerCopyWith<$Res> {
+  factory _$$_RadarrIndexerCopyWith(
+          _$_RadarrIndexer value, $Res Function(_$_RadarrIndexer) then) =
+      __$$_RadarrIndexerCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int? id,
       String? name,
       List<RadarrField>? fields,
-      List<RadarrDownloadClient>? presets,
+      List<RadarrIndexer>? presets,
       String? implementationName,
       String? implementation,
       String? configContract,
       String? infoLink,
       RadarrProviderMessage? message,
       List<int>? tags,
-      bool enable,
+      bool enableRss,
+      bool enableAutomaticSearch,
+      bool enableInteractiveSearch,
+      bool supportsRss,
+      bool supportsSearch,
       RadarrDownloadProtocol protocol,
       int priority,
-      bool removeCompletedDownloads,
-      bool removeFailedDownloads});
+      int? downloadClientId});
 
   @override
   $RadarrProviderMessageCopyWith<$Res>? get message;
 }
 
 /// @nodoc
-class __$$_RadarrDownloadClientCopyWithImpl<$Res>
-    extends _$RadarrDownloadClientCopyWithImpl<$Res, _$_RadarrDownloadClient>
-    implements _$$_RadarrDownloadClientCopyWith<$Res> {
-  __$$_RadarrDownloadClientCopyWithImpl(_$_RadarrDownloadClient _value,
-      $Res Function(_$_RadarrDownloadClient) _then)
+class __$$_RadarrIndexerCopyWithImpl<$Res>
+    extends _$RadarrIndexerCopyWithImpl<$Res, _$_RadarrIndexer>
+    implements _$$_RadarrIndexerCopyWith<$Res> {
+  __$$_RadarrIndexerCopyWithImpl(
+      _$_RadarrIndexer _value, $Res Function(_$_RadarrIndexer) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -225,13 +248,16 @@ class __$$_RadarrDownloadClientCopyWithImpl<$Res>
     Object? infoLink = freezed,
     Object? message = freezed,
     Object? tags = freezed,
-    Object? enable = null,
+    Object? enableRss = null,
+    Object? enableAutomaticSearch = null,
+    Object? enableInteractiveSearch = null,
+    Object? supportsRss = null,
+    Object? supportsSearch = null,
     Object? protocol = null,
     Object? priority = null,
-    Object? removeCompletedDownloads = null,
-    Object? removeFailedDownloads = null,
+    Object? downloadClientId = freezed,
   }) {
-    return _then(_$_RadarrDownloadClient(
+    return _then(_$_RadarrIndexer(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -247,7 +273,7 @@ class __$$_RadarrDownloadClientCopyWithImpl<$Res>
       presets: freezed == presets
           ? _value._presets
           : presets // ignore: cast_nullable_to_non_nullable
-              as List<RadarrDownloadClient>?,
+              as List<RadarrIndexer>?,
       implementationName: freezed == implementationName
           ? _value.implementationName
           : implementationName // ignore: cast_nullable_to_non_nullable
@@ -272,9 +298,25 @@ class __$$_RadarrDownloadClientCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      enable: null == enable
-          ? _value.enable
-          : enable // ignore: cast_nullable_to_non_nullable
+      enableRss: null == enableRss
+          ? _value.enableRss
+          : enableRss // ignore: cast_nullable_to_non_nullable
+              as bool,
+      enableAutomaticSearch: null == enableAutomaticSearch
+          ? _value.enableAutomaticSearch
+          : enableAutomaticSearch // ignore: cast_nullable_to_non_nullable
+              as bool,
+      enableInteractiveSearch: null == enableInteractiveSearch
+          ? _value.enableInteractiveSearch
+          : enableInteractiveSearch // ignore: cast_nullable_to_non_nullable
+              as bool,
+      supportsRss: null == supportsRss
+          ? _value.supportsRss
+          : supportsRss // ignore: cast_nullable_to_non_nullable
+              as bool,
+      supportsSearch: null == supportsSearch
+          ? _value.supportsSearch
+          : supportsSearch // ignore: cast_nullable_to_non_nullable
               as bool,
       protocol: null == protocol
           ? _value.protocol
@@ -284,43 +326,42 @@ class __$$_RadarrDownloadClientCopyWithImpl<$Res>
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int,
-      removeCompletedDownloads: null == removeCompletedDownloads
-          ? _value.removeCompletedDownloads
-          : removeCompletedDownloads // ignore: cast_nullable_to_non_nullable
-              as bool,
-      removeFailedDownloads: null == removeFailedDownloads
-          ? _value.removeFailedDownloads
-          : removeFailedDownloads // ignore: cast_nullable_to_non_nullable
-              as bool,
+      downloadClientId: freezed == downloadClientId
+          ? _value.downloadClientId
+          : downloadClientId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_RadarrDownloadClient implements _RadarrDownloadClient {
-  const _$_RadarrDownloadClient(
+class _$_RadarrIndexer implements _RadarrIndexer {
+  const _$_RadarrIndexer(
       {this.id,
       this.name,
       final List<RadarrField>? fields,
-      final List<RadarrDownloadClient>? presets,
+      final List<RadarrIndexer>? presets,
       this.implementationName,
       this.implementation,
       this.configContract,
       this.infoLink,
       this.message,
       final List<int>? tags,
-      required this.enable,
+      required this.enableRss,
+      required this.enableAutomaticSearch,
+      required this.enableInteractiveSearch,
+      required this.supportsRss,
+      required this.supportsSearch,
       required this.protocol,
       required this.priority,
-      required this.removeCompletedDownloads,
-      required this.removeFailedDownloads})
+      this.downloadClientId})
       : _fields = fields,
         _presets = presets,
         _tags = tags;
 
-  factory _$_RadarrDownloadClient.fromJson(Map<String, dynamic> json) =>
-      _$$_RadarrDownloadClientFromJson(json);
+  factory _$_RadarrIndexer.fromJson(Map<String, dynamic> json) =>
+      _$$_RadarrIndexerFromJson(json);
 
   @override
   final int? id;
@@ -336,9 +377,9 @@ class _$_RadarrDownloadClient implements _RadarrDownloadClient {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<RadarrDownloadClient>? _presets;
+  final List<RadarrIndexer>? _presets;
   @override
-  List<RadarrDownloadClient>? get presets {
+  List<RadarrIndexer>? get presets {
     final value = _presets;
     if (value == null) return null;
     if (_presets is EqualUnmodifiableListView) return _presets;
@@ -367,26 +408,32 @@ class _$_RadarrDownloadClient implements _RadarrDownloadClient {
   }
 
   @override
-  final bool enable;
+  final bool enableRss;
+  @override
+  final bool enableAutomaticSearch;
+  @override
+  final bool enableInteractiveSearch;
+  @override
+  final bool supportsRss;
+  @override
+  final bool supportsSearch;
   @override
   final RadarrDownloadProtocol protocol;
   @override
   final int priority;
   @override
-  final bool removeCompletedDownloads;
-  @override
-  final bool removeFailedDownloads;
+  final int? downloadClientId;
 
   @override
   String toString() {
-    return 'RadarrDownloadClient(id: $id, name: $name, fields: $fields, presets: $presets, implementationName: $implementationName, implementation: $implementation, configContract: $configContract, infoLink: $infoLink, message: $message, tags: $tags, enable: $enable, protocol: $protocol, priority: $priority, removeCompletedDownloads: $removeCompletedDownloads, removeFailedDownloads: $removeFailedDownloads)';
+    return 'RadarrIndexer(id: $id, name: $name, fields: $fields, presets: $presets, implementationName: $implementationName, implementation: $implementation, configContract: $configContract, infoLink: $infoLink, message: $message, tags: $tags, enableRss: $enableRss, enableAutomaticSearch: $enableAutomaticSearch, enableInteractiveSearch: $enableInteractiveSearch, supportsRss: $supportsRss, supportsSearch: $supportsSearch, protocol: $protocol, priority: $priority, downloadClientId: $downloadClientId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadarrDownloadClient &&
+            other is _$_RadarrIndexer &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._fields, _fields) &&
@@ -401,16 +448,23 @@ class _$_RadarrDownloadClient implements _RadarrDownloadClient {
                 other.infoLink == infoLink) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
-            (identical(other.enable, enable) || other.enable == enable) &&
+            (identical(other.enableRss, enableRss) ||
+                other.enableRss == enableRss) &&
+            (identical(other.enableAutomaticSearch, enableAutomaticSearch) ||
+                other.enableAutomaticSearch == enableAutomaticSearch) &&
+            (identical(
+                    other.enableInteractiveSearch, enableInteractiveSearch) ||
+                other.enableInteractiveSearch == enableInteractiveSearch) &&
+            (identical(other.supportsRss, supportsRss) ||
+                other.supportsRss == supportsRss) &&
+            (identical(other.supportsSearch, supportsSearch) ||
+                other.supportsSearch == supportsSearch) &&
             (identical(other.protocol, protocol) ||
                 other.protocol == protocol) &&
             (identical(other.priority, priority) ||
                 other.priority == priority) &&
-            (identical(
-                    other.removeCompletedDownloads, removeCompletedDownloads) ||
-                other.removeCompletedDownloads == removeCompletedDownloads) &&
-            (identical(other.removeFailedDownloads, removeFailedDownloads) ||
-                other.removeFailedDownloads == removeFailedDownloads));
+            (identical(other.downloadClientId, downloadClientId) ||
+                other.downloadClientId == downloadClientId));
   }
 
   @JsonKey(ignore: true)
@@ -427,47 +481,52 @@ class _$_RadarrDownloadClient implements _RadarrDownloadClient {
       infoLink,
       message,
       const DeepCollectionEquality().hash(_tags),
-      enable,
+      enableRss,
+      enableAutomaticSearch,
+      enableInteractiveSearch,
+      supportsRss,
+      supportsSearch,
       protocol,
       priority,
-      removeCompletedDownloads,
-      removeFailedDownloads);
+      downloadClientId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadarrDownloadClientCopyWith<_$_RadarrDownloadClient> get copyWith =>
-      __$$_RadarrDownloadClientCopyWithImpl<_$_RadarrDownloadClient>(
-          this, _$identity);
+  _$$_RadarrIndexerCopyWith<_$_RadarrIndexer> get copyWith =>
+      __$$_RadarrIndexerCopyWithImpl<_$_RadarrIndexer>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RadarrDownloadClientToJson(
+    return _$$_RadarrIndexerToJson(
       this,
     );
   }
 }
 
-abstract class _RadarrDownloadClient implements RadarrDownloadClient {
-  const factory _RadarrDownloadClient(
+abstract class _RadarrIndexer implements RadarrIndexer {
+  const factory _RadarrIndexer(
       {final int? id,
       final String? name,
       final List<RadarrField>? fields,
-      final List<RadarrDownloadClient>? presets,
+      final List<RadarrIndexer>? presets,
       final String? implementationName,
       final String? implementation,
       final String? configContract,
       final String? infoLink,
       final RadarrProviderMessage? message,
       final List<int>? tags,
-      required final bool enable,
+      required final bool enableRss,
+      required final bool enableAutomaticSearch,
+      required final bool enableInteractiveSearch,
+      required final bool supportsRss,
+      required final bool supportsSearch,
       required final RadarrDownloadProtocol protocol,
       required final int priority,
-      required final bool removeCompletedDownloads,
-      required final bool removeFailedDownloads}) = _$_RadarrDownloadClient;
+      final int? downloadClientId}) = _$_RadarrIndexer;
 
-  factory _RadarrDownloadClient.fromJson(Map<String, dynamic> json) =
-      _$_RadarrDownloadClient.fromJson;
+  factory _RadarrIndexer.fromJson(Map<String, dynamic> json) =
+      _$_RadarrIndexer.fromJson;
 
   @override
   int? get id;
@@ -476,7 +535,7 @@ abstract class _RadarrDownloadClient implements RadarrDownloadClient {
   @override
   List<RadarrField>? get fields;
   @override
-  List<RadarrDownloadClient>? get presets;
+  List<RadarrIndexer>? get presets;
   @override
   String? get implementationName;
   @override
@@ -490,17 +549,23 @@ abstract class _RadarrDownloadClient implements RadarrDownloadClient {
   @override
   List<int>? get tags;
   @override
-  bool get enable;
+  bool get enableRss;
+  @override
+  bool get enableAutomaticSearch;
+  @override
+  bool get enableInteractiveSearch;
+  @override
+  bool get supportsRss;
+  @override
+  bool get supportsSearch;
   @override
   RadarrDownloadProtocol get protocol;
   @override
   int get priority;
   @override
-  bool get removeCompletedDownloads;
-  @override
-  bool get removeFailedDownloads;
+  int? get downloadClientId;
   @override
   @JsonKey(ignore: true)
-  _$$_RadarrDownloadClientCopyWith<_$_RadarrDownloadClient> get copyWith =>
+  _$$_RadarrIndexerCopyWith<_$_RadarrIndexer> get copyWith =>
       throw _privateConstructorUsedError;
 }

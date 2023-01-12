@@ -1,22 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider_message.dart';
+part of 'message.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RadarrDownloadClientProviderMessage
-    _$$_RadarrDownloadClientProviderMessageFromJson(
-            Map<String, dynamic> json) =>
-        _$_RadarrDownloadClientProviderMessage(
-          message: json['message'] as String?,
-          type: $enumDecodeNullable(
-              _$RadarrProviderMessageTypeEnumMap, json['type']),
-        );
+_$_RadarrProviderMessage _$$_RadarrProviderMessageFromJson(
+        Map<String, dynamic> json) =>
+    _$_RadarrProviderMessage(
+      message: json['message'] as String?,
+      type:
+          $enumDecodeNullable(_$RadarrProviderMessageTypeEnumMap, json['type']),
+    );
 
-Map<String, dynamic> _$$_RadarrDownloadClientProviderMessageToJson(
-    _$_RadarrDownloadClientProviderMessage instance) {
+Map<String, dynamic> _$$_RadarrProviderMessageToJson(
+    _$_RadarrProviderMessage instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

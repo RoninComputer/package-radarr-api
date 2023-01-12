@@ -383,6 +383,56 @@ abstract class RadarrAPI {
     @Path('id') required int id,
   });
 
+  /// Get a list of all added indexers.
+  @GET('indexer')
+  Future<List<RadarrIndexer>> getIndexers();
+
+  /// Create a new indexer.
+  @POST('indexer')
+  Future<RadarrIndexer> createIndexer({
+    @Body() required RadarrIndexer indexer,
+  });
+
+  /// Get a single indexer by ID.
+  @GET('indexer/{id}')
+  Future<RadarrIndexer> getIndexer({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing indexer.
+  @PUT('indexer/{id}')
+  Future<RadarrIndexer> updateIndexer({
+    @Path('id') required int id,
+    @Body() required RadarrIndexer indexer,
+  });
+
+  /// Delete a indexer.
+  @DELETE('indexer/{id}')
+  Future<void> deleteIndexer({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available indexers.
+  @GET('indexer/schema')
+  Future<List<RadarrIndexer>> getIndexerSchemas();
+
+  /// Test a single indexer configuration.
+  @POST('indexer/test')
+  Future<void> testIndexer({
+    @Body() required RadarrIndexer indexer,
+  });
+
+  /// Test all added indexer configurations.
+  @POST('indexer/testall')
+  Future<List<RadarrIndexerTestResult>> testAllIndexers();
+
+  /// Trigger a indexer action by action name.
+  @POST('indexer/action/{action}')
+  Future<void> triggerIndexerAction({
+    @Path('action') required String action,
+    @Body() required RadarrIndexer indexer,
+  });
+
   /// Get a list of all available indexer flags.
   @GET('indexerflag')
   Future<List<RadarrIndexerFlag>> getIndexerFlags();
