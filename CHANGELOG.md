@@ -1,3 +1,11 @@
+# 0.0.1-pre.7
+
+- support /downloadclient/[id|schema|test|testall|action] endpoint
+- support /importlist/[id|schema|test|testall|action] endpoint
+- support /indexer/[id|schema|test|testall|action] endpoint
+- support /notification/[id|schema|test|testall|action] endpoint
+- support /importlist/movie endpoint
+
 # 0.0.1-pre.6
 
 - support /mediacover/{movieId}/[poster|fanart] endpoint
