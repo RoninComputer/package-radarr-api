@@ -1,11 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrCustomFilterType {
   collections('movieCollections'),
   discover('discoverMovie'),
   movies('movieIndex');
 
-  final String id;
-  const RadarrCustomFilterType(this.id);
+  final String name;
+  const RadarrCustomFilterType(this.name);
+
+  @internal
+  String toJson() => name;
 }

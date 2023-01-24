@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrFilterKey {
   added('added'),
   certification('certification'),
@@ -35,6 +35,9 @@ enum RadarrFilterKey {
   totalMovies('totalMovies'),
   year('year');
 
-  final String id;
-  const RadarrFilterKey(this.id);
+  final String name;
+  const RadarrFilterKey(this.name);
+
+  @internal
+  String toJson() => name;
 }

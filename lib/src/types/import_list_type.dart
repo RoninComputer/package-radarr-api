@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrImportListType {
   advanced('advanced'),
   other('other'),
@@ -9,6 +9,9 @@ enum RadarrImportListType {
   tmdb('tmdb'),
   trakt('trakt');
 
-  final String id;
-  const RadarrImportListType(this.id);
+  final String name;
+  const RadarrImportListType(this.name);
+
+  @internal
+  String toJson() => name;
 }

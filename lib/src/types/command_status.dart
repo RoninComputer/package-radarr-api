@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrCommandStatus {
   aborted('aborted'),
   cancelled('cancelled'),
@@ -10,6 +10,9 @@ enum RadarrCommandStatus {
   queued('queued'),
   started('started');
 
-  final String id;
-  const RadarrCommandStatus(this.id);
+  final String name;
+  const RadarrCommandStatus(this.name);
+
+  @internal
+  String toJson() => name;
 }

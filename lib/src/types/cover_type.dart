@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrCoverType {
   banner('banner'),
   fanart('fanart'),
@@ -9,6 +9,9 @@ enum RadarrCoverType {
   screenshot('screenshot'),
   unknown('unknown');
 
-  final String id;
-  const RadarrCoverType(this.id);
+  final String name;
+  const RadarrCoverType(this.name);
+
+  @internal
+  String toJson() => name;
 }

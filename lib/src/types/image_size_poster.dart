@@ -1,13 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrImageSizePoster {
   original(''),
   h250('-250'),
   h500('-500');
 
-  final String id;
-  const RadarrImageSizePoster(this.id);
+  final String name;
+  const RadarrImageSizePoster(this.name);
 
-  String get name => id;
+  @internal
+  String toJson() => name;
 }

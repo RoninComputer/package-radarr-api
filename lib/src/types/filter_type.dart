@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrFilterType {
   contains('contains'),
   greaterThan('greaterThan'),
@@ -15,6 +15,9 @@ enum RadarrFilterType {
   notInLast('notInLast'),
   notInNext('notInNext');
 
-  final String id;
-  const RadarrFilterType(this.id);
+  final String name;
+  const RadarrFilterType(this.name);
+
+  @internal
+  String toJson() => name;
 }

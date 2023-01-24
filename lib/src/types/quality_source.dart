@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrQualitySource {
   bluray('bluray'),
   cam('cam'),
@@ -13,6 +13,9 @@ enum RadarrQualitySource {
   webrip('webrip'),
   workprint('workprint');
 
-  final String id;
-  const RadarrQualitySource(this.id);
+  final String name;
+  const RadarrQualitySource(this.name);
+
+  @internal
+  String toJson() => name;
 }

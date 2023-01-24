@@ -1,11 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrFileDateType {
   cinemas('cinemas'),
   non('non'),
   release('release');
 
-  final String id;
-  const RadarrFileDateType(this.id);
+  final String name;
+  const RadarrFileDateType(this.name);
+
+  @internal
+  String toJson() => name;
 }

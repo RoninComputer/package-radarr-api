@@ -1,11 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrAddMethod {
   collection('collection'),
   list('list'),
   manual('manual');
 
-  final String id;
-  const RadarrAddMethod(this.id);
+  final String name;
+  const RadarrAddMethod(this.name);
+
+  @internal
+  String toJson() => name;
 }

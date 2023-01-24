@@ -1,10 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrDatabaseType {
   postgreSQL('postgreSQL'),
   sqLite('sqLite');
 
-  final String id;
-  const RadarrDatabaseType(this.id);
+  final String name;
+  const RadarrDatabaseType(this.name);
+
+  @internal
+  String toJson() => name;
 }

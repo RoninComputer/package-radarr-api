@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrMovieStatus {
   announced('announced'),
   deleted('deleted'),
@@ -8,6 +8,9 @@ enum RadarrMovieStatus {
   released('released'),
   tba('tba');
 
-  final String id;
-  const RadarrMovieStatus(this.id);
+  final String name;
+  const RadarrMovieStatus(this.name);
+
+  @internal
+  String toJson() => name;
 }

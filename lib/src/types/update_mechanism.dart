@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrUpdateMechanism {
   apt('apt'),
   builtIn('builtIn'),
@@ -8,6 +8,9 @@ enum RadarrUpdateMechanism {
   external('external'),
   script('script');
 
-  final String id;
-  const RadarrUpdateMechanism(this.id);
+  final String name;
+  const RadarrUpdateMechanism(this.name);
+
+  @internal
+  String toJson() => name;
 }

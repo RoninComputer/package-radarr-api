@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrTMDbCountryCode {
   au('au'),
   br('br'),
@@ -13,6 +13,9 @@ enum RadarrTMDbCountryCode {
   nz('nz'),
   us('us');
 
-  final String id;
-  const RadarrTMDbCountryCode(this.id);
+  final String name;
+  const RadarrTMDbCountryCode(this.name);
+
+  @internal
+  String toJson() => name;
 }

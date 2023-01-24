@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrLogLevel {
   debug('debug'),
   error('error'),
@@ -9,6 +9,9 @@ enum RadarrLogLevel {
   trace('trace'),
   warn('warn');
 
-  final String id;
-  const RadarrLogLevel(this.id);
+  final String name;
+  const RadarrLogLevel(this.name);
+
+  @internal
+  String toJson() => name;
 }

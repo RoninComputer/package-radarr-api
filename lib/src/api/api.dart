@@ -26,7 +26,7 @@ abstract class RadarrAPI {
     @Query('movieMetadataId') int? movieMetadataId,
   });
 
-  /// Get a single collection from the library.
+  /// Get a single alternate title from the library.
   @GET('alttitle/{id}')
   Future<RadarrMovieAlternateTitle> getAlternateTitle({
     @Path('id') required int id,
@@ -38,7 +38,7 @@ abstract class RadarrAPI {
     @Query('page') int? page,
     @Query('pageSize') int? pageSize,
     @Query('sortKey') String? sortKey,
-    @Query('sortDirection') String? sortDirection,
+    @Query('sortDirection') RadarrSortDirection? sortDirection,
   });
 
   /// Get all blocklist entries for a specific movie.
@@ -550,7 +550,7 @@ abstract class RadarrAPI {
     @Query('page') int? page,
     @Query('pageSize') int? pageSize,
     @Query('sortKey') String? sortKey,
-    @Query('sortDirection') String? sortDirection,
+    @Query('sortDirection') RadarrSortDirection? sortDirection,
   });
 
   /// Get a list of log files.

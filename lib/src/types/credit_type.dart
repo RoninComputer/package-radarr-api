@@ -1,10 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrCreditType {
   cast('cast'),
   crew('crew');
 
-  final String id;
-  const RadarrCreditType(this.id);
+  final String name;
+  const RadarrCreditType(this.name);
+
+  @internal
+  String toJson() => name;
 }

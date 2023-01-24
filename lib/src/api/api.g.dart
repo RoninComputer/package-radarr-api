@@ -86,7 +86,7 @@ class _RadarrAPI implements RadarrAPI {
       r'page': page,
       r'pageSize': pageSize,
       r'sortKey': sortKey,
-      r'sortDirection': sortDirection,
+      r'sortDirection': sortDirection?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -2331,7 +2331,7 @@ class _RadarrAPI implements RadarrAPI {
       r'page': page,
       r'pageSize': pageSize,
       r'sortKey': sortKey,
-      r'sortDirection': sortDirection,
+      r'sortDirection': sortDirection?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

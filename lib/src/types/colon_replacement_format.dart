@@ -1,12 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrColonReplacementFormat {
   dash('dash'),
   delete('delete'),
   spaceDash('spaceDash'),
   spaceDashSpace('spaceDashSpace');
 
-  final String id;
-  const RadarrColonReplacementFormat(this.id);
+  final String name;
+  const RadarrColonReplacementFormat(this.name);
+
+  @internal
+  String toJson() => name;
 }

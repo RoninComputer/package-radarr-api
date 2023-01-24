@@ -1,10 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonEnum(valueField: 'id')
+@JsonEnum(valueField: 'name')
 enum RadarrRuntimeFormat {
   hoursMinutes('hoursMinutes'),
   minutes('minutes');
 
-  final String id;
-  const RadarrRuntimeFormat(this.id);
+  final String name;
+  const RadarrRuntimeFormat(this.name);
+
+  @internal
+  String toJson() => name;
 }

@@ -33,7 +33,7 @@ class RadarrPagedResult<T extends JsonSerializableMixin>
       'page': page,
       'pageSize': pageSize,
       if (sortKey != null) 'sortKey': sortKey,
-      'sortDirection': sortDirection.id,
+      'sortDirection': sortDirection.name,
       if (filters != null) 'filters': filters!.map((e) => e.toJson()).toList(),
       'totalRecords': totalRecords,
       'records': records.map((e) => e.toJson()).toList(),
