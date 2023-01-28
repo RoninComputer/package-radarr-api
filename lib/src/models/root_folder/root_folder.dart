@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 import 'package:radarr_api/src/models/root_folder/unmapped_folder.dart';
 
 part 'root_folder.freezed.dart';

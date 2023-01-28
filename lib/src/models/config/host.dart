@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 import 'package:radarr_api/src/types/authentication_type.dart';
 import 'package:radarr_api/src/types/certificate_validation.dart';
 import 'package:radarr_api/src/types/log_level.dart';

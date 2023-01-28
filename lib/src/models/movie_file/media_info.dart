@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'media_info.freezed.dart';
 part 'media_info.g.dart';

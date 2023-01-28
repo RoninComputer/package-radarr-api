@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrCommandName {
+enum RadarrCommandName with EnumSerializableMixin {
   applicationCheckUpdate('ApplicationCheckUpdate'),
   backup('Backup'),
   checkHealth('CheckHealth'),
@@ -17,7 +18,4 @@ enum RadarrCommandName {
 
   final String name;
   const RadarrCommandName(this.name);
-
-  @internal
-  String toJson() => name;
 }

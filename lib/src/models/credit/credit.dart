@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/models/media_cover/media_cover.dart';
 import 'package:radarr_api/src/types/credit_type.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'credit.freezed.dart';
 part 'credit.g.dart';

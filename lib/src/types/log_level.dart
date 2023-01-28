@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrLogLevel {
+enum RadarrLogLevel with EnumSerializableMixin {
   debug('debug'),
   error('error'),
   fatal('fatal'),
@@ -11,7 +12,4 @@ enum RadarrLogLevel {
 
   final String name;
   const RadarrLogLevel(this.name);
-
-  @internal
-  String toJson() => name;
 }

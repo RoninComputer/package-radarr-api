@@ -4,7 +4,7 @@ import 'package:radarr_api/src/models/language/language.dart';
 import 'package:radarr_api/src/models/movie/movie.dart';
 import 'package:radarr_api/src/models/quality/model.dart';
 import 'package:radarr_api/src/types/download_protocol.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'blocklist.freezed.dart';
 part 'blocklist.g.dart';

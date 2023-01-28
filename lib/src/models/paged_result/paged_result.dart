@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/models/custom_filter/filter.dart';
 import 'package:radarr_api/src/types/sort_direction.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'paged_result.freezed.dart';
 part 'paged_result.g.dart';

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/models/language/language.dart';
 import 'package:radarr_api/src/models/quality/model.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'editor_options.freezed.dart';
 part 'editor_options.g.dart';

@@ -4,7 +4,7 @@ import 'package:radarr_api/src/models/media_cover/media_cover.dart';
 import 'package:radarr_api/src/models/movie/alternate_title.dart';
 import 'package:radarr_api/src/models/ratings/ratings.dart';
 import 'package:radarr_api/src/types/movie_status.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'metadata.freezed.dart';
 part 'metadata.g.dart';

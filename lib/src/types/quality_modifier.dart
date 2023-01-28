@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrQualityModifier {
+enum RadarrQualityModifier with EnumSerializableMixin {
   brdisk('brdisk'),
   none('none'),
   rawhd('rawhd'),
@@ -11,7 +12,4 @@ enum RadarrQualityModifier {
 
   final String name;
   const RadarrQualityModifier(this.name);
-
-  @internal
-  String toJson() => name;
 }

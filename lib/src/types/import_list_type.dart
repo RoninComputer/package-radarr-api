@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrImportListType {
+enum RadarrImportListType with EnumSerializableMixin {
   advanced('advanced'),
   other('other'),
   plex('plex'),
@@ -11,7 +12,4 @@ enum RadarrImportListType {
 
   final String name;
   const RadarrImportListType(this.name);
-
-  @internal
-  String toJson() => name;
 }

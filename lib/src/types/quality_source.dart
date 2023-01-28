@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrQualitySource {
+enum RadarrQualitySource with EnumSerializableMixin {
   bluray('bluray'),
   cam('cam'),
   dvd('dvd'),
@@ -15,7 +16,4 @@ enum RadarrQualitySource {
 
   final String name;
   const RadarrQualitySource(this.name);
-
-  @internal
-  String toJson() => name;
 }

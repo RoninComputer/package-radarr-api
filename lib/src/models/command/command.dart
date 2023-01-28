@@ -5,7 +5,7 @@ import 'package:radarr_api/src/types/command_name.dart';
 import 'package:radarr_api/src/types/command_priority.dart';
 import 'package:radarr_api/src/types/command_status.dart';
 import 'package:radarr_api/src/types/command_trigger.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'command.freezed.dart';
 part 'command.g.dart';

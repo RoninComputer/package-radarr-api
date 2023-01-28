@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/types/quality_modifier.dart';
 import 'package:radarr_api/src/types/quality_source.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'quality.freezed.dart';
 part 'quality.g.dart';

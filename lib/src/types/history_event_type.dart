@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrHistoryEventType {
+enum RadarrHistoryEventType with EnumSerializableMixin {
   downloadFailed('downloadFailed'),
   downloadFolderImported('downloadFolderImported'),
   downloadIgnored('downloadIgnored'),
@@ -13,7 +14,4 @@ enum RadarrHistoryEventType {
 
   final String name;
   const RadarrHistoryEventType(this.name);
-
-  @internal
-  String toJson() => name;
 }

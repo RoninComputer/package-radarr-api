@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/types/add_method.dart';
 import 'package:radarr_api/src/types/monitor_type.dart';
-import 'package:radarr_api/src/mixins/json_serializable.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 part 'add_options.freezed.dart';
 part 'add_options.g.dart';
