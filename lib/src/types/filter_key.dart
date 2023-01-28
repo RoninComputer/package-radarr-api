@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrFilterKey {
+enum RadarrFilterKey with EnumSerializableMixin {
   added('added'),
   certification('certification'),
   collection('collection'),
@@ -37,7 +38,4 @@ enum RadarrFilterKey {
 
   final String name;
   const RadarrFilterKey(this.name);
-
-  @internal
-  String toJson() => name;
 }

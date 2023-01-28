@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrFileSystemEntity {
+enum RadarrFileSystemEntity with EnumSerializableMixin {
   drive('drive'),
   file('file'),
   folder('folder'),
@@ -9,7 +10,4 @@ enum RadarrFileSystemEntity {
 
   final String name;
   const RadarrFileSystemEntity(this.name);
-
-  @internal
-  String toJson() => name;
 }

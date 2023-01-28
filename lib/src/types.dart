@@ -18,6 +18,7 @@ export 'types/file_system_entity.dart';
 export 'types/filter_key.dart';
 export 'types/filter_type.dart';
 export 'types/health_type.dart';
+export 'types/history_event_type.dart';
 export 'types/image_size_fanart.dart';
 export 'types/image_size_poster.dart';
 export 'types/import_list_clean_level.dart';

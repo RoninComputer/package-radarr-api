@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:radarr_api/src/api/config.dart';
 import 'package:radarr_api/src/models.dart';
+import 'package:radarr_api/src/internal/typedefs/datetime.dart';
 import 'package:radarr_api/src/types.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -57,8 +58,8 @@ abstract class RadarrAPI {
   @GET('calendar')
   Future<List<RadarrMovie>> getCalendar({
     @Query('unmonitored') bool? unmonitored,
-    @Query('end') String? endDate,
-    @Query('start') String? startDate,
+    @Query('end') RadarrDateTime? endDate,
+    @Query('start') RadarrDateTime? startDate,
   });
 
   /// Get a list of all collections in the library.
@@ -415,6 +416,38 @@ abstract class RadarrAPI {
   /// Get any current health by ID.
   @GET('health/{id}')
   Future<List<RadarrHealth>> getHealth({
+    @Path('id') required int id,
+  });
+
+  /// Get a list of history entries.
+  @GET('history')
+  Future<RadarrPagedResult<RadarrHistory>> getHistory({
+    @Query('page') int? page,
+    @Query('pageSize') int? pageSize,
+    @Query('sortKey') String? sortKey,
+    @Query('sortDirection') RadarrSortDirection? sortDirection,
+    @Query('includeMovie') bool? includeMovie = false,
+  });
+
+  /// Get all history since the date given.
+  @GET('history/since')
+  Future<List<RadarrHistory>> getHistorySince({
+    @Query('date') required RadarrDateTime date,
+    @Query('eventType') RadarrHistoryEventType? eventType,
+    @Query('includeMovie') bool? includeMovie = false,
+  });
+
+  /// Get all history for a given movie by ID.
+  @GET('history/movie')
+  Future<List<RadarrHistory>> getMovieHistory({
+    @Query('movieId') required int movieId,
+    @Query('eventType') RadarrHistoryEventType? eventType,
+    @Query('includeMovie') bool? includeMovie = false,
+  });
+
+  /// Mark a history entry as failed.
+  @POST('history/failed/{id}')
+  Future<void> markHistoryAsFailed({
     @Path('id') required int id,
   });
 

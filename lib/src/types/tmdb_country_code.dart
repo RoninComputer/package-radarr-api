@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrTMDbCountryCode {
+enum RadarrTMDbCountryCode with EnumSerializableMixin {
   au('au'),
   br('br'),
   ca('ca'),
@@ -15,7 +16,4 @@ enum RadarrTMDbCountryCode {
 
   final String name;
   const RadarrTMDbCountryCode(this.name);
-
-  @internal
-  String toJson() => name;
 }

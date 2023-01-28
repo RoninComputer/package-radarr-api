@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrCommandStatus {
+enum RadarrCommandStatus with EnumSerializableMixin {
   aborted('aborted'),
   cancelled('cancelled'),
   completed('completed'),
@@ -12,7 +13,4 @@ enum RadarrCommandStatus {
 
   final String name;
   const RadarrCommandStatus(this.name);
-
-  @internal
-  String toJson() => name;
 }

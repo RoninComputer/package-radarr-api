@@ -19,7 +19,7 @@ _$_RadarrFileSystemDirectory _$$_RadarrFileSystemDirectoryFromJson(
 Map<String, dynamic> _$$_RadarrFileSystemDirectoryToJson(
         _$_RadarrFileSystemDirectory instance) =>
     <String, dynamic>{
-      'type': _$RadarrFileSystemEntityEnumMap[instance.type]!,
+      'type': instance.type.toJson(),
       'name': instance.name,
       'path': instance.path,
       'size': instance.size,

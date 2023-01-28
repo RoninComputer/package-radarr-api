@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/mixins/serializable.dart';
 
 @JsonEnum(valueField: 'name')
-enum RadarrCoverType {
+enum RadarrCoverType with EnumSerializableMixin {
   banner('banner'),
   fanart('fanart'),
   headshot('headshot'),
@@ -11,7 +12,4 @@ enum RadarrCoverType {
 
   final String name;
   const RadarrCoverType(this.name);
-
-  @internal
-  String toJson() => name;
 }
