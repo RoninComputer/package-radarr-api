@@ -15,7 +15,7 @@ _$_RadarrFileSystemType _$$_RadarrFileSystemTypeFromJson(
 Map<String, dynamic> _$$_RadarrFileSystemTypeToJson(
         _$_RadarrFileSystemType instance) =>
     <String, dynamic>{
-      'type': _$RadarrFileSystemEntityEnumMap[instance.type]!,
+      'type': instance.type.toJson(),
     };
 
 const _$RadarrFileSystemEntityEnumMap = {

@@ -73,12 +73,11 @@ Map<String, dynamic> _$$_RadarrSystemStatusToJson(
   val['isOsx'] = instance.isOsx;
   val['isWindows'] = instance.isWindows;
   val['isDocker'] = instance.isDocker;
-  val['mode'] = _$RadarrRuntimeModeEnumMap[instance.mode]!;
+  val['mode'] = instance.mode.toJson();
   writeNotNull('branch', instance.branch);
-  val['databaseType'] = _$RadarrDatabaseTypeEnumMap[instance.databaseType]!;
+  val['databaseType'] = instance.databaseType.toJson();
   val['databaseVersion'] = instance.databaseVersion;
-  val['authentication'] =
-      _$RadarrAuthenticationTypeEnumMap[instance.authentication]!;
+  val['authentication'] = instance.authentication.toJson();
   val['migrationVersion'] = instance.migrationVersion;
   writeNotNull('urlBase', instance.urlBase);
   val['runtimeVersion'] = instance.runtimeVersion;
@@ -86,8 +85,7 @@ Map<String, dynamic> _$$_RadarrSystemStatusToJson(
   val['startTime'] = instance.startTime.toIso8601String();
   writeNotNull('packageVersion', instance.packageVersion);
   writeNotNull('packageAuthor', instance.packageAuthor);
-  val['packageUpdateMechanism'] =
-      _$RadarrUpdateMechanismEnumMap[instance.packageUpdateMechanism]!;
+  val['packageUpdateMechanism'] = instance.packageUpdateMechanism.toJson();
   writeNotNull(
       'packageUpdateMechanismMessage', instance.packageUpdateMechanismMessage);
   return val;

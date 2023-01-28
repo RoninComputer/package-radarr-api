@@ -20,7 +20,7 @@ _$_RadarrFileSystemFile _$$_RadarrFileSystemFileFromJson(
 Map<String, dynamic> _$$_RadarrFileSystemFileToJson(
         _$_RadarrFileSystemFile instance) =>
     <String, dynamic>{
-      'type': _$RadarrFileSystemEntityEnumMap[instance.type]!,
+      'type': instance.type.toJson(),
       'name': instance.name,
       'path': instance.path,
       'extension': instance.extension,

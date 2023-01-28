@@ -26,7 +26,7 @@ Map<String, dynamic> _$$_RadarrHealthToJson(_$_RadarrHealth instance) {
 
   writeNotNull('id', instance.id);
   writeNotNull('source', instance.source);
-  val['type'] = _$RadarrHealthTypeEnumMap[instance.type]!;
+  val['type'] = instance.type.toJson();
   writeNotNull('message', instance.message);
   writeNotNull('wikiUrl', instance.wikiUrl);
   return val;

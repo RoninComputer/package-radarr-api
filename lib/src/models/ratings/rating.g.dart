@@ -17,7 +17,7 @@ Map<String, dynamic> _$$_RadarrRatingToJson(_$_RadarrRating instance) =>
     <String, dynamic>{
       'votes': instance.votes,
       'value': instance.value,
-      'type': _$RadarrRatingTypeEnumMap[instance.type]!,
+      'type': instance.type.toJson(),
     };
 
 const _$RadarrRatingTypeEnumMap = {

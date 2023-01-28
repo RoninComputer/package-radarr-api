@@ -3,7 +3,7 @@ import 'package:radarr_api/src/api/config.dart';
 import 'package:radarr_api/src/models.dart';
 import 'package:radarr_api/src/types.dart';
 import 'package:retrofit/retrofit.dart';
-
+import 'dart:convert';
 part 'api.g.dart';
 
 @RestApi()
@@ -416,6 +416,16 @@ abstract class RadarrAPI {
   @GET('health/{id}')
   Future<List<RadarrHealth>> getHealth({
     @Path('id') required int id,
+  });
+
+  /// Get a list of history entries.
+  @GET('history')
+  Future<RadarrPagedResult<RadarrHistory>> getHistory({
+    @Query('page') int? page,
+    @Query('pageSize') int? pageSize,
+    @Query('sortKey') String? sortKey,
+    @Query('sortDirection') RadarrSortDirection? sortDirection,
+    @Query('includeMovie') bool? includeMovie,
   });
 
   /// Get a list of all added import lists.
