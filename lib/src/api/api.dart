@@ -332,7 +332,7 @@ abstract class RadarrAPI {
 
   /// Test a single download client configuration.
   @POST('downloadclient/test')
-  Future<void> testDownloadClient({
+  Future<List<RadarrDownloadClientValidationFailure>> testDownloadClient({
     @Body() required RadarrDownloadClient client,
   });
 
@@ -623,6 +623,39 @@ abstract class RadarrAPI {
     @Path('movieId') required int movieId,
     @Path('size') required RadarrImageSizePoster size,
   });
+
+  /// Get a list of all added metadata agents.
+  @GET('metadata')
+  Future<List<RadarrMetadataAgent>> getMetadataAgents();
+
+  /// Create a new metadata agent.
+  @POST('metadata')
+  Future<RadarrMetadataAgent> createMetadataAgent({
+    @Body() required RadarrMetadataAgent agent,
+  });
+
+  /// Get a single metadata agent by ID.
+  @GET('metadata/{id}')
+  Future<RadarrMetadataAgent> getMetadataAgent({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing metadata agent.
+  @PUT('metadata/{id}')
+  Future<RadarrMetadataAgent> updateMetadataAgent({
+    @Path('id') required int id,
+    @Body() required RadarrMetadataAgent agent,
+  });
+
+  /// Delete a metadata agent.
+  @DELETE('metadata/{id}')
+  Future<void> deleteMetadataAgent({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available metadata agents.
+  @GET('metadata/schema')
+  Future<List<RadarrMetadataAgent>> getMetadataAgentSchemas();
 
   /// Get a list of all added movies.
   @GET('movie')

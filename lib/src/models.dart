@@ -46,6 +46,7 @@ export 'models/language/language.dart';
 export 'models/log/file.dart';
 export 'models/log/log.dart';
 export 'models/media_cover/media_cover.dart';
+export 'models/metadata/agent.dart';
 export 'models/movie_file/editor_options.dart';
 export 'models/movie_file/extra_file.dart';
 export 'models/movie_file/media_info.dart';
