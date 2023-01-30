@@ -778,6 +778,30 @@ abstract class RadarrAPI {
     @Query('title') required String title,
   });
 
+  /// Get a list of all quality definitions.
+  @GET('qualitydefinition')
+  Future<List<RadarrQualityDefinition>> getQualityDefinitions();
+
+  /// Get a single quality definition by ID.
+  @GET('qualitydefinition/{id}')
+  Future<RadarrQualityDefinition> getQualityDefinition({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing quality definition.
+  @PUT('qualitydefinition/{id}')
+  Future<RadarrQualityDefinition> updateQualityDefinition({
+    @Path('id') required int id,
+    @Body() required RadarrQualityDefinition definition,
+  });
+
+  /// Bulk update a list of existing quality definitions.
+  @PUT('qualitydefinition/update')
+  Future<RadarrQualityDefinition> updateQualityDefinitions({
+    @Path('id') required int id,
+    @Body() required List<RadarrQualityDefinition> definitions,
+  });
+
   /// Get a list of all added quality profiles.
   @GET('qualityprofile')
   Future<List<RadarrQualityProfile>> getQualityProfiles();

@@ -13,7 +13,6 @@ https://radarr.video/docs/api
 - MovieEditor
 - MovieImport
 - MovieLookup
-- QualityDefinition
 - Queue
 - QueueAction
 - QueueDetails

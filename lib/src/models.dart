@@ -62,6 +62,7 @@ export 'models/paged_result/paged_result.dart';
 export 'models/parse/movie_info.dart';
 export 'models/parse/parse.dart';
 export 'models/provider/message.dart';
+export 'models/quality/definition.dart';
 export 'models/quality/format_item.dart';
 export 'models/quality/model.dart';
 export 'models/quality/profile_item.dart';

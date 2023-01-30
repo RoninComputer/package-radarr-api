@@ -3291,6 +3291,108 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrQualityDefinition>> getQualityDefinitions() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RadarrQualityDefinition>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'qualitydefinition',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrQualityDefinition.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrQualityDefinition> getQualityDefinition({required id}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrQualityDefinition>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'qualitydefinition/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrQualityDefinition.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrQualityDefinition> updateQualityDefinition({
+    required id,
+    required definition,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(definition.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrQualityDefinition>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'qualitydefinition/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrQualityDefinition.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrQualityDefinition> updateQualityDefinitions({
+    required id,
+    required definitions,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = definitions.map((e) => e.toJson()).toList();
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrQualityDefinition>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'qualitydefinition/update',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrQualityDefinition.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrQualityProfile>> getQualityProfiles() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
