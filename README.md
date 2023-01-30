@@ -14,14 +14,11 @@ https://radarr.video/docs/api
 - MovieImport
 - MovieLookup
 - QualityDefinition
-- QualityProfile
-- QualityProfileSchema
 - Queue
 - QueueAction
 - QueueDetails
 - QueueStatus
 - Release
-- ReleasePush
 
 [license-shield]: https://img.shields.io/github/license/RoninComputer/dart-radarr-api?style=for-the-badge
 [pubdev]: https://pub.dev/packages/radarr_api/

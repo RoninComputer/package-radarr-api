@@ -778,6 +778,39 @@ abstract class RadarrAPI {
     @Query('title') required String title,
   });
 
+  /// Get a list of all added quality profiles.
+  @GET('qualityprofile')
+  Future<List<RadarrQualityProfile>> getQualityProfiles();
+
+  /// Create a new quality profile.
+  @POST('qualityprofile')
+  Future<RadarrQualityProfile> createQualityProfile({
+    @Body() required RadarrQualityProfile profile,
+  });
+
+  /// Get a single quality profile by ID.
+  @GET('qualityprofile/{id}')
+  Future<RadarrQualityProfile> getQualityProfile({
+    @Path('id') required int id,
+  });
+
+  /// Update an existing quality profile.
+  @PUT('qualityprofile/{id}')
+  Future<RadarrQualityProfile> updateQualityProfile({
+    @Path('id') required int id,
+    @Body() required RadarrQualityProfile profile,
+  });
+
+  /// Delete a quality profile.
+  @DELETE('qualityprofile/{id}')
+  Future<void> deleteQualityProfile({
+    @Path('id') required int id,
+  });
+
+  /// Get all schemas for the available quality profiles.
+  @GET('qualityprofile/schema')
+  Future<RadarrQualityProfile> getQualityProfileSchema();
+
   /// Get a list of all created remote path mappings.
   @GET('remotepathmapping')
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings();
