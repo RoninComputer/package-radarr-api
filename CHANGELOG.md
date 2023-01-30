@@ -1,3 +1,10 @@
+# 0.0.1-pre.8
+
+- support /exclusions/[id|bulk] endpoint
+- support /history/[since|movie|failed] endpoint
+- support /metadata/[id|schema] endpoint
+- support /parse endpoint
+
 # 0.0.1-pre.7
 
 - support /downloadclient/[id|schema|test|testall|action] endpoint
