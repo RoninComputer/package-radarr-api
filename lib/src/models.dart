@@ -68,6 +68,7 @@ export 'models/quality/profile_item.dart';
 export 'models/quality/profile.dart';
 export 'models/quality/quality.dart';
 export 'models/quality/revision.dart';
+export 'models/queue/status.dart';
 export 'models/ratings/rating.dart';
 export 'models/ratings/ratings.dart';
 export 'models/remote_path_mapping/remote_path_mapping.dart';

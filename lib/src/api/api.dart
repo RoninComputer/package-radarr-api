@@ -811,6 +811,10 @@ abstract class RadarrAPI {
   @GET('qualityprofile/schema')
   Future<RadarrQualityProfile> getQualityProfileSchema();
 
+  /// Get the status of the queue.
+  @GET('queue/status')
+  Future<RadarrQueueStatus> getQueueStatus();
+
   /// Get a list of all created remote path mappings.
   @GET('remotepathmapping')
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings();
