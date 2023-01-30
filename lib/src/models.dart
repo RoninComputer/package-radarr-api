@@ -59,6 +59,8 @@ export 'models/notification/notification.dart';
 export 'models/notification/test_result.dart';
 export 'models/notification/validation_failure.dart';
 export 'models/paged_result/paged_result.dart';
+export 'models/parse/movie_info.dart';
+export 'models/parse/parse.dart';
 export 'models/provider/message.dart';
 export 'models/quality/model.dart';
 export 'models/quality/quality.dart';

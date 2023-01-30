@@ -772,6 +772,12 @@ abstract class RadarrAPI {
     @Body() required RadarrImportList list,
   });
 
+  /// Review the results of parsing a movie title.
+  @GET('parse')
+  Future<RadarrParse> parseMovieTitle({
+    @Query('title') required String title,
+  });
+
   /// Get a list of all created remote path mappings.
   @GET('remotepathmapping')
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings();

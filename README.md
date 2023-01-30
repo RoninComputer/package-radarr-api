@@ -10,11 +10,9 @@ Dart library package providing an abstraction for [Radarr](https://radarr.video)
 https://radarr.video/docs/api
 
 - ManualImport
-- Metadata
 - MovieEditor
 - MovieImport
 - MovieLookup
-- Parse
 - QualityDefinition
 - QualityProfile
 - QualityProfileSchema

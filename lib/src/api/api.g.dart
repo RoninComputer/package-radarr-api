@@ -3268,6 +3268,29 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<RadarrParse> parseMovieTitle({required title}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'title': title};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrParse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'parse',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrParse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
