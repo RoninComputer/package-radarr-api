@@ -839,6 +839,18 @@ abstract class RadarrAPI {
   @GET('queue/status')
   Future<RadarrQueueStatus> getQueueStatus();
 
+  /// Get a list of releases for a movie by ID.
+  @GET('release')
+  Future<List<RadarrRelease>> getReleases({
+    @Query('movieId') required int movieId,
+  });
+
+  /// Trigger a download of the given release.
+  @POST('release')
+  Future<RadarrRelease> downloadRelease({
+    @Body() required RadarrRelease release,
+  });
+
   /// Get a list of all created remote path mappings.
   @GET('remotepathmapping')
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings();

@@ -72,6 +72,7 @@ export 'models/quality/revision.dart';
 export 'models/queue/status.dart';
 export 'models/ratings/rating.dart';
 export 'models/ratings/ratings.dart';
+export 'models/release/release.dart';
 export 'models/remote_path_mapping/remote_path_mapping.dart';
 export 'models/restriction/restriction.dart';
 export 'models/root_folder/root_folder.dart';

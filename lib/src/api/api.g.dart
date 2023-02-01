@@ -3560,6 +3560,55 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrRelease>> getReleases({required movieId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'movieId': movieId};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrRelease>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'release',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => RadarrRelease.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrRelease> downloadRelease({required release}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(release.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrRelease>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'release',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrRelease.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrRemotePathMapping>> getRemotePathMappings() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
