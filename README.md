@@ -16,7 +16,6 @@ https://radarr.video/docs/api
 - Queue
 - QueueAction
 - QueueDetails
-- Release
 
 [license-shield]: https://img.shields.io/github/license/RoninComputer/dart-radarr-api?style=for-the-badge
 [pubdev]: https://pub.dev/packages/radarr_api/
