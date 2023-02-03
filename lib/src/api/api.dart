@@ -608,6 +608,15 @@ abstract class RadarrAPI {
     @Path('name') required String name,
   });
 
+  /// Get the results for a manual import from the filesystem.
+  @GET('manualimport')
+  Future<List<RadarrManualImport>> getManualImport({
+    @Query('folder') String? folder,
+    @Query('downloadId') String? downloadId,
+    @Query('movieId') int? movieId,
+    @Query('filterExistingFiles') bool filterExistingFiles = true,
+  });
+
   /// Get a fanart image from Radarr's media cover cache.
   @GET('mediacover/{movieId}/fanart{size}.jpg')
   @DioResponseType(ResponseType.bytes)
@@ -702,7 +711,7 @@ abstract class RadarrAPI {
     @Body() required RadarrMovieEditorOptions options,
   });
 
-  /// Import a batch of movies that already exists on the filesystem.
+  /// Import a batch of movies that already exists in the root folders.
   @POST('movie/import')
   Future<List<RadarrMovie>> importMovies({
     @Body() required List<RadarrMovie> movies,

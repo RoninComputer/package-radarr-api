@@ -2589,6 +2589,43 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrManualImport>> getManualImport({
+    folder,
+    downloadId,
+    movieId,
+    filterExistingFiles = true,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'folder': folder,
+      r'downloadId': downloadId,
+      r'movieId': movieId,
+      r'filterExistingFiles': filterExistingFiles,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrManualImport>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'manualimport',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RadarrManualImport.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<List<int>> getFanartImage({
     required movieId,
     required size,
@@ -2964,6 +3001,31 @@ class _RadarrAPI implements RadarrAPI {
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
+  }
+
+  @override
+  Future<List<RadarrMovie>> importMovies({required movies}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = movies.map((e) => e.toJson()).toList();
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrMovie>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/import',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => RadarrMovie.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
   }
 
   @override

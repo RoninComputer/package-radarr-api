@@ -36,6 +36,7 @@ export 'types/quality_modifier.dart';
 export 'types/quality_source.dart';
 export 'types/queue_download_status.dart';
 export 'types/rating_type.dart';
+export 'types/rejection_type.dart';
 export 'types/rescan_after_refresh_type.dart';
 export 'types/runtime_format.dart';
 export 'types/runtime_mode.dart';

@@ -45,6 +45,8 @@ export 'models/indexer/validation_failure.dart';
 export 'models/language/language.dart';
 export 'models/log/file.dart';
 export 'models/log/log.dart';
+export 'models/manual_import/manual_import.dart';
+export 'models/manual_import/rejection.dart';
 export 'models/media_cover/media_cover.dart';
 export 'models/metadata/agent.dart';
 export 'models/movie_file/editor_options.dart';
