@@ -702,6 +702,12 @@ abstract class RadarrAPI {
     @Body() required RadarrMovieEditorOptions options,
   });
 
+  /// Import a batch of movies that already exists on the filesystem.
+  @POST('movie/import')
+  Future<List<RadarrMovie>> importMovies({
+    @Body() required List<RadarrMovie> movies,
+  });
+
   /// Lookup a list of movies by term.
   @GET('movie/lookup')
   Future<List<RadarrMovie>> lookupMovie({

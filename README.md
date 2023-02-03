@@ -10,7 +10,6 @@ Dart library package providing an abstraction for [Radarr](https://radarr.video)
 https://radarr.video/docs/api
 
 - ManualImport
-- MovieImport
 
 [license-shield]: https://img.shields.io/github/license/RoninComputer/dart-radarr-api?style=for-the-badge
 [pubdev]: https://pub.dev/packages/radarr_api/
