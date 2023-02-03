@@ -27,7 +27,8 @@ mixin _$RadarrTask {
   DateTime get lastExecution => throw _privateConstructorUsedError;
   DateTime get lastStartTime => throw _privateConstructorUsedError;
   DateTime get nextExecution => throw _privateConstructorUsedError;
-  String get lastDuration => throw _privateConstructorUsedError;
+  @DurationStringConverter()
+  Duration get lastDuration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +50,7 @@ abstract class $RadarrTaskCopyWith<$Res> {
       DateTime lastExecution,
       DateTime lastStartTime,
       DateTime nextExecution,
-      String lastDuration});
+      @DurationStringConverter() Duration lastDuration});
 }
 
 /// @nodoc
@@ -106,7 +107,7 @@ class _$RadarrTaskCopyWithImpl<$Res, $Val extends RadarrTask>
       lastDuration: null == lastDuration
           ? _value.lastDuration
           : lastDuration // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Duration,
     ) as $Val);
   }
 }
@@ -127,7 +128,7 @@ abstract class _$$_RadarrTaskCopyWith<$Res>
       DateTime lastExecution,
       DateTime lastStartTime,
       DateTime nextExecution,
-      String lastDuration});
+      @DurationStringConverter() Duration lastDuration});
 }
 
 /// @nodoc
@@ -182,7 +183,7 @@ class __$$_RadarrTaskCopyWithImpl<$Res>
       lastDuration: null == lastDuration
           ? _value.lastDuration
           : lastDuration // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Duration,
     ));
   }
 }
@@ -198,7 +199,7 @@ class _$_RadarrTask implements _RadarrTask {
       required this.lastExecution,
       required this.lastStartTime,
       required this.nextExecution,
-      required this.lastDuration});
+      @DurationStringConverter() required this.lastDuration});
 
   factory _$_RadarrTask.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrTaskFromJson(json);
@@ -218,7 +219,8 @@ class _$_RadarrTask implements _RadarrTask {
   @override
   final DateTime nextExecution;
   @override
-  final String lastDuration;
+  @DurationStringConverter()
+  final Duration lastDuration;
 
   @override
   String toString() {
@@ -267,14 +269,15 @@ class _$_RadarrTask implements _RadarrTask {
 
 abstract class _RadarrTask implements RadarrTask {
   const factory _RadarrTask(
-      {required final int id,
-      final String? name,
-      final String? taskName,
-      required final int interval,
-      required final DateTime lastExecution,
-      required final DateTime lastStartTime,
-      required final DateTime nextExecution,
-      required final String lastDuration}) = _$_RadarrTask;
+          {required final int id,
+          final String? name,
+          final String? taskName,
+          required final int interval,
+          required final DateTime lastExecution,
+          required final DateTime lastStartTime,
+          required final DateTime nextExecution,
+          @DurationStringConverter() required final Duration lastDuration}) =
+      _$_RadarrTask;
 
   factory _RadarrTask.fromJson(Map<String, dynamic> json) =
       _$_RadarrTask.fromJson;
@@ -294,7 +297,8 @@ abstract class _RadarrTask implements RadarrTask {
   @override
   DateTime get nextExecution;
   @override
-  String get lastDuration;
+  @DurationStringConverter()
+  Duration get lastDuration;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrTaskCopyWith<_$_RadarrTask> get copyWith =>

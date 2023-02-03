@@ -15,7 +15,8 @@ _$_RadarrTask _$$_RadarrTaskFromJson(Map<String, dynamic> json) =>
       lastExecution: DateTime.parse(json['lastExecution'] as String),
       lastStartTime: DateTime.parse(json['lastStartTime'] as String),
       nextExecution: DateTime.parse(json['nextExecution'] as String),
-      lastDuration: json['lastDuration'] as String,
+      lastDuration: const DurationStringConverter()
+          .fromJson(json['lastDuration'] as String),
     );
 
 Map<String, dynamic> _$$_RadarrTaskToJson(_$_RadarrTask instance) {
@@ -35,6 +36,7 @@ Map<String, dynamic> _$$_RadarrTaskToJson(_$_RadarrTask instance) {
   val['lastExecution'] = instance.lastExecution.toIso8601String();
   val['lastStartTime'] = instance.lastStartTime.toIso8601String();
   val['nextExecution'] = instance.nextExecution.toIso8601String();
-  val['lastDuration'] = instance.lastDuration;
+  val['lastDuration'] =
+      const DurationStringConverter().toJson(instance.lastDuration);
   return val;
 }

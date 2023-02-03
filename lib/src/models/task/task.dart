@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/converters/duration_string.dart';
 import 'package:radarr_api/src/internal/mixins/serializable.dart';
-import 'package:radarr_api/src/typedefs/timespan.dart';
 
 part 'task.freezed.dart';
 part 'task.g.dart';
@@ -15,7 +15,7 @@ class RadarrTask with _$RadarrTask, JsonSerializableMixin {
     required DateTime lastExecution,
     required DateTime lastStartTime,
     required DateTime nextExecution,
-    required RadarrTimeSpan lastDuration,
+    @DurationStringConverter() required Duration lastDuration,
   }) = _RadarrTask;
 
   factory RadarrTask.fromJson(Map<String, Object?> json) =>

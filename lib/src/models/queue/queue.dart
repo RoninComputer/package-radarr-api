@@ -5,7 +5,6 @@ import 'package:radarr_api/src/models/language/language.dart';
 import 'package:radarr_api/src/models/movie/movie.dart';
 import 'package:radarr_api/src/models/quality/model.dart';
 import 'package:radarr_api/src/models/queue/tracked_download_status.dart';
-import 'package:radarr_api/src/typedefs/timespan.dart';
 import 'package:radarr_api/src/types/download_protocol.dart';
 import 'package:radarr_api/src/types/download_state.dart';
 import 'package:radarr_api/src/types/download_status.dart';
@@ -26,7 +25,7 @@ class RadarrQueue with _$RadarrQueue, JsonSerializableMixin {
     required double size,
     String? title,
     @JsonKey(name: 'sizeleft') required double sizeLeft,
-    @JsonKey(name: 'timeleft') RadarrTimeSpan? timeLeft,
+    @JsonKey(name: 'timeleft') String? timeLeft,
     DateTime? estimatedCompletionTime,
     @JsonKey(unknownEnumValue: RadarrQueueDownloadStatus.unknown)
         required RadarrQueueDownloadStatus status,

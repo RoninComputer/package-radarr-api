@@ -1,13 +1,14 @@
-typedef RadarrTimeSpan = String;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-extension RadarrTimeSpanExtension on RadarrTimeSpan {
-  /// Convert a string in the [C# TimeSpan format](https://learn.microsoft.com/en-us/dotnet/api/system.timespan)
-  /// using the "c" format specifier to a Dart [Duration] type.
-  Duration toDuration() {
+class DurationStringConverter extends JsonConverter<Duration, String> {
+  const DurationStringConverter();
+
+  @override
+  Duration fromJson(String json) {
     int timeOffset = 0;
     int days = 0;
 
-    final destructured = split('.');
+    final destructured = json.split('.');
     if (destructured.length == 3) {
       timeOffset = 1;
       days = int.parse(destructured[0]);
@@ -21,5 +22,10 @@ extension RadarrTimeSpanExtension on RadarrTimeSpan {
       seconds: int.parse(splitTime[2]),
       microseconds: int.parse(destructured[timeOffset + 1]) ~/ 10,
     );
+  }
+
+  @override
+  String toJson(Duration object) {
+    return object.toString();
   }
 }

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:radarr_api/src/internal/converters/duration_string.dart';
 import 'package:radarr_api/src/models/command/body.dart';
-import 'package:radarr_api/src/typedefs/timespan.dart';
 import 'package:radarr_api/src/types/command_name.dart';
 import 'package:radarr_api/src/types/command_priority.dart';
 import 'package:radarr_api/src/types/command_status.dart';
@@ -23,7 +23,7 @@ class RadarrCommand with _$RadarrCommand, JsonSerializableMixin {
     required DateTime queued,
     DateTime? started,
     DateTime? ended,
-    RadarrTimeSpan? duration,
+    @DurationStringConverter() Duration? duration,
     String? exception,
     required RadarrCommandTrigger trigger,
     String? clientUserAgent,
