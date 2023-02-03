@@ -9,6 +9,7 @@ part 'run_command.g.dart';
 class RadarrRunCommand with _$RadarrRunCommand, JsonSerializableMixin {
   const factory RadarrRunCommand({
     required RadarrCommandName name,
+    List<int>? movieIds,
   }) = _RadarrRunCommand;
 
   factory RadarrRunCommand.fromJson(Map<String, Object?> json) =>

@@ -53,6 +53,7 @@ export 'models/movie_file/media_info.dart';
 export 'models/movie_file/movie_file.dart';
 export 'models/movie/add_options.dart';
 export 'models/movie/alternate_title.dart';
+export 'models/movie/editor_options.dart';
 export 'models/movie/movie.dart';
 export 'models/movie/rename_preview.dart';
 export 'models/notification/notification.dart';

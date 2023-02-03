@@ -690,6 +690,18 @@ abstract class RadarrAPI {
     @Query('addImportExclusion') bool? addImportExclusion,
   });
 
+  /// Bulk edit a batch of movies.
+  @PUT('movie/editor')
+  Future<List<RadarrMovie>> bulkEditMovies({
+    @Body() required RadarrMovieEditorOptions options,
+  });
+
+  /// Bulk delete a batch of movies.
+  @DELETE('movie/editor')
+  Future<void> bulkDeleteMovies({
+    @Body() required RadarrMovieEditorOptions options,
+  });
+
   /// Lookup a list of movies by term.
   @GET('movie/lookup')
   Future<List<RadarrMovie>> lookupMovie({

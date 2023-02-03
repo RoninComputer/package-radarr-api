@@ -1,4 +1,5 @@
 export 'types/add_method.dart';
+export 'types/apply_tags_method.dart';
 export 'types/authentication_type.dart';
 export 'types/backup_type.dart';
 export 'types/certificate_validation.dart';

@@ -21,6 +21,7 @@ RadarrRunCommand _$RadarrRunCommandFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RadarrRunCommand {
   RadarrCommandName get name => throw _privateConstructorUsedError;
+  List<int>? get movieIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $RadarrRunCommandCopyWith<$Res> {
           RadarrRunCommand value, $Res Function(RadarrRunCommand) then) =
       _$RadarrRunCommandCopyWithImpl<$Res, RadarrRunCommand>;
   @useResult
-  $Res call({RadarrCommandName name});
+  $Res call({RadarrCommandName name, List<int>? movieIds});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$RadarrRunCommandCopyWithImpl<$Res, $Val extends RadarrRunCommand>
   @override
   $Res call({
     Object? name = null,
+    Object? movieIds = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as RadarrCommandName,
+      movieIds: freezed == movieIds
+          ? _value.movieIds
+          : movieIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$_RadarrRunCommandCopyWith<$Res>
       __$$_RadarrRunCommandCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RadarrCommandName name});
+  $Res call({RadarrCommandName name, List<int>? movieIds});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$_RadarrRunCommandCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? movieIds = freezed,
   }) {
     return _then(_$_RadarrRunCommand(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as RadarrCommandName,
+      movieIds: freezed == movieIds
+          ? _value._movieIds
+          : movieIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ));
   }
 }
@@ -97,17 +108,27 @@ class __$$_RadarrRunCommandCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RadarrRunCommand implements _RadarrRunCommand {
-  const _$_RadarrRunCommand({required this.name});
+  const _$_RadarrRunCommand({required this.name, final List<int>? movieIds})
+      : _movieIds = movieIds;
 
   factory _$_RadarrRunCommand.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrRunCommandFromJson(json);
 
   @override
   final RadarrCommandName name;
+  final List<int>? _movieIds;
+  @override
+  List<int>? get movieIds {
+    final value = _movieIds;
+    if (value == null) return null;
+    if (_movieIds is EqualUnmodifiableListView) return _movieIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'RadarrRunCommand(name: $name)';
+    return 'RadarrRunCommand(name: $name, movieIds: $movieIds)';
   }
 
   @override
@@ -115,12 +136,14 @@ class _$_RadarrRunCommand implements _RadarrRunCommand {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RadarrRunCommand &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._movieIds, _movieIds));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode => Object.hash(
+      runtimeType, name, const DeepCollectionEquality().hash(_movieIds));
 
   @JsonKey(ignore: true)
   @override
@@ -137,14 +160,17 @@ class _$_RadarrRunCommand implements _RadarrRunCommand {
 }
 
 abstract class _RadarrRunCommand implements RadarrRunCommand {
-  const factory _RadarrRunCommand({required final RadarrCommandName name}) =
-      _$_RadarrRunCommand;
+  const factory _RadarrRunCommand(
+      {required final RadarrCommandName name,
+      final List<int>? movieIds}) = _$_RadarrRunCommand;
 
   factory _RadarrRunCommand.fromJson(Map<String, dynamic> json) =
       _$_RadarrRunCommand.fromJson;
 
   @override
   RadarrCommandName get name;
+  @override
+  List<int>? get movieIds;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrRunCommandCopyWith<_$_RadarrRunCommand> get copyWith =>
