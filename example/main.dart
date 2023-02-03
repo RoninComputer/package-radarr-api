@@ -3,7 +3,7 @@ import 'package:radarr_api/radarr_api.dart';
 void main() async {
   // Set up the Radarr API
   final api = RadarrAPI(RadarrConfig(
-    host: '127.0.0.1:7878',
+    host: '192.168.1.100:7878',
     apiKey: 'asdf123',
   ));
 
