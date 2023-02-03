@@ -1,3 +1,8 @@
+# 1.0.1
+
+- Utilize `DurationStringConverter` for Duration (de)serialization
+- Updated metadata
+
 # 1.0.0
 
 - All API endpoints have been implemented
