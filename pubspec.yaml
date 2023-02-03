@@ -6,19 +6,19 @@ repository: https://github.com/RoninComputer/dart-radarr-api
 issue_tracker: https://github.com/RoninComputer/dart-radarr-api/issues
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   dio: ^4.0.6
   freezed_annotation: ^2.2.0
-  json_annotation: ^4.7.0
+  json_annotation: ^4.8.0
   retrofit: ^3.3.1
 
 dev_dependencies:
   # Generators
   build_runner: ^2.3.3
   freezed: ^2.3.2
-  json_serializable: ^6.5.4
+  json_serializable: ^6.6.1
   retrofit_generator: ^4.2.0
   # Tooling
   lints: ^2.0.1

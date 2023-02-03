@@ -48,7 +48,7 @@ abstract class RadarrAPI {
     @Query('movieId') required int movieId,
   });
 
-  /// Delete a blocklist entry.
+  /// Delete a blocklist item.
   @DELETE('blocklist/movie/{id}')
   Future<void> deleteBlocklistItem({
     @Path('id') required int id,
@@ -834,6 +834,55 @@ abstract class RadarrAPI {
   /// Get all schemas for the available quality profiles.
   @GET('qualityprofile/schema')
   Future<RadarrQualityProfile> getQualityProfileSchema();
+
+  /// Get all entries from the queue.
+  @GET('queue')
+  Future<RadarrPagedResult<RadarrQueue>> getQueue({
+    @Query('page') int? page,
+    @Query('pageSize') int? pageSize,
+    @Query('sortKey') String? sortKey,
+    @Query('sortDirection') RadarrSortDirection? sortDirection,
+    @Query('includeMovie') bool? includeMovie = false,
+    @Query('includeUnknownMovieItems') bool? includeUnknownMovieItems = false,
+  });
+
+  /// Delete a queue item.
+  @DELETE('queue/{id}')
+  Future<void> deleteQueueItem({
+    @Path('id') required int id,
+    @Query('blocklist') bool blocklist = false,
+    @Query('removeFromClient') bool removeFromClient = true,
+  });
+
+  /// Delete a batch of queue items.
+  @DELETE('queue/bulk')
+  Future<void> deleteQueueItems({
+    @Body() required RadarrQueueBulkList list,
+    @Query('blocklist') bool blocklist = false,
+    @Query('removeFromClient') bool removeFromClient = true,
+  });
+
+  /// Grab a queue item.
+  @POST('queue/grab/{id}')
+  Future<void> grabQueueItem({
+    @Path('id') required int id,
+    @Query('blocklist') bool blocklist = false,
+    @Query('removeFromClient') bool removeFromClient = true,
+  });
+
+  /// Grab a batch of queue items.
+  @POST('queue/grab/bulk')
+  Future<void> grabQueueItems({
+    @Body() required RadarrQueueBulkList list,
+    @Query('blocklist') bool blocklist = false,
+    @Query('removeFromClient') bool removeFromClient = true,
+  });
+
+  @GET('queue/details')
+  Future<List<RadarrQueue>> getQueueDetails({
+    @Query('movieId') int? movieId,
+    @Query('includeMovie') bool? includeMovie = false,
+  });
 
   /// Get the status of the queue.
   @GET('queue/status')
