@@ -1,3 +1,7 @@
+# 0.0.1-pre.10
+
+- Utilize the official Dart publishing workflow
+
 # 0.0.1-pre.9
 
 - support /movie/editor endpoint
