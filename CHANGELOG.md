@@ -1,3 +1,12 @@
+# 0.0.1-pre.9
+
+- support /movie/editor endpoint
+- support /movie/lookup/[tmdb|imdb|term] endpoint
+- support /qualitydefinition/[id|update] endpoint
+- support /qualityprofile/[id|schema] endpoint
+- support /queue/[id|bulk|grab|details|status] endpoint
+- support /release endpoint
+
 # 0.0.1-pre.8
 
 - support /exclusions/[id|bulk] endpoint
