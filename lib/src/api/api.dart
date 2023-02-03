@@ -690,6 +690,24 @@ abstract class RadarrAPI {
     @Query('addImportExclusion') bool? addImportExclusion,
   });
 
+  /// Lookup a list of movies by term.
+  @GET('movie/lookup')
+  Future<List<RadarrMovie>> lookupMovie({
+    @Query('term') required String term,
+  });
+
+  /// Lookup a movie by its The Movie Database ID.
+  @GET('movie/lookup/tmdb')
+  Future<RadarrMovie> lookupMovieOnTmdb({
+    @Query('tmdbId') required int tmdbId,
+  });
+
+  /// Lookup a movie by its IMDb ID.
+  @GET('movie/lookup/imdb')
+  Future<RadarrMovie> lookupMovieOnImdb({
+    @Query('imdbId') required String imdbId,
+  });
+
   /// Get movie files by movie ID or file IDs.
   @GET('moviefile')
   Future<List<RadarrMovieFile>> getMovieFiles({

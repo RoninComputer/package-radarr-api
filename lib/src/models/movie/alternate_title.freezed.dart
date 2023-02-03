@@ -21,7 +21,7 @@ RadarrMovieAlternateTitle _$RadarrMovieAlternateTitleFromJson(
 
 /// @nodoc
 mixin _$RadarrMovieAlternateTitle {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   RadarrTitleSource get sourceType => throw _privateConstructorUsedError;
   int get movieMetadataId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $RadarrMovieAlternateTitleCopyWith<$Res> {
       _$RadarrMovieAlternateTitleCopyWithImpl<$Res, RadarrMovieAlternateTitle>;
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       RadarrTitleSource sourceType,
       int movieMetadataId,
       String? title,
@@ -71,7 +71,7 @@ class _$RadarrMovieAlternateTitleCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? sourceType = null,
     Object? movieMetadataId = null,
     Object? title = freezed,
@@ -82,10 +82,10 @@ class _$RadarrMovieAlternateTitleCopyWithImpl<$Res,
     Object? language = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sourceType: null == sourceType
           ? _value.sourceType
           : sourceType // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ abstract class _$$_RadarrMovieAlternateTitleCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       RadarrTitleSource sourceType,
       int movieMetadataId,
       String? title,
@@ -167,7 +167,7 @@ class __$$_RadarrMovieAlternateTitleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? sourceType = null,
     Object? movieMetadataId = null,
     Object? title = freezed,
@@ -178,10 +178,10 @@ class __$$_RadarrMovieAlternateTitleCopyWithImpl<$Res>
     Object? language = null,
   }) {
     return _then(_$_RadarrMovieAlternateTitle(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sourceType: null == sourceType
           ? _value.sourceType
           : sourceType // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class __$$_RadarrMovieAlternateTitleCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RadarrMovieAlternateTitle implements _RadarrMovieAlternateTitle {
   const _$_RadarrMovieAlternateTitle(
-      {required this.id,
+      {this.id,
       required this.sourceType,
       required this.movieMetadataId,
       this.title,
@@ -236,7 +236,7 @@ class _$_RadarrMovieAlternateTitle implements _RadarrMovieAlternateTitle {
       _$$_RadarrMovieAlternateTitleFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final RadarrTitleSource sourceType;
   @override
@@ -303,7 +303,7 @@ class _$_RadarrMovieAlternateTitle implements _RadarrMovieAlternateTitle {
 
 abstract class _RadarrMovieAlternateTitle implements RadarrMovieAlternateTitle {
   const factory _RadarrMovieAlternateTitle(
-      {required final int id,
+      {final int? id,
       required final RadarrTitleSource sourceType,
       required final int movieMetadataId,
       final String? title,
@@ -317,7 +317,7 @@ abstract class _RadarrMovieAlternateTitle implements RadarrMovieAlternateTitle {
       _$_RadarrMovieAlternateTitle.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
   RadarrTitleSource get sourceType;
   @override

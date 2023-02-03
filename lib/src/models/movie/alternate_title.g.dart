@@ -9,7 +9,7 @@ part of 'alternate_title.dart';
 _$_RadarrMovieAlternateTitle _$$_RadarrMovieAlternateTitleFromJson(
         Map<String, dynamic> json) =>
     _$_RadarrMovieAlternateTitle(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       sourceType: $enumDecode(_$RadarrTitleSourceEnumMap, json['sourceType']),
       movieMetadataId: json['movieMetadataId'] as int,
       title: json['title'] as String?,
@@ -23,11 +23,7 @@ _$_RadarrMovieAlternateTitle _$$_RadarrMovieAlternateTitleFromJson(
 
 Map<String, dynamic> _$$_RadarrMovieAlternateTitleToJson(
     _$_RadarrMovieAlternateTitle instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'sourceType': instance.sourceType.toJson(),
-    'movieMetadataId': instance.movieMetadataId,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -35,6 +31,9 @@ Map<String, dynamic> _$$_RadarrMovieAlternateTitleToJson(
     }
   }
 
+  writeNotNull('id', instance.id);
+  val['sourceType'] = instance.sourceType.toJson();
+  val['movieMetadataId'] = instance.movieMetadataId;
   writeNotNull('title', instance.title);
   writeNotNull('cleanTitle', instance.cleanTitle);
   val['sourceId'] = instance.sourceId;

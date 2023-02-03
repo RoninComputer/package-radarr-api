@@ -2919,6 +2919,77 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<List<RadarrMovie>> lookupMovie({required term}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'term': term};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<RadarrMovie>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/lookup',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) => RadarrMovie.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<RadarrMovie> lookupMovieOnTmdb({required tmdbId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'tmdbId': tmdbId};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrMovie>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/lookup/tmdb',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMovie.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<RadarrMovie> lookupMovieOnImdb({required imdbId}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'imdbId': imdbId};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<RadarrMovie>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'movie/lookup/imdb',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrMovie.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<RadarrMovieFile>> getMovieFiles({
     movieId,
     movieFileIds,

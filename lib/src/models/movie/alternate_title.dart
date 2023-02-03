@@ -10,7 +10,7 @@ part 'alternate_title.g.dart';
 class RadarrMovieAlternateTitle
     with _$RadarrMovieAlternateTitle, JsonSerializableMixin {
   const factory RadarrMovieAlternateTitle({
-    required int id,
+    int? id,
     required RadarrTitleSource sourceType,
     required int movieMetadataId,
     String? title,
