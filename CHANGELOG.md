@@ -1,3 +1,10 @@
+# 1.0.0
+
+- All API endpoints have been implemented
+- support /manualimport endpoint
+- support /movie/import endpoint
+- breakout individual command triggers
+
 # 0.0.1-pre.10
 
 - Utilize the official Dart publishing workflow
