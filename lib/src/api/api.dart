@@ -87,10 +87,173 @@ abstract class RadarrAPI {
     @Body() required RadarrCollection collection,
   });
 
-  /// Trigger a command run.
+  /// Trigger the "Application Check Update" command.
   @POST('command')
-  Future<RadarrCommand> triggerCommand({
-    @Body() required RadarrRunCommand trigger,
+  Future<RadarrCommand> triggerCommandApplicationCheckUpdate({
+    @Body() RadarrCommandApplicationCheckUpdate body =
+        const RadarrCommandApplicationCheckUpdate(),
+  });
+
+  /// Trigger the "Application Update" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandApplicationUpdate({
+    @Body() RadarrCommandApplicationUpdate body =
+        const RadarrCommandApplicationUpdate(),
+  });
+
+  /// Trigger the "Backup" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandBackup({
+    @Body() RadarrCommandBackup body = const RadarrCommandBackup(),
+  });
+
+  /// Trigger the "Check Health" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandCheckHealth({
+    @Body() RadarrCommandCheckHealth body = const RadarrCommandCheckHealth(),
+  });
+
+  /// Trigger the "Clean Up Recycle Bin" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandCleanUpRecycleBin({
+    @Body() RadarrCommandCleanUpRecycleBin body =
+        const RadarrCommandCleanUpRecycleBin(),
+  });
+
+  /// Trigger the "Clear Blocklist" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandClearBlocklist({
+    @Body()
+        RadarrCommandClearBlocklist body = const RadarrCommandClearBlocklist(),
+  });
+
+  /// Trigger the "Clear Log" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandClearLog({
+    @Body() RadarrCommandClearLog body = const RadarrCommandClearLog(),
+  });
+
+  /// Trigger the "Cutoff Unmet Movies Search" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandCutoffUnmetMoviesSearch({
+    @Body() RadarrCommandCutoffUnmetMoviesSearch body =
+        const RadarrCommandCutoffUnmetMoviesSearch(),
+  });
+
+  /// Trigger the "Delete Log Files" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandDeleteLogFiles({
+    @Body()
+        RadarrCommandDeleteLogFiles body = const RadarrCommandDeleteLogFiles(),
+  });
+
+  /// Trigger the "Delete Update Log Files" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandDeleteUpdateLogFiles({
+    @Body() RadarrCommandDeleteUpdateLogFiles body =
+        const RadarrCommandDeleteUpdateLogFiles(),
+  });
+
+  /// Trigger the "Downloaded Movies Scan" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandDownloadedMoviesScan({
+    @Body() required RadarrCommandDownloadedMoviesScan body,
+  });
+
+  /// Trigger the "Housekeeping" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandHousekeeping({
+    @Body() RadarrCommandHousekeeping body = const RadarrCommandHousekeeping(),
+  });
+
+  /// Trigger the "Import List Sync" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandImportListSync({
+    @Body()
+        RadarrCommandImportListSync body = const RadarrCommandImportListSync(),
+  });
+
+  /// Trigger the "Manual Import" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandManualImport({
+    @Body() required RadarrCommandManualImport body,
+  });
+
+  /// Trigger the "Messaging Cleanup" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandMessagingCleanup({
+    @Body() RadarrCommandMessagingCleanup body =
+        const RadarrCommandMessagingCleanup(),
+  });
+
+  /// Trigger the "Move Movie" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandMoveMovie({
+    @Body() required RadarrCommandMoveMovie body,
+  });
+
+  /// Trigger the "Movies Search" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandMoviesSearch({
+    @Body() required RadarrCommandMoviesSearch body,
+  });
+
+  /// Trigger the "Process Monitored Downloads" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandProcessMonitoredDownloads({
+    @Body() RadarrCommandProcessMonitoredDownloads body =
+        const RadarrCommandProcessMonitoredDownloads(),
+  });
+
+  /// Trigger the "Refresh Collections" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRefreshCollections({
+    @Body() RadarrCommandRefreshCollections body =
+        const RadarrCommandRefreshCollections(),
+  });
+
+  /// Trigger the "Refresh Monitored Downloads" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRefreshMonitoredDownloads({
+    @Body() RadarrCommandRefreshMonitoredDownloads body =
+        const RadarrCommandRefreshMonitoredDownloads(),
+  });
+
+  /// Trigger the "Refresh Movie" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRefreshMovie({
+    @Body() RadarrCommandRefreshMovie body = const RadarrCommandRefreshMovie(),
+  });
+
+  /// Trigger the "Rename Files" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRenameFiles({
+    @Body() required RadarrCommandRenameFiles body,
+  });
+
+  /// Trigger the "Rename Movie" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRenameMovie({
+    @Body() required RadarrCommandRenameMovie body,
+  });
+
+  /// Trigger the "Reset API Key" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandResetApiKey({
+    @Body() RadarrCommandResetApiKey body = const RadarrCommandResetApiKey(),
+  });
+
+  /// Trigger the "Reset Quality Definitions" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandResetQualityDefinitions({
+    @Body() RadarrCommandResetQualityDefinitions body =
+        const RadarrCommandResetQualityDefinitions(),
+  });
+
+  /// Trigger the "RSS Sync" command.
+  @POST('command')
+  Future<RadarrCommand> triggerCommandRssSync({
+    @Body() RadarrCommandRssSync body = const RadarrCommandRssSync(),
   });
 
   /// Get a list of recently run commands.

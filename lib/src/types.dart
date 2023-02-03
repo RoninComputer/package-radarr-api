@@ -26,6 +26,7 @@ export 'types/image_size_fanart.dart';
 export 'types/image_size_poster.dart';
 export 'types/import_list_clean_level.dart';
 export 'types/import_list_type.dart';
+export 'types/import_mode.dart';
 export 'types/log_level.dart';
 export 'types/monitor_type.dart';
 export 'types/movie_status.dart';
