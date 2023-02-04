@@ -1,11 +1,15 @@
+# 1.0.2
+
+- set libraries for canonical exports
+
 # 1.0.1
 
-- Utilize `DurationStringConverter` for Duration (de)serialization
-- Updated metadata
+- utilize `DurationStringConverter` for Duration (de)serialization
+- updated metadata
 
 # 1.0.0
 
-- All API endpoints have been implemented
+- all API endpoints have been implemented
 - support /manualimport endpoint
 - support /movie/import endpoint
 - breakout individual command triggers
