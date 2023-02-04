@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:radarr_api/src/api/config.dart';
-import 'package:radarr_api/src/models.dart';
+import 'package:radarr_api/api.dart';
+import 'package:radarr_api/models.dart';
 import 'package:radarr_api/src/internal/typedefs/datetime.dart';
-import 'package:radarr_api/src/types.dart';
+import 'package:radarr_api/types.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api.g.dart';
