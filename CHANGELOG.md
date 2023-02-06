@@ -1,6 +1,10 @@
+# 1.0.3
+
+- fix: nullify RadarrFilter properties
+
 # 1.0.2
 
-- set libraries for canonical exports
+- fix: set libraries for canonical exports
 
 # 1.0.1
 
