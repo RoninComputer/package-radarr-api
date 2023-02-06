@@ -1,3 +1,7 @@
+# 1.0.3+1
+
+- docs: updated README.md
+
 # 1.0.3
 
 - fix: nullify RadarrFilter properties
