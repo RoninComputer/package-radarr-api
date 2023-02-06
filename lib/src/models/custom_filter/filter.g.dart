@@ -8,15 +8,13 @@ part of 'filter.dart';
 
 _$_RadarrFilter _$$_RadarrFilterFromJson(Map<String, dynamic> json) =>
     _$_RadarrFilter(
-      key: $enumDecode(_$RadarrFilterKeyEnumMap, json['key']),
+      key: $enumDecodeNullable(_$RadarrFilterKeyEnumMap, json['key']),
       value: json['value'],
-      type: $enumDecode(_$RadarrFilterTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$RadarrFilterTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$$_RadarrFilterToJson(_$_RadarrFilter instance) {
-  final val = <String, dynamic>{
-    'key': instance.key.toJson(),
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -24,8 +22,9 @@ Map<String, dynamic> _$$_RadarrFilterToJson(_$_RadarrFilter instance) {
     }
   }
 
+  writeNotNull('key', instance.key?.toJson());
   writeNotNull('value', instance.value);
-  val['type'] = instance.type.toJson();
+  writeNotNull('type', instance.type?.toJson());
   return val;
 }
 

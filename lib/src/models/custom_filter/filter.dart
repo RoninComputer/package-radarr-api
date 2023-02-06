@@ -9,9 +9,9 @@ part 'filter.g.dart';
 @Freezed()
 class RadarrFilter with _$RadarrFilter, JsonSerializableMixin {
   const factory RadarrFilter({
-    required RadarrFilterKey key,
-    required dynamic value,
-    required RadarrFilterType type,
+    RadarrFilterKey? key,
+    dynamic value,
+    RadarrFilterType? type,
   }) = _RadarrFilter;
 
   factory RadarrFilter.fromJson(Map<String, Object?> json) =>

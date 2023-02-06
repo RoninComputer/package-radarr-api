@@ -20,9 +20,9 @@ RadarrFilter _$RadarrFilterFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RadarrFilter {
-  RadarrFilterKey get key => throw _privateConstructorUsedError;
+  RadarrFilterKey? get key => throw _privateConstructorUsedError;
   dynamic get value => throw _privateConstructorUsedError;
-  RadarrFilterType get type => throw _privateConstructorUsedError;
+  RadarrFilterType? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $RadarrFilterCopyWith<$Res> {
           RadarrFilter value, $Res Function(RadarrFilter) then) =
       _$RadarrFilterCopyWithImpl<$Res, RadarrFilter>;
   @useResult
-  $Res call({RadarrFilterKey key, dynamic value, RadarrFilterType type});
+  $Res call({RadarrFilterKey? key, dynamic value, RadarrFilterType? type});
 }
 
 /// @nodoc
@@ -52,23 +52,23 @@ class _$RadarrFilterCopyWithImpl<$Res, $Val extends RadarrFilter>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = null,
+    Object? key = freezed,
     Object? value = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      key: null == key
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
-              as RadarrFilterKey,
+              as RadarrFilterKey?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as RadarrFilterType,
+              as RadarrFilterType?,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_RadarrFilterCopyWith<$Res>
       __$$_RadarrFilterCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RadarrFilterKey key, dynamic value, RadarrFilterType type});
+  $Res call({RadarrFilterKey? key, dynamic value, RadarrFilterType? type});
 }
 
 /// @nodoc
@@ -95,23 +95,23 @@ class __$$_RadarrFilterCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = null,
+    Object? key = freezed,
     Object? value = freezed,
-    Object? type = null,
+    Object? type = freezed,
   }) {
     return _then(_$_RadarrFilter(
-      key: null == key
+      key: freezed == key
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
-              as RadarrFilterKey,
+              as RadarrFilterKey?,
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as RadarrFilterType,
+              as RadarrFilterType?,
     ));
   }
 }
@@ -119,18 +119,17 @@ class __$$_RadarrFilterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RadarrFilter implements _RadarrFilter {
-  const _$_RadarrFilter(
-      {required this.key, required this.value, required this.type});
+  const _$_RadarrFilter({this.key, this.value, this.type});
 
   factory _$_RadarrFilter.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrFilterFromJson(json);
 
   @override
-  final RadarrFilterKey key;
+  final RadarrFilterKey? key;
   @override
   final dynamic value;
   @override
-  final RadarrFilterType type;
+  final RadarrFilterType? type;
 
   @override
   String toString() {
@@ -168,19 +167,19 @@ class _$_RadarrFilter implements _RadarrFilter {
 
 abstract class _RadarrFilter implements RadarrFilter {
   const factory _RadarrFilter(
-      {required final RadarrFilterKey key,
-      required final dynamic value,
-      required final RadarrFilterType type}) = _$_RadarrFilter;
+      {final RadarrFilterKey? key,
+      final dynamic value,
+      final RadarrFilterType? type}) = _$_RadarrFilter;
 
   factory _RadarrFilter.fromJson(Map<String, dynamic> json) =
       _$_RadarrFilter.fromJson;
 
   @override
-  RadarrFilterKey get key;
+  RadarrFilterKey? get key;
   @override
   dynamic get value;
   @override
-  RadarrFilterType get type;
+  RadarrFilterType? get type;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrFilterCopyWith<_$_RadarrFilter> get copyWith =>
