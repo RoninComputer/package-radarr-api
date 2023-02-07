@@ -1337,6 +1337,54 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
+  Future<RadarrNamingConfigExamples> getNamingConfigExamples({
+    renameMovies,
+    replaceIllegalCharacters,
+    colonReplacementFormat,
+    standardMovieFormat,
+    movieFolderFormat,
+    includeQuality,
+    replaceSpaces,
+    separator,
+    numberStyle,
+    id,
+    resourceName,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'renameMovies': renameMovies,
+      r'replaceIllegalCharacters': replaceIllegalCharacters,
+      r'colonReplacementFormat': colonReplacementFormat?.toJson(),
+      r'standardMovieFormat': standardMovieFormat,
+      r'movieFolderFormat': movieFolderFormat,
+      r'includeQuality': includeQuality,
+      r'replaceSpaces': replaceSpaces,
+      r'separator': separator,
+      r'numberStyle': numberStyle,
+      r'id': id,
+      r'resourceName': resourceName,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RadarrNamingConfigExamples>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'config/naming/examples',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = RadarrNamingConfigExamples.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<RadarrUiConfig> getUiConfig() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

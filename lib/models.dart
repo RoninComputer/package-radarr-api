@@ -15,6 +15,7 @@ export 'src/models/config/indexer.dart';
 export 'src/models/config/media_management.dart';
 export 'src/models/config/metadata.dart';
 export 'src/models/config/naming.dart';
+export 'src/models/config/naming_examples.dart';
 export 'src/models/config/ui.dart';
 export 'src/models/credit/credit.dart';
 export 'src/models/custom_filter/custom_filter.dart';

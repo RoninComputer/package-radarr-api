@@ -342,6 +342,23 @@ abstract class RadarrAPI {
     @Body() required RadarrNamingConfig config,
   });
 
+  /// Get example formats from the naming configuration.
+  @GET('config/naming/examples')
+  Future<RadarrNamingConfigExamples> getNamingConfigExamples({
+    @Query('renameMovies') bool? renameMovies,
+    @Query('replaceIllegalCharacters') bool? replaceIllegalCharacters,
+    @Query('colonReplacementFormat')
+        RadarrColonReplacementFormat? colonReplacementFormat,
+    @Query('standardMovieFormat') String? standardMovieFormat,
+    @Query('movieFolderFormat') String? movieFolderFormat,
+    @Query('includeQuality') bool? includeQuality,
+    @Query('replaceSpaces') bool? replaceSpaces,
+    @Query('separator') String? separator,
+    @Query('numberStyle') String? numberStyle,
+    @Query('id') int? id,
+    @Query('resourceName') String? resourceName,
+  });
+
   /// Get the UI configuration.
   @GET('config/ui')
   Future<RadarrUiConfig> getUiConfig();
