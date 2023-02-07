@@ -53,5 +53,5 @@ final queue = await api.getQueue();   // Get items in the queue
 [link-pubdev]: https://pub.dev/packages/radarr_api
 [link-swagger]: https://radarr.video/docs/api
 [link-website]: https://radarr.video
-[shield-license]: https://img.shields.io/github/license/RoninComputer/dart-radarr-api?style=for-the-badge
+[shield-license]: https://img.shields.io/github/license/RoninComputer/package-radarr-api?style=for-the-badge
 [shield-pubdev]: https://img.shields.io/pub/v/radarr_api.svg?style=for-the-badge

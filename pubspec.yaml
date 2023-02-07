@@ -1,12 +1,12 @@
 name: radarr_api
 description: Dart abstraction for Radarr's public API (https://radarr.video)
-version: 1.0.3+1
-homepage: https://github.com/RoninComputer/dart-radarr-api
-repository: https://github.com/RoninComputer/dart-radarr-api
-issue_tracker: https://github.com/RoninComputer/dart-radarr-api/issues
+version: 1.0.3+2
+homepage: https://github.com/RoninComputer/package-radarr-api
+repository: https://github.com/RoninComputer/package-radarr-api
+issue_tracker: https://github.com/RoninComputer/package-radarr-api/issues
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   dio: ^4.0.6
