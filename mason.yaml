@@ -1,0 +1,9 @@
+bricks:
+  service_api_package_model:
+    git:
+      url: "git@github.com:RoninComputer/bricks.git"
+      path: bricks/service_api_package_model
+  service_api_package_type:
+    git:
+      url: "git@github.com:RoninComputer/bricks.git"
+      path: bricks/service_api_package_type

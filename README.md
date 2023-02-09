@@ -36,12 +36,6 @@ final api = RadarrAPI(config);
 
 And you are ready to make API calls!
 
-```dart
-final movies = await api.getMovies(); // Get the current catalogue of movies
-final queue = await api.getQueue();   // Get items in the queue
-...
-```
-
 # Additional Notes
 
 1. All available API methods can be viewed in the [generated Dart documentation][link-docs]

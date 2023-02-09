@@ -100,4 +100,4 @@
 
 # 0.0.1-pre.1
 
-- Initial Release
+- package initialization
