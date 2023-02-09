@@ -1,3 +1,7 @@
+# 1.0.4+1
+
+- update metadata
+
 # 1.0.4
 
 - support /config/naming/examples endpoint
