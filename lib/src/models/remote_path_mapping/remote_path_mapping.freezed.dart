@@ -22,9 +22,9 @@ RadarrRemotePathMapping _$RadarrRemotePathMappingFromJson(
 /// @nodoc
 mixin _$RadarrRemotePathMapping {
   int? get id => throw _privateConstructorUsedError;
-  String? get host => throw _privateConstructorUsedError;
-  String? get remotePath => throw _privateConstructorUsedError;
-  String? get localPath => throw _privateConstructorUsedError;
+  String get host => throw _privateConstructorUsedError;
+  String get remotePath => throw _privateConstructorUsedError;
+  String get localPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $RadarrRemotePathMappingCopyWith<$Res> {
           $Res Function(RadarrRemotePathMapping) then) =
       _$RadarrRemotePathMappingCopyWithImpl<$Res, RadarrRemotePathMapping>;
   @useResult
-  $Res call({int? id, String? host, String? remotePath, String? localPath});
+  $Res call({int? id, String host, String remotePath, String localPath});
 }
 
 /// @nodoc
@@ -56,27 +56,27 @@ class _$RadarrRemotePathMappingCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
-    Object? host = freezed,
-    Object? remotePath = freezed,
-    Object? localPath = freezed,
+    Object? host = null,
+    Object? remotePath = null,
+    Object? localPath = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      host: freezed == host
+      host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
-              as String?,
-      remotePath: freezed == remotePath
+              as String,
+      remotePath: null == remotePath
           ? _value.remotePath
           : remotePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      localPath: freezed == localPath
+              as String,
+      localPath: null == localPath
           ? _value.localPath
           : localPath // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -89,7 +89,7 @@ abstract class _$$_RadarrRemotePathMappingCopyWith<$Res>
       __$$_RadarrRemotePathMappingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? host, String? remotePath, String? localPath});
+  $Res call({int? id, String host, String remotePath, String localPath});
 }
 
 /// @nodoc
@@ -105,27 +105,27 @@ class __$$_RadarrRemotePathMappingCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? host = freezed,
-    Object? remotePath = freezed,
-    Object? localPath = freezed,
+    Object? host = null,
+    Object? remotePath = null,
+    Object? localPath = null,
   }) {
     return _then(_$_RadarrRemotePathMapping(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      host: freezed == host
+      host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
-              as String?,
-      remotePath: freezed == remotePath
+              as String,
+      remotePath: null == remotePath
           ? _value.remotePath
           : remotePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      localPath: freezed == localPath
+              as String,
+      localPath: null == localPath
           ? _value.localPath
           : localPath // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -134,7 +134,10 @@ class __$$_RadarrRemotePathMappingCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RadarrRemotePathMapping implements _RadarrRemotePathMapping {
   const _$_RadarrRemotePathMapping(
-      {this.id, this.host, this.remotePath, this.localPath});
+      {this.id,
+      required this.host,
+      required this.remotePath,
+      required this.localPath});
 
   factory _$_RadarrRemotePathMapping.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrRemotePathMappingFromJson(json);
@@ -142,11 +145,11 @@ class _$_RadarrRemotePathMapping implements _RadarrRemotePathMapping {
   @override
   final int? id;
   @override
-  final String? host;
+  final String host;
   @override
-  final String? remotePath;
+  final String remotePath;
   @override
-  final String? localPath;
+  final String localPath;
 
   @override
   String toString() {
@@ -189,9 +192,9 @@ class _$_RadarrRemotePathMapping implements _RadarrRemotePathMapping {
 abstract class _RadarrRemotePathMapping implements RadarrRemotePathMapping {
   const factory _RadarrRemotePathMapping(
       {final int? id,
-      final String? host,
-      final String? remotePath,
-      final String? localPath}) = _$_RadarrRemotePathMapping;
+      required final String host,
+      required final String remotePath,
+      required final String localPath}) = _$_RadarrRemotePathMapping;
 
   factory _RadarrRemotePathMapping.fromJson(Map<String, dynamic> json) =
       _$_RadarrRemotePathMapping.fromJson;
@@ -199,11 +202,11 @@ abstract class _RadarrRemotePathMapping implements RadarrRemotePathMapping {
   @override
   int? get id;
   @override
-  String? get host;
+  String get host;
   @override
-  String? get remotePath;
+  String get remotePath;
   @override
-  String? get localPath;
+  String get localPath;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrRemotePathMappingCopyWith<_$_RadarrRemotePathMapping>

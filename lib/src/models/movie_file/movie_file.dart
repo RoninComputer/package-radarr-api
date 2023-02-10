@@ -21,7 +21,7 @@ class RadarrMovieFile with _$RadarrMovieFile, JsonSerializableMixin {
     required int indexerFlags,
     required RadarrQualityModel quality,
     List<RadarrCustomFormat>? customFormats,
-    required RadarrMediaInfo mediaInfo,
+    RadarrMediaInfo? mediaInfo,
     String? originalFilePath,
     required bool qualityCutoffNotMet,
     List<RadarrLanguage>? languages,

@@ -9,9 +9,9 @@ class RadarrRemotePathMapping
     with _$RadarrRemotePathMapping, JsonSerializableMixin {
   const factory RadarrRemotePathMapping({
     int? id,
-    String? host,
-    String? remotePath,
-    String? localPath,
+    required String host,
+    required String remotePath,
+    required String localPath,
   }) = _RadarrRemotePathMapping;
 
   factory RadarrRemotePathMapping.fromJson(Map<String, Object?> json) =>

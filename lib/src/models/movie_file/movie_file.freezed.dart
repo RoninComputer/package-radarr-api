@@ -31,7 +31,7 @@ mixin _$RadarrMovieFile {
   RadarrQualityModel get quality => throw _privateConstructorUsedError;
   List<RadarrCustomFormat>? get customFormats =>
       throw _privateConstructorUsedError;
-  RadarrMediaInfo get mediaInfo => throw _privateConstructorUsedError;
+  RadarrMediaInfo? get mediaInfo => throw _privateConstructorUsedError;
   String? get originalFilePath => throw _privateConstructorUsedError;
   bool get qualityCutoffNotMet => throw _privateConstructorUsedError;
   List<RadarrLanguage>? get languages => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $RadarrMovieFileCopyWith<$Res> {
       int indexerFlags,
       RadarrQualityModel quality,
       List<RadarrCustomFormat>? customFormats,
-      RadarrMediaInfo mediaInfo,
+      RadarrMediaInfo? mediaInfo,
       String? originalFilePath,
       bool qualityCutoffNotMet,
       List<RadarrLanguage>? languages,
@@ -69,7 +69,7 @@ abstract class $RadarrMovieFileCopyWith<$Res> {
       String? edition});
 
   $RadarrQualityModelCopyWith<$Res> get quality;
-  $RadarrMediaInfoCopyWith<$Res> get mediaInfo;
+  $RadarrMediaInfoCopyWith<$Res>? get mediaInfo;
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$RadarrMovieFileCopyWithImpl<$Res, $Val extends RadarrMovieFile>
     Object? indexerFlags = null,
     Object? quality = null,
     Object? customFormats = freezed,
-    Object? mediaInfo = null,
+    Object? mediaInfo = freezed,
     Object? originalFilePath = freezed,
     Object? qualityCutoffNotMet = null,
     Object? languages = freezed,
@@ -143,10 +143,10 @@ class _$RadarrMovieFileCopyWithImpl<$Res, $Val extends RadarrMovieFile>
           ? _value.customFormats
           : customFormats // ignore: cast_nullable_to_non_nullable
               as List<RadarrCustomFormat>?,
-      mediaInfo: null == mediaInfo
+      mediaInfo: freezed == mediaInfo
           ? _value.mediaInfo
           : mediaInfo // ignore: cast_nullable_to_non_nullable
-              as RadarrMediaInfo,
+              as RadarrMediaInfo?,
       originalFilePath: freezed == originalFilePath
           ? _value.originalFilePath
           : originalFilePath // ignore: cast_nullable_to_non_nullable
@@ -180,8 +180,12 @@ class _$RadarrMovieFileCopyWithImpl<$Res, $Val extends RadarrMovieFile>
 
   @override
   @pragma('vm:prefer-inline')
-  $RadarrMediaInfoCopyWith<$Res> get mediaInfo {
-    return $RadarrMediaInfoCopyWith<$Res>(_value.mediaInfo, (value) {
+  $RadarrMediaInfoCopyWith<$Res>? get mediaInfo {
+    if (_value.mediaInfo == null) {
+      return null;
+    }
+
+    return $RadarrMediaInfoCopyWith<$Res>(_value.mediaInfo!, (value) {
       return _then(_value.copyWith(mediaInfo: value) as $Val);
     });
   }
@@ -206,7 +210,7 @@ abstract class _$$_RadarrMovieFileCopyWith<$Res>
       int indexerFlags,
       RadarrQualityModel quality,
       List<RadarrCustomFormat>? customFormats,
-      RadarrMediaInfo mediaInfo,
+      RadarrMediaInfo? mediaInfo,
       String? originalFilePath,
       bool qualityCutoffNotMet,
       List<RadarrLanguage>? languages,
@@ -216,7 +220,7 @@ abstract class _$$_RadarrMovieFileCopyWith<$Res>
   @override
   $RadarrQualityModelCopyWith<$Res> get quality;
   @override
-  $RadarrMediaInfoCopyWith<$Res> get mediaInfo;
+  $RadarrMediaInfoCopyWith<$Res>? get mediaInfo;
 }
 
 /// @nodoc
@@ -240,7 +244,7 @@ class __$$_RadarrMovieFileCopyWithImpl<$Res>
     Object? indexerFlags = null,
     Object? quality = null,
     Object? customFormats = freezed,
-    Object? mediaInfo = null,
+    Object? mediaInfo = freezed,
     Object? originalFilePath = freezed,
     Object? qualityCutoffNotMet = null,
     Object? languages = freezed,
@@ -288,10 +292,10 @@ class __$$_RadarrMovieFileCopyWithImpl<$Res>
           ? _value._customFormats
           : customFormats // ignore: cast_nullable_to_non_nullable
               as List<RadarrCustomFormat>?,
-      mediaInfo: null == mediaInfo
+      mediaInfo: freezed == mediaInfo
           ? _value.mediaInfo
           : mediaInfo // ignore: cast_nullable_to_non_nullable
-              as RadarrMediaInfo,
+              as RadarrMediaInfo?,
       originalFilePath: freezed == originalFilePath
           ? _value.originalFilePath
           : originalFilePath // ignore: cast_nullable_to_non_nullable
@@ -330,7 +334,7 @@ class _$_RadarrMovieFile implements _RadarrMovieFile {
       required this.indexerFlags,
       required this.quality,
       final List<RadarrCustomFormat>? customFormats,
-      required this.mediaInfo,
+      this.mediaInfo,
       this.originalFilePath,
       required this.qualityCutoffNotMet,
       final List<RadarrLanguage>? languages,
@@ -371,7 +375,7 @@ class _$_RadarrMovieFile implements _RadarrMovieFile {
   }
 
   @override
-  final RadarrMediaInfo mediaInfo;
+  final RadarrMediaInfo? mediaInfo;
   @override
   final String? originalFilePath;
   @override
@@ -476,7 +480,7 @@ abstract class _RadarrMovieFile implements RadarrMovieFile {
       required final int indexerFlags,
       required final RadarrQualityModel quality,
       final List<RadarrCustomFormat>? customFormats,
-      required final RadarrMediaInfo mediaInfo,
+      final RadarrMediaInfo? mediaInfo,
       final String? originalFilePath,
       required final bool qualityCutoffNotMet,
       final List<RadarrLanguage>? languages,
@@ -507,7 +511,7 @@ abstract class _RadarrMovieFile implements RadarrMovieFile {
   @override
   List<RadarrCustomFormat>? get customFormats;
   @override
-  RadarrMediaInfo get mediaInfo;
+  RadarrMediaInfo? get mediaInfo;
   @override
   String? get originalFilePath;
   @override

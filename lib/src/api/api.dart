@@ -589,7 +589,7 @@ abstract class RadarrAPI {
     @Query('path') required String path,
   });
 
-  /// Get any current health messages.
+  /// Get all current health messages.
   @GET('health')
   Future<List<RadarrHealth>> getAllHealth();
 

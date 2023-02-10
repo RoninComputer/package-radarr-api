@@ -21,8 +21,9 @@ _$_RadarrMovieFile _$$_RadarrMovieFileFromJson(Map<String, dynamic> json) =>
       customFormats: (json['customFormats'] as List<dynamic>?)
           ?.map((e) => RadarrCustomFormat.fromJson(e as Map<String, dynamic>))
           .toList(),
-      mediaInfo:
-          RadarrMediaInfo.fromJson(json['mediaInfo'] as Map<String, dynamic>),
+      mediaInfo: json['mediaInfo'] == null
+          ? null
+          : RadarrMediaInfo.fromJson(json['mediaInfo'] as Map<String, dynamic>),
       originalFilePath: json['originalFilePath'] as String?,
       qualityCutoffNotMet: json['qualityCutoffNotMet'] as bool,
       languages: (json['languages'] as List<dynamic>?)
@@ -52,7 +53,7 @@ Map<String, dynamic> _$$_RadarrMovieFileToJson(_$_RadarrMovieFile instance) {
   val['quality'] = instance.quality.toJson();
   writeNotNull(
       'customFormats', instance.customFormats?.map((e) => e.toJson()).toList());
-  val['mediaInfo'] = instance.mediaInfo.toJson();
+  writeNotNull('mediaInfo', instance.mediaInfo?.toJson());
   writeNotNull('originalFilePath', instance.originalFilePath);
   val['qualityCutoffNotMet'] = instance.qualityCutoffNotMet;
   writeNotNull(
