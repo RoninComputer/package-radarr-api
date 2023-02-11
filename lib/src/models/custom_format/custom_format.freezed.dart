@@ -22,7 +22,7 @@ RadarrCustomFormat _$RadarrCustomFormatFromJson(Map<String, dynamic> json) {
 mixin _$RadarrCustomFormat {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  bool get includeCustomFormatWhenRenaming =>
+  bool? get includeCustomFormatWhenRenaming =>
       throw _privateConstructorUsedError;
   List<RadarrCustomFormatSpecification>? get specifications =>
       throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $RadarrCustomFormatCopyWith<$Res> {
   $Res call(
       {int? id,
       String? name,
-      bool includeCustomFormatWhenRenaming,
+      bool? includeCustomFormatWhenRenaming,
       List<RadarrCustomFormatSpecification>? specifications});
 }
 
@@ -61,7 +61,7 @@ class _$RadarrCustomFormatCopyWithImpl<$Res, $Val extends RadarrCustomFormat>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? includeCustomFormatWhenRenaming = null,
+    Object? includeCustomFormatWhenRenaming = freezed,
     Object? specifications = freezed,
   }) {
     return _then(_value.copyWith(
@@ -73,10 +73,11 @@ class _$RadarrCustomFormatCopyWithImpl<$Res, $Val extends RadarrCustomFormat>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      includeCustomFormatWhenRenaming: null == includeCustomFormatWhenRenaming
+      includeCustomFormatWhenRenaming: freezed ==
+              includeCustomFormatWhenRenaming
           ? _value.includeCustomFormatWhenRenaming
           : includeCustomFormatWhenRenaming // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       specifications: freezed == specifications
           ? _value.specifications
           : specifications // ignore: cast_nullable_to_non_nullable
@@ -96,7 +97,7 @@ abstract class _$$_RadarrCustomFormatCopyWith<$Res>
   $Res call(
       {int? id,
       String? name,
-      bool includeCustomFormatWhenRenaming,
+      bool? includeCustomFormatWhenRenaming,
       List<RadarrCustomFormatSpecification>? specifications});
 }
 
@@ -113,7 +114,7 @@ class __$$_RadarrCustomFormatCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? includeCustomFormatWhenRenaming = null,
+    Object? includeCustomFormatWhenRenaming = freezed,
     Object? specifications = freezed,
   }) {
     return _then(_$_RadarrCustomFormat(
@@ -125,10 +126,11 @@ class __$$_RadarrCustomFormatCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      includeCustomFormatWhenRenaming: null == includeCustomFormatWhenRenaming
+      includeCustomFormatWhenRenaming: freezed ==
+              includeCustomFormatWhenRenaming
           ? _value.includeCustomFormatWhenRenaming
           : includeCustomFormatWhenRenaming // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       specifications: freezed == specifications
           ? _value._specifications
           : specifications // ignore: cast_nullable_to_non_nullable
@@ -143,7 +145,7 @@ class _$_RadarrCustomFormat implements _RadarrCustomFormat {
   const _$_RadarrCustomFormat(
       {this.id,
       this.name,
-      required this.includeCustomFormatWhenRenaming,
+      this.includeCustomFormatWhenRenaming,
       final List<RadarrCustomFormatSpecification>? specifications})
       : _specifications = specifications;
 
@@ -155,7 +157,7 @@ class _$_RadarrCustomFormat implements _RadarrCustomFormat {
   @override
   final String? name;
   @override
-  final bool includeCustomFormatWhenRenaming;
+  final bool? includeCustomFormatWhenRenaming;
   final List<RadarrCustomFormatSpecification>? _specifications;
   @override
   List<RadarrCustomFormatSpecification>? get specifications {
@@ -214,7 +216,7 @@ abstract class _RadarrCustomFormat implements RadarrCustomFormat {
   const factory _RadarrCustomFormat(
           {final int? id,
           final String? name,
-          required final bool includeCustomFormatWhenRenaming,
+          final bool? includeCustomFormatWhenRenaming,
           final List<RadarrCustomFormatSpecification>? specifications}) =
       _$_RadarrCustomFormat;
 
@@ -226,7 +228,7 @@ abstract class _RadarrCustomFormat implements RadarrCustomFormat {
   @override
   String? get name;
   @override
-  bool get includeCustomFormatWhenRenaming;
+  bool? get includeCustomFormatWhenRenaming;
   @override
   List<RadarrCustomFormatSpecification>? get specifications;
   @override

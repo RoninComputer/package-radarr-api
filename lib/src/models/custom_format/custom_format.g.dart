@@ -12,7 +12,7 @@ _$_RadarrCustomFormat _$$_RadarrCustomFormatFromJson(
       id: json['id'] as int?,
       name: json['name'] as String?,
       includeCustomFormatWhenRenaming:
-          json['includeCustomFormatWhenRenaming'] as bool,
+          json['includeCustomFormatWhenRenaming'] as bool?,
       specifications: (json['specifications'] as List<dynamic>?)
           ?.map((e) => RadarrCustomFormatSpecification.fromJson(
               e as Map<String, dynamic>))
@@ -31,8 +31,8 @@ Map<String, dynamic> _$$_RadarrCustomFormatToJson(
 
   writeNotNull('id', instance.id);
   writeNotNull('name', instance.name);
-  val['includeCustomFormatWhenRenaming'] =
-      instance.includeCustomFormatWhenRenaming;
+  writeNotNull('includeCustomFormatWhenRenaming',
+      instance.includeCustomFormatWhenRenaming);
   writeNotNull('specifications',
       instance.specifications?.map((e) => e.toJson()).toList());
   return val;

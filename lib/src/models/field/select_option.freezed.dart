@@ -25,7 +25,7 @@ mixin _$RadarrFieldSelectOption {
   String? get name => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
   String? get hint => throw _privateConstructorUsedError;
-  bool get dividerAfter => throw _privateConstructorUsedError;
+  bool? get dividerAfter => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ abstract class $RadarrFieldSelectOptionCopyWith<$Res> {
       _$RadarrFieldSelectOptionCopyWithImpl<$Res, RadarrFieldSelectOption>;
   @useResult
   $Res call(
-      {int value, String? name, int order, String? hint, bool dividerAfter});
+      {int value, String? name, int order, String? hint, bool? dividerAfter});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$RadarrFieldSelectOptionCopyWithImpl<$Res,
     Object? name = freezed,
     Object? order = null,
     Object? hint = freezed,
-    Object? dividerAfter = null,
+    Object? dividerAfter = freezed,
   }) {
     return _then(_value.copyWith(
       value: null == value
@@ -80,10 +80,10 @@ class _$RadarrFieldSelectOptionCopyWithImpl<$Res,
           ? _value.hint
           : hint // ignore: cast_nullable_to_non_nullable
               as String?,
-      dividerAfter: null == dividerAfter
+      dividerAfter: freezed == dividerAfter
           ? _value.dividerAfter
           : dividerAfter // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -97,7 +97,7 @@ abstract class _$$_RadarrFieldSelectOptionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int value, String? name, int order, String? hint, bool dividerAfter});
+      {int value, String? name, int order, String? hint, bool? dividerAfter});
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class __$$_RadarrFieldSelectOptionCopyWithImpl<$Res>
     Object? name = freezed,
     Object? order = null,
     Object? hint = freezed,
-    Object? dividerAfter = null,
+    Object? dividerAfter = freezed,
   }) {
     return _then(_$_RadarrFieldSelectOption(
       value: null == value
@@ -135,10 +135,10 @@ class __$$_RadarrFieldSelectOptionCopyWithImpl<$Res>
           ? _value.hint
           : hint // ignore: cast_nullable_to_non_nullable
               as String?,
-      dividerAfter: null == dividerAfter
+      dividerAfter: freezed == dividerAfter
           ? _value.dividerAfter
           : dividerAfter // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -151,7 +151,7 @@ class _$_RadarrFieldSelectOption implements _RadarrFieldSelectOption {
       this.name,
       required this.order,
       this.hint,
-      required this.dividerAfter});
+      this.dividerAfter});
 
   factory _$_RadarrFieldSelectOption.fromJson(Map<String, dynamic> json) =>
       _$$_RadarrFieldSelectOptionFromJson(json);
@@ -165,7 +165,7 @@ class _$_RadarrFieldSelectOption implements _RadarrFieldSelectOption {
   @override
   final String? hint;
   @override
-  final bool dividerAfter;
+  final bool? dividerAfter;
 
   @override
   String toString() {
@@ -212,7 +212,7 @@ abstract class _RadarrFieldSelectOption implements RadarrFieldSelectOption {
       final String? name,
       required final int order,
       final String? hint,
-      required final bool dividerAfter}) = _$_RadarrFieldSelectOption;
+      final bool? dividerAfter}) = _$_RadarrFieldSelectOption;
 
   factory _RadarrFieldSelectOption.fromJson(Map<String, dynamic> json) =
       _$_RadarrFieldSelectOption.fromJson;
@@ -226,7 +226,7 @@ abstract class _RadarrFieldSelectOption implements RadarrFieldSelectOption {
   @override
   String? get hint;
   @override
-  bool get dividerAfter;
+  bool? get dividerAfter;
   @override
   @JsonKey(ignore: true)
   _$$_RadarrFieldSelectOptionCopyWith<_$_RadarrFieldSelectOption>

@@ -10,7 +10,7 @@ class RadarrCustomFormat with _$RadarrCustomFormat, JsonSerializableMixin {
   const factory RadarrCustomFormat({
     int? id,
     String? name,
-    required bool includeCustomFormatWhenRenaming,
+    bool? includeCustomFormatWhenRenaming,
     List<RadarrCustomFormatSpecification>? specifications,
   }) = _RadarrCustomFormat;
 

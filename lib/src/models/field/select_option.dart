@@ -12,7 +12,7 @@ class RadarrFieldSelectOption
     String? name,
     required int order,
     String? hint,
-    required bool dividerAfter,
+    bool? dividerAfter,
   }) = _RadarrFieldSelectOption;
 
   factory RadarrFieldSelectOption.fromJson(Map<String, Object?> json) =>
