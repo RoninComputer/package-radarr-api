@@ -1,3 +1,8 @@
+# 1.0.5
+
+- add additional optional queries for history and logs
+- fix: make mediaInfo nullable in RadarrMovieFile
+
 # 1.0.4+1
 
 - update metadata
