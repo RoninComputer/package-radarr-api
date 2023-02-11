@@ -6,9 +6,9 @@ part of 'select_option.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RadarrSelectOption _$$_RadarrSelectOptionFromJson(
+_$_RadarrFieldSelectOption _$$_RadarrFieldSelectOptionFromJson(
         Map<String, dynamic> json) =>
-    _$_RadarrSelectOption(
+    _$_RadarrFieldSelectOption(
       value: json['value'] as int,
       name: json['name'] as String?,
       order: json['order'] as int,
@@ -16,8 +16,8 @@ _$_RadarrSelectOption _$$_RadarrSelectOptionFromJson(
       dividerAfter: json['dividerAfter'] as bool,
     );
 
-Map<String, dynamic> _$$_RadarrSelectOptionToJson(
-    _$_RadarrSelectOption instance) {
+Map<String, dynamic> _$$_RadarrFieldSelectOptionToJson(
+    _$_RadarrFieldSelectOption instance) {
   final val = <String, dynamic>{
     'value': instance.value,
   };

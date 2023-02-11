@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RadarrSelectOption _$RadarrSelectOptionFromJson(Map<String, dynamic> json) {
-  return _RadarrSelectOption.fromJson(json);
+RadarrFieldSelectOption _$RadarrFieldSelectOptionFromJson(
+    Map<String, dynamic> json) {
+  return _RadarrFieldSelectOption.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RadarrSelectOption {
+mixin _$RadarrFieldSelectOption {
   int get value => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
@@ -28,24 +29,25 @@ mixin _$RadarrSelectOption {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RadarrSelectOptionCopyWith<RadarrSelectOption> get copyWith =>
+  $RadarrFieldSelectOptionCopyWith<RadarrFieldSelectOption> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RadarrSelectOptionCopyWith<$Res> {
-  factory $RadarrSelectOptionCopyWith(
-          RadarrSelectOption value, $Res Function(RadarrSelectOption) then) =
-      _$RadarrSelectOptionCopyWithImpl<$Res, RadarrSelectOption>;
+abstract class $RadarrFieldSelectOptionCopyWith<$Res> {
+  factory $RadarrFieldSelectOptionCopyWith(RadarrFieldSelectOption value,
+          $Res Function(RadarrFieldSelectOption) then) =
+      _$RadarrFieldSelectOptionCopyWithImpl<$Res, RadarrFieldSelectOption>;
   @useResult
   $Res call(
       {int value, String? name, int order, String? hint, bool dividerAfter});
 }
 
 /// @nodoc
-class _$RadarrSelectOptionCopyWithImpl<$Res, $Val extends RadarrSelectOption>
-    implements $RadarrSelectOptionCopyWith<$Res> {
-  _$RadarrSelectOptionCopyWithImpl(this._value, this._then);
+class _$RadarrFieldSelectOptionCopyWithImpl<$Res,
+        $Val extends RadarrFieldSelectOption>
+    implements $RadarrFieldSelectOptionCopyWith<$Res> {
+  _$RadarrFieldSelectOptionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,11 +89,11 @@ class _$RadarrSelectOptionCopyWithImpl<$Res, $Val extends RadarrSelectOption>
 }
 
 /// @nodoc
-abstract class _$$_RadarrSelectOptionCopyWith<$Res>
-    implements $RadarrSelectOptionCopyWith<$Res> {
-  factory _$$_RadarrSelectOptionCopyWith(_$_RadarrSelectOption value,
-          $Res Function(_$_RadarrSelectOption) then) =
-      __$$_RadarrSelectOptionCopyWithImpl<$Res>;
+abstract class _$$_RadarrFieldSelectOptionCopyWith<$Res>
+    implements $RadarrFieldSelectOptionCopyWith<$Res> {
+  factory _$$_RadarrFieldSelectOptionCopyWith(_$_RadarrFieldSelectOption value,
+          $Res Function(_$_RadarrFieldSelectOption) then) =
+      __$$_RadarrFieldSelectOptionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,11 +101,12 @@ abstract class _$$_RadarrSelectOptionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RadarrSelectOptionCopyWithImpl<$Res>
-    extends _$RadarrSelectOptionCopyWithImpl<$Res, _$_RadarrSelectOption>
-    implements _$$_RadarrSelectOptionCopyWith<$Res> {
-  __$$_RadarrSelectOptionCopyWithImpl(
-      _$_RadarrSelectOption _value, $Res Function(_$_RadarrSelectOption) _then)
+class __$$_RadarrFieldSelectOptionCopyWithImpl<$Res>
+    extends _$RadarrFieldSelectOptionCopyWithImpl<$Res,
+        _$_RadarrFieldSelectOption>
+    implements _$$_RadarrFieldSelectOptionCopyWith<$Res> {
+  __$$_RadarrFieldSelectOptionCopyWithImpl(_$_RadarrFieldSelectOption _value,
+      $Res Function(_$_RadarrFieldSelectOption) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +118,7 @@ class __$$_RadarrSelectOptionCopyWithImpl<$Res>
     Object? hint = freezed,
     Object? dividerAfter = null,
   }) {
-    return _then(_$_RadarrSelectOption(
+    return _then(_$_RadarrFieldSelectOption(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -142,16 +145,16 @@ class __$$_RadarrSelectOptionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RadarrSelectOption implements _RadarrSelectOption {
-  const _$_RadarrSelectOption(
+class _$_RadarrFieldSelectOption implements _RadarrFieldSelectOption {
+  const _$_RadarrFieldSelectOption(
       {required this.value,
       this.name,
       required this.order,
       this.hint,
       required this.dividerAfter});
 
-  factory _$_RadarrSelectOption.fromJson(Map<String, dynamic> json) =>
-      _$$_RadarrSelectOptionFromJson(json);
+  factory _$_RadarrFieldSelectOption.fromJson(Map<String, dynamic> json) =>
+      _$$_RadarrFieldSelectOptionFromJson(json);
 
   @override
   final int value;
@@ -166,14 +169,14 @@ class _$_RadarrSelectOption implements _RadarrSelectOption {
 
   @override
   String toString() {
-    return 'RadarrSelectOption(value: $value, name: $name, order: $order, hint: $hint, dividerAfter: $dividerAfter)';
+    return 'RadarrFieldSelectOption(value: $value, name: $name, order: $order, hint: $hint, dividerAfter: $dividerAfter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadarrSelectOption &&
+            other is _$_RadarrFieldSelectOption &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.order, order) || other.order == order) &&
@@ -190,28 +193,29 @@ class _$_RadarrSelectOption implements _RadarrSelectOption {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadarrSelectOptionCopyWith<_$_RadarrSelectOption> get copyWith =>
-      __$$_RadarrSelectOptionCopyWithImpl<_$_RadarrSelectOption>(
-          this, _$identity);
+  _$$_RadarrFieldSelectOptionCopyWith<_$_RadarrFieldSelectOption>
+      get copyWith =>
+          __$$_RadarrFieldSelectOptionCopyWithImpl<_$_RadarrFieldSelectOption>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RadarrSelectOptionToJson(
+    return _$$_RadarrFieldSelectOptionToJson(
       this,
     );
   }
 }
 
-abstract class _RadarrSelectOption implements RadarrSelectOption {
-  const factory _RadarrSelectOption(
+abstract class _RadarrFieldSelectOption implements RadarrFieldSelectOption {
+  const factory _RadarrFieldSelectOption(
       {required final int value,
       final String? name,
       required final int order,
       final String? hint,
-      required final bool dividerAfter}) = _$_RadarrSelectOption;
+      required final bool dividerAfter}) = _$_RadarrFieldSelectOption;
 
-  factory _RadarrSelectOption.fromJson(Map<String, dynamic> json) =
-      _$_RadarrSelectOption.fromJson;
+  factory _RadarrFieldSelectOption.fromJson(Map<String, dynamic> json) =
+      _$_RadarrFieldSelectOption.fromJson;
 
   @override
   int get value;
@@ -225,6 +229,6 @@ abstract class _RadarrSelectOption implements RadarrSelectOption {
   bool get dividerAfter;
   @override
   @JsonKey(ignore: true)
-  _$$_RadarrSelectOptionCopyWith<_$_RadarrSelectOption> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_RadarrFieldSelectOptionCopyWith<_$_RadarrFieldSelectOption>
+      get copyWith => throw _privateConstructorUsedError;
 }

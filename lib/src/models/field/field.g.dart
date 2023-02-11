@@ -18,7 +18,8 @@ _$_RadarrField _$$_RadarrFieldFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String?,
       advanced: json['advanced'] as bool,
       selectOptions: (json['selectOptions'] as List<dynamic>?)
-          ?.map((e) => RadarrSelectOption.fromJson(e as Map<String, dynamic>))
+          ?.map((e) =>
+              RadarrFieldSelectOption.fromJson(e as Map<String, dynamic>))
           .toList(),
       selectOptionsProviderAction:
           json['selectOptionsProviderAction'] as String?,

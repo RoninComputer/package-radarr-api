@@ -29,7 +29,7 @@ mixin _$RadarrField {
   dynamic get value => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   bool get advanced => throw _privateConstructorUsedError;
-  List<RadarrSelectOption>? get selectOptions =>
+  List<RadarrFieldSelectOption>? get selectOptions =>
       throw _privateConstructorUsedError;
   String? get selectOptionsProviderAction => throw _privateConstructorUsedError;
   String? get section => throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ abstract class $RadarrFieldCopyWith<$Res> {
       dynamic value,
       String? type,
       bool advanced,
-      List<RadarrSelectOption>? selectOptions,
+      List<RadarrFieldSelectOption>? selectOptions,
       String? selectOptionsProviderAction,
       String? section,
       String? hidden,
@@ -151,7 +151,7 @@ class _$RadarrFieldCopyWithImpl<$Res, $Val extends RadarrField>
       selectOptions: freezed == selectOptions
           ? _value.selectOptions
           : selectOptions // ignore: cast_nullable_to_non_nullable
-              as List<RadarrSelectOption>?,
+              as List<RadarrFieldSelectOption>?,
       selectOptionsProviderAction: freezed == selectOptionsProviderAction
           ? _value.selectOptionsProviderAction
           : selectOptionsProviderAction // ignore: cast_nullable_to_non_nullable
@@ -214,7 +214,7 @@ abstract class _$$_RadarrFieldCopyWith<$Res>
       dynamic value,
       String? type,
       bool advanced,
-      List<RadarrSelectOption>? selectOptions,
+      List<RadarrFieldSelectOption>? selectOptions,
       String? selectOptionsProviderAction,
       String? section,
       String? hidden,
@@ -299,7 +299,7 @@ class __$$_RadarrFieldCopyWithImpl<$Res>
       selectOptions: freezed == selectOptions
           ? _value._selectOptions
           : selectOptions // ignore: cast_nullable_to_non_nullable
-              as List<RadarrSelectOption>?,
+              as List<RadarrFieldSelectOption>?,
       selectOptionsProviderAction: freezed == selectOptionsProviderAction
           ? _value.selectOptionsProviderAction
           : selectOptionsProviderAction // ignore: cast_nullable_to_non_nullable
@@ -357,7 +357,7 @@ class _$_RadarrField implements _RadarrField {
       this.value,
       this.type,
       required this.advanced,
-      final List<RadarrSelectOption>? selectOptions,
+      final List<RadarrFieldSelectOption>? selectOptions,
       this.selectOptionsProviderAction,
       this.section,
       this.hidden,
@@ -391,9 +391,9 @@ class _$_RadarrField implements _RadarrField {
   final String? type;
   @override
   final bool advanced;
-  final List<RadarrSelectOption>? _selectOptions;
+  final List<RadarrFieldSelectOption>? _selectOptions;
   @override
-  List<RadarrSelectOption>? get selectOptions {
+  List<RadarrFieldSelectOption>? get selectOptions {
     final value = _selectOptions;
     if (value == null) return null;
     if (_selectOptions is EqualUnmodifiableListView) return _selectOptions;
@@ -517,7 +517,7 @@ abstract class _RadarrField implements RadarrField {
       final dynamic value,
       final String? type,
       required final bool advanced,
-      final List<RadarrSelectOption>? selectOptions,
+      final List<RadarrFieldSelectOption>? selectOptions,
       final String? selectOptionsProviderAction,
       final String? section,
       final String? hidden,
@@ -551,7 +551,7 @@ abstract class _RadarrField implements RadarrField {
   @override
   bool get advanced;
   @override
-  List<RadarrSelectOption>? get selectOptions;
+  List<RadarrFieldSelectOption>? get selectOptions;
   @override
   String? get selectOptionsProviderAction;
   @override

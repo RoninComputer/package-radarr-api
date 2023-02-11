@@ -5,15 +5,16 @@ part 'select_option.freezed.dart';
 part 'select_option.g.dart';
 
 @Freezed()
-class RadarrSelectOption with _$RadarrSelectOption, JsonSerializableMixin {
-  const factory RadarrSelectOption({
+class RadarrFieldSelectOption
+    with _$RadarrFieldSelectOption, JsonSerializableMixin {
+  const factory RadarrFieldSelectOption({
     required int value,
     String? name,
     required int order,
     String? hint,
     required bool dividerAfter,
-  }) = _RadarrSelectOption;
+  }) = _RadarrFieldSelectOption;
 
-  factory RadarrSelectOption.fromJson(Map<String, Object?> json) =>
-      _$RadarrSelectOptionFromJson(json);
+  factory RadarrFieldSelectOption.fromJson(Map<String, Object?> json) =>
+      _$RadarrFieldSelectOptionFromJson(json);
 }

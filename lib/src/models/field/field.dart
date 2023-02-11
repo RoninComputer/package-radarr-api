@@ -17,7 +17,7 @@ class RadarrField with _$RadarrField, JsonSerializableMixin {
     dynamic value,
     String? type,
     required bool advanced,
-    List<RadarrSelectOption>? selectOptions,
+    List<RadarrFieldSelectOption>? selectOptions,
     String? selectOptionsProviderAction,
     String? section,
     String? hidden,
