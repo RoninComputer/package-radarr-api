@@ -2435,6 +2435,8 @@ class _RadarrAPI implements RadarrAPI {
     sortKey,
     sortDirection,
     includeMovie = false,
+    eventType,
+    downloadId,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -2443,6 +2445,8 @@ class _RadarrAPI implements RadarrAPI {
       r'sortKey': sortKey,
       r'sortDirection': sortDirection?.toJson(),
       r'includeMovie': includeMovie,
+      r'eventType': eventType,
+      r'downloadId': downloadId,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -3128,6 +3132,7 @@ class _RadarrAPI implements RadarrAPI {
     pageSize,
     sortKey,
     sortDirection,
+    level,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -3135,6 +3140,7 @@ class _RadarrAPI implements RadarrAPI {
       r'pageSize': pageSize,
       r'sortKey': sortKey,
       r'sortDirection': sortDirection?.toJson(),
+      r'level': level?.toJson(),
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

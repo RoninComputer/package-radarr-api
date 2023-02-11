@@ -607,6 +607,8 @@ abstract class RadarrAPI {
     @Query('sortKey') String? sortKey,
     @Query('sortDirection') RadarrSortDirection? sortDirection,
     @Query('includeMovie') bool? includeMovie = false,
+    @Query('eventType') int? eventType,
+    @Query('downloadId') String? downloadId,
   });
 
   /// Get all history since the date given.
@@ -764,6 +766,7 @@ abstract class RadarrAPI {
     @Query('pageSize') int? pageSize,
     @Query('sortKey') String? sortKey,
     @Query('sortDirection') RadarrSortDirection? sortDirection,
+    @Query('level') RadarrLogLevel? level,
   });
 
   /// Get a list of log files.
@@ -1154,6 +1157,7 @@ abstract class RadarrAPI {
     @Body() required RadarrRemotePathMapping mapping,
   });
 
+  /// Get a preview of results for renaming a movie file.
   @GET('rename')
   Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview({
     @Query('movieId') required int movieId,
