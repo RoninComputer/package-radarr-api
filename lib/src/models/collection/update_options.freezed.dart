@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'update.dart';
+part of 'update_options.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RadarrCollectionUpdate _$RadarrCollectionUpdateFromJson(
+RadarrCollectionUpdateOptions _$RadarrCollectionUpdateOptionsFromJson(
     Map<String, dynamic> json) {
-  return _RadarrCollectionUpdate.fromJson(json);
+  return _RadarrCollectionUpdateOptions.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RadarrCollectionUpdate {
+mixin _$RadarrCollectionUpdateOptions {
   List<int> get collectionIds => throw _privateConstructorUsedError;
   bool? get monitored => throw _privateConstructorUsedError;
   bool? get monitorMovies => throw _privateConstructorUsedError;
@@ -31,15 +31,17 @@ mixin _$RadarrCollectionUpdate {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RadarrCollectionUpdateCopyWith<RadarrCollectionUpdate> get copyWith =>
-      throw _privateConstructorUsedError;
+  $RadarrCollectionUpdateOptionsCopyWith<RadarrCollectionUpdateOptions>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RadarrCollectionUpdateCopyWith<$Res> {
-  factory $RadarrCollectionUpdateCopyWith(RadarrCollectionUpdate value,
-          $Res Function(RadarrCollectionUpdate) then) =
-      _$RadarrCollectionUpdateCopyWithImpl<$Res, RadarrCollectionUpdate>;
+abstract class $RadarrCollectionUpdateOptionsCopyWith<$Res> {
+  factory $RadarrCollectionUpdateOptionsCopyWith(
+          RadarrCollectionUpdateOptions value,
+          $Res Function(RadarrCollectionUpdateOptions) then) =
+      _$RadarrCollectionUpdateOptionsCopyWithImpl<$Res,
+          RadarrCollectionUpdateOptions>;
   @useResult
   $Res call(
       {List<int> collectionIds,
@@ -51,10 +53,10 @@ abstract class $RadarrCollectionUpdateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RadarrCollectionUpdateCopyWithImpl<$Res,
-        $Val extends RadarrCollectionUpdate>
-    implements $RadarrCollectionUpdateCopyWith<$Res> {
-  _$RadarrCollectionUpdateCopyWithImpl(this._value, this._then);
+class _$RadarrCollectionUpdateOptionsCopyWithImpl<$Res,
+        $Val extends RadarrCollectionUpdateOptions>
+    implements $RadarrCollectionUpdateOptionsCopyWith<$Res> {
+  _$RadarrCollectionUpdateOptionsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -101,11 +103,12 @@ class _$RadarrCollectionUpdateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_RadarrCollectionUpdateCopyWith<$Res>
-    implements $RadarrCollectionUpdateCopyWith<$Res> {
-  factory _$$_RadarrCollectionUpdateCopyWith(_$_RadarrCollectionUpdate value,
-          $Res Function(_$_RadarrCollectionUpdate) then) =
-      __$$_RadarrCollectionUpdateCopyWithImpl<$Res>;
+abstract class _$$_RadarrCollectionUpdateOptionsCopyWith<$Res>
+    implements $RadarrCollectionUpdateOptionsCopyWith<$Res> {
+  factory _$$_RadarrCollectionUpdateOptionsCopyWith(
+          _$_RadarrCollectionUpdateOptions value,
+          $Res Function(_$_RadarrCollectionUpdateOptions) then) =
+      __$$_RadarrCollectionUpdateOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -118,12 +121,13 @@ abstract class _$$_RadarrCollectionUpdateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RadarrCollectionUpdateCopyWithImpl<$Res>
-    extends _$RadarrCollectionUpdateCopyWithImpl<$Res,
-        _$_RadarrCollectionUpdate>
-    implements _$$_RadarrCollectionUpdateCopyWith<$Res> {
-  __$$_RadarrCollectionUpdateCopyWithImpl(_$_RadarrCollectionUpdate _value,
-      $Res Function(_$_RadarrCollectionUpdate) _then)
+class __$$_RadarrCollectionUpdateOptionsCopyWithImpl<$Res>
+    extends _$RadarrCollectionUpdateOptionsCopyWithImpl<$Res,
+        _$_RadarrCollectionUpdateOptions>
+    implements _$$_RadarrCollectionUpdateOptionsCopyWith<$Res> {
+  __$$_RadarrCollectionUpdateOptionsCopyWithImpl(
+      _$_RadarrCollectionUpdateOptions _value,
+      $Res Function(_$_RadarrCollectionUpdateOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -136,7 +140,7 @@ class __$$_RadarrCollectionUpdateCopyWithImpl<$Res>
     Object? rootFolderPath = freezed,
     Object? minimumAvailability = freezed,
   }) {
-    return _then(_$_RadarrCollectionUpdate(
+    return _then(_$_RadarrCollectionUpdateOptions(
       collectionIds: null == collectionIds
           ? _value._collectionIds
           : collectionIds // ignore: cast_nullable_to_non_nullable
@@ -167,8 +171,9 @@ class __$$_RadarrCollectionUpdateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RadarrCollectionUpdate implements _RadarrCollectionUpdate {
-  const _$_RadarrCollectionUpdate(
+class _$_RadarrCollectionUpdateOptions
+    implements _RadarrCollectionUpdateOptions {
+  const _$_RadarrCollectionUpdateOptions(
       {required final List<int> collectionIds,
       this.monitored,
       this.monitorMovies,
@@ -177,8 +182,9 @@ class _$_RadarrCollectionUpdate implements _RadarrCollectionUpdate {
       this.minimumAvailability})
       : _collectionIds = collectionIds;
 
-  factory _$_RadarrCollectionUpdate.fromJson(Map<String, dynamic> json) =>
-      _$$_RadarrCollectionUpdateFromJson(json);
+  factory _$_RadarrCollectionUpdateOptions.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_RadarrCollectionUpdateOptionsFromJson(json);
 
   final List<int> _collectionIds;
   @override
@@ -201,14 +207,14 @@ class _$_RadarrCollectionUpdate implements _RadarrCollectionUpdate {
 
   @override
   String toString() {
-    return 'RadarrCollectionUpdate(collectionIds: $collectionIds, monitored: $monitored, monitorMovies: $monitorMovies, qualityProfileId: $qualityProfileId, rootFolderPath: $rootFolderPath, minimumAvailability: $minimumAvailability)';
+    return 'RadarrCollectionUpdateOptions(collectionIds: $collectionIds, monitored: $monitored, monitorMovies: $monitorMovies, qualityProfileId: $qualityProfileId, rootFolderPath: $rootFolderPath, minimumAvailability: $minimumAvailability)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadarrCollectionUpdate &&
+            other is _$_RadarrCollectionUpdateOptions &&
             const DeepCollectionEquality()
                 .equals(other._collectionIds, _collectionIds) &&
             (identical(other.monitored, monitored) ||
@@ -237,30 +243,31 @@ class _$_RadarrCollectionUpdate implements _RadarrCollectionUpdate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadarrCollectionUpdateCopyWith<_$_RadarrCollectionUpdate> get copyWith =>
-      __$$_RadarrCollectionUpdateCopyWithImpl<_$_RadarrCollectionUpdate>(
-          this, _$identity);
+  _$$_RadarrCollectionUpdateOptionsCopyWith<_$_RadarrCollectionUpdateOptions>
+      get copyWith => __$$_RadarrCollectionUpdateOptionsCopyWithImpl<
+          _$_RadarrCollectionUpdateOptions>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RadarrCollectionUpdateToJson(
+    return _$$_RadarrCollectionUpdateOptionsToJson(
       this,
     );
   }
 }
 
-abstract class _RadarrCollectionUpdate implements RadarrCollectionUpdate {
-  const factory _RadarrCollectionUpdate(
+abstract class _RadarrCollectionUpdateOptions
+    implements RadarrCollectionUpdateOptions {
+  const factory _RadarrCollectionUpdateOptions(
           {required final List<int> collectionIds,
           final bool? monitored,
           final bool? monitorMovies,
           final int? qualityProfileId,
           final String? rootFolderPath,
           final RadarrMovieStatus? minimumAvailability}) =
-      _$_RadarrCollectionUpdate;
+      _$_RadarrCollectionUpdateOptions;
 
-  factory _RadarrCollectionUpdate.fromJson(Map<String, dynamic> json) =
-      _$_RadarrCollectionUpdate.fromJson;
+  factory _RadarrCollectionUpdateOptions.fromJson(Map<String, dynamic> json) =
+      _$_RadarrCollectionUpdateOptions.fromJson;
 
   @override
   List<int> get collectionIds;
@@ -276,6 +283,6 @@ abstract class _RadarrCollectionUpdate implements RadarrCollectionUpdate {
   RadarrMovieStatus? get minimumAvailability;
   @override
   @JsonKey(ignore: true)
-  _$$_RadarrCollectionUpdateCopyWith<_$_RadarrCollectionUpdate> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_RadarrCollectionUpdateOptionsCopyWith<_$_RadarrCollectionUpdateOptions>
+      get copyWith => throw _privateConstructorUsedError;
 }

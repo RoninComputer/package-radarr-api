@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'bulk_list.dart';
+part of 'bulk_options.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,33 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RadarrQueueBulkList _$RadarrQueueBulkListFromJson(Map<String, dynamic> json) {
-  return _RadarrQueueBulkList.fromJson(json);
+RadarrQueueBulkOptions _$RadarrQueueBulkOptionsFromJson(
+    Map<String, dynamic> json) {
+  return _RadarrQueueBulkOptions.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RadarrQueueBulkList {
+mixin _$RadarrQueueBulkOptions {
   List<int> get ids => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RadarrQueueBulkListCopyWith<RadarrQueueBulkList> get copyWith =>
+  $RadarrQueueBulkOptionsCopyWith<RadarrQueueBulkOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RadarrQueueBulkListCopyWith<$Res> {
-  factory $RadarrQueueBulkListCopyWith(
-          RadarrQueueBulkList value, $Res Function(RadarrQueueBulkList) then) =
-      _$RadarrQueueBulkListCopyWithImpl<$Res, RadarrQueueBulkList>;
+abstract class $RadarrQueueBulkOptionsCopyWith<$Res> {
+  factory $RadarrQueueBulkOptionsCopyWith(RadarrQueueBulkOptions value,
+          $Res Function(RadarrQueueBulkOptions) then) =
+      _$RadarrQueueBulkOptionsCopyWithImpl<$Res, RadarrQueueBulkOptions>;
   @useResult
   $Res call({List<int> ids});
 }
 
 /// @nodoc
-class _$RadarrQueueBulkListCopyWithImpl<$Res, $Val extends RadarrQueueBulkList>
-    implements $RadarrQueueBulkListCopyWith<$Res> {
-  _$RadarrQueueBulkListCopyWithImpl(this._value, this._then);
+class _$RadarrQueueBulkOptionsCopyWithImpl<$Res,
+        $Val extends RadarrQueueBulkOptions>
+    implements $RadarrQueueBulkOptionsCopyWith<$Res> {
+  _$RadarrQueueBulkOptionsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,22 +64,23 @@ class _$RadarrQueueBulkListCopyWithImpl<$Res, $Val extends RadarrQueueBulkList>
 }
 
 /// @nodoc
-abstract class _$$_RadarrQueueBulkListCopyWith<$Res>
-    implements $RadarrQueueBulkListCopyWith<$Res> {
-  factory _$$_RadarrQueueBulkListCopyWith(_$_RadarrQueueBulkList value,
-          $Res Function(_$_RadarrQueueBulkList) then) =
-      __$$_RadarrQueueBulkListCopyWithImpl<$Res>;
+abstract class _$$_RadarrQueueBulkOptionsCopyWith<$Res>
+    implements $RadarrQueueBulkOptionsCopyWith<$Res> {
+  factory _$$_RadarrQueueBulkOptionsCopyWith(_$_RadarrQueueBulkOptions value,
+          $Res Function(_$_RadarrQueueBulkOptions) then) =
+      __$$_RadarrQueueBulkOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<int> ids});
 }
 
 /// @nodoc
-class __$$_RadarrQueueBulkListCopyWithImpl<$Res>
-    extends _$RadarrQueueBulkListCopyWithImpl<$Res, _$_RadarrQueueBulkList>
-    implements _$$_RadarrQueueBulkListCopyWith<$Res> {
-  __$$_RadarrQueueBulkListCopyWithImpl(_$_RadarrQueueBulkList _value,
-      $Res Function(_$_RadarrQueueBulkList) _then)
+class __$$_RadarrQueueBulkOptionsCopyWithImpl<$Res>
+    extends _$RadarrQueueBulkOptionsCopyWithImpl<$Res,
+        _$_RadarrQueueBulkOptions>
+    implements _$$_RadarrQueueBulkOptionsCopyWith<$Res> {
+  __$$_RadarrQueueBulkOptionsCopyWithImpl(_$_RadarrQueueBulkOptions _value,
+      $Res Function(_$_RadarrQueueBulkOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +88,7 @@ class __$$_RadarrQueueBulkListCopyWithImpl<$Res>
   $Res call({
     Object? ids = null,
   }) {
-    return _then(_$_RadarrQueueBulkList(
+    return _then(_$_RadarrQueueBulkOptions(
       ids: null == ids
           ? _value._ids
           : ids // ignore: cast_nullable_to_non_nullable
@@ -96,11 +99,11 @@ class __$$_RadarrQueueBulkListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RadarrQueueBulkList implements _RadarrQueueBulkList {
-  const _$_RadarrQueueBulkList({required final List<int> ids}) : _ids = ids;
+class _$_RadarrQueueBulkOptions implements _RadarrQueueBulkOptions {
+  const _$_RadarrQueueBulkOptions({required final List<int> ids}) : _ids = ids;
 
-  factory _$_RadarrQueueBulkList.fromJson(Map<String, dynamic> json) =>
-      _$$_RadarrQueueBulkListFromJson(json);
+  factory _$_RadarrQueueBulkOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_RadarrQueueBulkOptionsFromJson(json);
 
   final List<int> _ids;
   @override
@@ -112,14 +115,14 @@ class _$_RadarrQueueBulkList implements _RadarrQueueBulkList {
 
   @override
   String toString() {
-    return 'RadarrQueueBulkList(ids: $ids)';
+    return 'RadarrQueueBulkOptions(ids: $ids)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RadarrQueueBulkList &&
+            other is _$_RadarrQueueBulkOptions &&
             const DeepCollectionEquality().equals(other._ids, _ids));
   }
 
@@ -131,29 +134,29 @@ class _$_RadarrQueueBulkList implements _RadarrQueueBulkList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RadarrQueueBulkListCopyWith<_$_RadarrQueueBulkList> get copyWith =>
-      __$$_RadarrQueueBulkListCopyWithImpl<_$_RadarrQueueBulkList>(
+  _$$_RadarrQueueBulkOptionsCopyWith<_$_RadarrQueueBulkOptions> get copyWith =>
+      __$$_RadarrQueueBulkOptionsCopyWithImpl<_$_RadarrQueueBulkOptions>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RadarrQueueBulkListToJson(
+    return _$$_RadarrQueueBulkOptionsToJson(
       this,
     );
   }
 }
 
-abstract class _RadarrQueueBulkList implements RadarrQueueBulkList {
-  const factory _RadarrQueueBulkList({required final List<int> ids}) =
-      _$_RadarrQueueBulkList;
+abstract class _RadarrQueueBulkOptions implements RadarrQueueBulkOptions {
+  const factory _RadarrQueueBulkOptions({required final List<int> ids}) =
+      _$_RadarrQueueBulkOptions;
 
-  factory _RadarrQueueBulkList.fromJson(Map<String, dynamic> json) =
-      _$_RadarrQueueBulkList.fromJson;
+  factory _RadarrQueueBulkOptions.fromJson(Map<String, dynamic> json) =
+      _$_RadarrQueueBulkOptions.fromJson;
 
   @override
   List<int> get ids;
   @override
   @JsonKey(ignore: true)
-  _$$_RadarrQueueBulkListCopyWith<_$_RadarrQueueBulkList> get copyWith =>
+  _$$_RadarrQueueBulkOptionsCopyWith<_$_RadarrQueueBulkOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }

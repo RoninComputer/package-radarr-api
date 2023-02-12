@@ -77,7 +77,7 @@ abstract class RadarrAPI {
   /// Bulk update a group of collections.
   @PUT('collection')
   Future<void> updateCollections({
-    @Body() required RadarrCollectionUpdate update,
+    @Body() required RadarrCollectionUpdateOptions options,
   });
 
   /// Update a single collection.
@@ -1085,7 +1085,7 @@ abstract class RadarrAPI {
   /// Delete a batch of queue items.
   @DELETE('queue/bulk')
   Future<void> deleteQueueItems({
-    @Body() required RadarrQueueBulkList list,
+    @Body() required RadarrQueueBulkOptions options,
     @Query('blocklist') bool blocklist = false,
     @Query('removeFromClient') bool removeFromClient = true,
   });
@@ -1101,7 +1101,7 @@ abstract class RadarrAPI {
   /// Grab a batch of queue items.
   @POST('queue/grab/bulk')
   Future<void> grabQueueItems({
-    @Body() required RadarrQueueBulkList list,
+    @Body() required RadarrQueueBulkOptions options,
     @Query('blocklist') bool blocklist = false,
     @Query('removeFromClient') bool removeFromClient = true,
   });

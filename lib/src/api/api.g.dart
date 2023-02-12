@@ -242,12 +242,12 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> updateCollections({required update}) async {
+  Future<void> updateCollections({required options}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(update.toJson());
+    _data.addAll(options.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
@@ -4463,7 +4463,7 @@ class _RadarrAPI implements RadarrAPI {
 
   @override
   Future<void> deleteQueueItems({
-    required list,
+    required options,
     blocklist = false,
     removeFromClient = true,
   }) async {
@@ -4473,8 +4473,7 @@ class _RadarrAPI implements RadarrAPI {
       r'removeFromClient': removeFromClient,
     };
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(list.toJson());
+    final _data = options;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,
@@ -4520,7 +4519,7 @@ class _RadarrAPI implements RadarrAPI {
 
   @override
   Future<void> grabQueueItems({
-    required list,
+    required options,
     blocklist = false,
     removeFromClient = true,
   }) async {
@@ -4530,8 +4529,7 @@ class _RadarrAPI implements RadarrAPI {
       r'removeFromClient': removeFromClient,
     };
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(list.toJson());
+    final _data = options;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,

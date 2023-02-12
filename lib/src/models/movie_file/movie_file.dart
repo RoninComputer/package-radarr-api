@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:radarr_api/src/models/custom_format/custom_format.dart';
 import 'package:radarr_api/src/models/language/language.dart';
-import 'package:radarr_api/src/models/movie_file/media_info.dart';
+import 'package:radarr_api/src/models/media_info/media_info.dart';
 import 'package:radarr_api/src/models/quality/model.dart';
 import 'package:radarr_api/src/internal/mixins/serializable.dart';
 

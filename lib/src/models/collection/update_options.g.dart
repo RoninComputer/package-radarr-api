@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'update.dart';
+part of 'update_options.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RadarrCollectionUpdate _$$_RadarrCollectionUpdateFromJson(
+_$_RadarrCollectionUpdateOptions _$$_RadarrCollectionUpdateOptionsFromJson(
         Map<String, dynamic> json) =>
-    _$_RadarrCollectionUpdate(
+    _$_RadarrCollectionUpdateOptions(
       collectionIds: (json['collectionIds'] as List<dynamic>)
           .map((e) => e as int)
           .toList(),
@@ -20,8 +20,8 @@ _$_RadarrCollectionUpdate _$$_RadarrCollectionUpdateFromJson(
           _$RadarrMovieStatusEnumMap, json['minimumAvailability']),
     );
 
-Map<String, dynamic> _$$_RadarrCollectionUpdateToJson(
-    _$_RadarrCollectionUpdate instance) {
+Map<String, dynamic> _$$_RadarrCollectionUpdateOptionsToJson(
+    _$_RadarrCollectionUpdateOptions instance) {
   final val = <String, dynamic>{
     'collectionIds': instance.collectionIds,
   };
