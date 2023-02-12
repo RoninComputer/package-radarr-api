@@ -1,3 +1,8 @@
+# 1.0.6
+
+- fix: nullify some custom format and select option parameters
+- refactor: update class names
+
 # 1.0.5
 
 - add additional optional queries for history and logs
