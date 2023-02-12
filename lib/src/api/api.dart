@@ -10,13 +10,7 @@ part 'api.g.dart';
 @RestApi()
 abstract class RadarrAPI {
   factory RadarrAPI(RadarrConfig config) {
-    Dio dio = Dio(BaseOptions(
-      baseUrl: config.baseUrl,
-      queryParameters: {
-        'apikey': config.apiKey,
-      },
-      headers: config.headers,
-    ));
+    Dio dio = Dio(config.baseOptions);
     return _RadarrAPI(dio);
   }
 

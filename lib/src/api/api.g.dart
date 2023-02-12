@@ -4473,7 +4473,8 @@ class _RadarrAPI implements RadarrAPI {
       r'removeFromClient': removeFromClient,
     };
     final _headers = <String, dynamic>{};
-    final _data = options;
+    final _data = <String, dynamic>{};
+    _data.addAll(options.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,
@@ -4529,7 +4530,8 @@ class _RadarrAPI implements RadarrAPI {
       r'removeFromClient': removeFromClient,
     };
     final _headers = <String, dynamic>{};
-    final _data = options;
+    final _data = <String, dynamic>{};
+    _data.addAll(options.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
