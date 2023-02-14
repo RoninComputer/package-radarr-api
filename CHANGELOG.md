@@ -1,3 +1,10 @@
+# 1.1.0
+
+- allow passing in BaseOptions Dio client configuration
+- allow passing in CancelToken to all requests
+- fix: handle all formats of C# TimeSpan 'c' format specifier
+- chore: update dependencies
+
 # 1.0.6
 
 - fix: nullify some custom format and select option parameters
