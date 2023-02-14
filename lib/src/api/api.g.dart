@@ -173,7 +173,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -295,7 +294,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1160,7 +1158,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -1847,7 +1844,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2017,7 +2013,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2158,7 +2153,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2326,7 +2320,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2444,7 +2437,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2584,7 +2576,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -2937,7 +2928,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3078,7 +3068,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3133,7 +3122,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3190,7 +3178,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3392,7 +3379,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3446,7 +3432,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3502,7 +3487,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -3978,7 +3962,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4155,7 +4138,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4213,7 +4195,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4447,7 +4428,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4619,7 +4599,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4675,7 +4654,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -4732,7 +4710,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5017,7 +4994,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5116,7 +5092,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5148,7 +5123,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5179,7 +5153,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5211,7 +5184,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5441,7 +5413,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5613,7 +5584,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5754,7 +5724,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5807,7 +5776,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5833,7 +5801,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5856,7 +5823,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -5879,7 +5845,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
@@ -6069,7 +6034,6 @@ class _RadarrAPI implements RadarrAPI {
           cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
   }
 
   @override
