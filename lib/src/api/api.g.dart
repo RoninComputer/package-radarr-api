@@ -22,6 +22,7 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<RadarrMovieAlternateTitle>> getAlternateTitles({
     movieId,
     movieMetadataId,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -42,6 +43,7 @@ class _RadarrAPI implements RadarrAPI {
               'alttitle',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -52,9 +54,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovieAlternateTitle> getAlternateTitle({required id}) async {
+  Future<RadarrMovieAlternateTitle> getAlternateTitle({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -68,6 +74,7 @@ class _RadarrAPI implements RadarrAPI {
               'alttitle/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovieAlternateTitle.fromJson(_result.data!);
@@ -80,6 +87,7 @@ class _RadarrAPI implements RadarrAPI {
     pageSize,
     sortKey,
     sortDirection,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -102,6 +110,7 @@ class _RadarrAPI implements RadarrAPI {
               'blocklist',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrPagedResult<RadarrBlocklist>.fromJson(
@@ -112,9 +121,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrBlocklist>> getMovieBlocklist({required movieId}) async {
+  Future<List<RadarrBlocklist>> getMovieBlocklist({
+    required movieId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'movieId': movieId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -128,6 +141,7 @@ class _RadarrAPI implements RadarrAPI {
               'blocklist/movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -137,9 +151,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteBlocklistItem({required id}) async {
+  Future<void> deleteBlocklistItem({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -152,6 +170,7 @@ class _RadarrAPI implements RadarrAPI {
           'blocklist/movie/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -162,6 +181,7 @@ class _RadarrAPI implements RadarrAPI {
     unmonitored,
     endDate,
     startDate,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -183,6 +203,7 @@ class _RadarrAPI implements RadarrAPI {
               'calendar',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -192,7 +213,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrCollection>> getCollections({tmdbId}) async {
+  Future<List<RadarrCollection>> getCollections({
+    tmdbId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'tmdbId': tmdbId};
     queryParameters.removeWhere((k, v) => v == null);
@@ -209,6 +233,7 @@ class _RadarrAPI implements RadarrAPI {
               'collection',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -219,9 +244,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCollection> getCollection({required id}) async {
+  Future<RadarrCollection> getCollection({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -235,6 +264,7 @@ class _RadarrAPI implements RadarrAPI {
               'collection/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCollection.fromJson(_result.data!);
@@ -242,9 +272,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> updateCollections({required options}) async {
+  Future<void> updateCollections({
+    required options,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -258,6 +292,7 @@ class _RadarrAPI implements RadarrAPI {
           'collection',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -267,9 +302,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrCollection> updateCollection({
     required id,
     required collection,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(collection.toJson());
@@ -284,6 +321,7 @@ class _RadarrAPI implements RadarrAPI {
               'collection/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCollection.fromJson(_result.data!);
@@ -291,10 +329,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandApplicationCheckUpdate(
-      {body = const RadarrCommandApplicationCheckUpdate()}) async {
+  Future<RadarrCommand> triggerCommandApplicationCheckUpdate({
+    body = const RadarrCommandApplicationCheckUpdate(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -309,6 +350,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -316,10 +358,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandApplicationUpdate(
-      {body = const RadarrCommandApplicationUpdate()}) async {
+  Future<RadarrCommand> triggerCommandApplicationUpdate({
+    body = const RadarrCommandApplicationUpdate(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -334,6 +379,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -341,10 +387,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandBackup(
-      {body = const RadarrCommandBackup()}) async {
+  Future<RadarrCommand> triggerCommandBackup({
+    body = const RadarrCommandBackup(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -359,6 +408,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -366,10 +416,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandCheckHealth(
-      {body = const RadarrCommandCheckHealth()}) async {
+  Future<RadarrCommand> triggerCommandCheckHealth({
+    body = const RadarrCommandCheckHealth(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -384,6 +437,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -391,10 +445,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandCleanUpRecycleBin(
-      {body = const RadarrCommandCleanUpRecycleBin()}) async {
+  Future<RadarrCommand> triggerCommandCleanUpRecycleBin({
+    body = const RadarrCommandCleanUpRecycleBin(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -409,6 +466,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -416,10 +474,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandClearBlocklist(
-      {body = const RadarrCommandClearBlocklist()}) async {
+  Future<RadarrCommand> triggerCommandClearBlocklist({
+    body = const RadarrCommandClearBlocklist(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -434,6 +495,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -441,10 +503,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandClearLog(
-      {body = const RadarrCommandClearLog()}) async {
+  Future<RadarrCommand> triggerCommandClearLog({
+    body = const RadarrCommandClearLog(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -459,6 +524,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -466,10 +532,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandCutoffUnmetMoviesSearch(
-      {body = const RadarrCommandCutoffUnmetMoviesSearch()}) async {
+  Future<RadarrCommand> triggerCommandCutoffUnmetMoviesSearch({
+    body = const RadarrCommandCutoffUnmetMoviesSearch(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -484,6 +553,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -491,10 +561,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandDeleteLogFiles(
-      {body = const RadarrCommandDeleteLogFiles()}) async {
+  Future<RadarrCommand> triggerCommandDeleteLogFiles({
+    body = const RadarrCommandDeleteLogFiles(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -509,6 +582,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -516,10 +590,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandDeleteUpdateLogFiles(
-      {body = const RadarrCommandDeleteUpdateLogFiles()}) async {
+  Future<RadarrCommand> triggerCommandDeleteUpdateLogFiles({
+    body = const RadarrCommandDeleteUpdateLogFiles(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -534,6 +611,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -541,10 +619,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandDownloadedMoviesScan(
-      {required body}) async {
+  Future<RadarrCommand> triggerCommandDownloadedMoviesScan({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -559,6 +640,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -566,10 +648,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandHousekeeping(
-      {body = const RadarrCommandHousekeeping()}) async {
+  Future<RadarrCommand> triggerCommandHousekeeping({
+    body = const RadarrCommandHousekeeping(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -584,6 +669,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -591,10 +677,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandImportListSync(
-      {body = const RadarrCommandImportListSync()}) async {
+  Future<RadarrCommand> triggerCommandImportListSync({
+    body = const RadarrCommandImportListSync(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -609,6 +698,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -616,9 +706,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandManualImport({required body}) async {
+  Future<RadarrCommand> triggerCommandManualImport({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -633,6 +727,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -640,10 +735,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandMessagingCleanup(
-      {body = const RadarrCommandMessagingCleanup()}) async {
+  Future<RadarrCommand> triggerCommandMessagingCleanup({
+    body = const RadarrCommandMessagingCleanup(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -658,6 +756,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -665,9 +764,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandMoveMovie({required body}) async {
+  Future<RadarrCommand> triggerCommandMoveMovie({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -682,6 +785,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -689,9 +793,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandMoviesSearch({required body}) async {
+  Future<RadarrCommand> triggerCommandMoviesSearch({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -706,6 +814,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -713,10 +822,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandProcessMonitoredDownloads(
-      {body = const RadarrCommandProcessMonitoredDownloads()}) async {
+  Future<RadarrCommand> triggerCommandProcessMonitoredDownloads({
+    body = const RadarrCommandProcessMonitoredDownloads(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -731,6 +843,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -738,10 +851,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRefreshCollections(
-      {body = const RadarrCommandRefreshCollections()}) async {
+  Future<RadarrCommand> triggerCommandRefreshCollections({
+    body = const RadarrCommandRefreshCollections(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -756,6 +872,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -763,10 +880,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRefreshMonitoredDownloads(
-      {body = const RadarrCommandRefreshMonitoredDownloads()}) async {
+  Future<RadarrCommand> triggerCommandRefreshMonitoredDownloads({
+    body = const RadarrCommandRefreshMonitoredDownloads(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -781,6 +901,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -788,10 +909,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRefreshMovie(
-      {body = const RadarrCommandRefreshMovie()}) async {
+  Future<RadarrCommand> triggerCommandRefreshMovie({
+    body = const RadarrCommandRefreshMovie(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -806,6 +930,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -813,9 +938,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRenameFiles({required body}) async {
+  Future<RadarrCommand> triggerCommandRenameFiles({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -830,6 +959,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -837,9 +967,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRenameMovie({required body}) async {
+  Future<RadarrCommand> triggerCommandRenameMovie({
+    required body,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -854,6 +988,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -861,10 +996,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandResetApiKey(
-      {body = const RadarrCommandResetApiKey()}) async {
+  Future<RadarrCommand> triggerCommandResetApiKey({
+    body = const RadarrCommandResetApiKey(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -879,6 +1017,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -886,10 +1025,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandResetQualityDefinitions(
-      {body = const RadarrCommandResetQualityDefinitions()}) async {
+  Future<RadarrCommand> triggerCommandResetQualityDefinitions({
+    body = const RadarrCommandResetQualityDefinitions(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -904,6 +1046,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -911,10 +1054,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> triggerCommandRssSync(
-      {body = const RadarrCommandRssSync()}) async {
+  Future<RadarrCommand> triggerCommandRssSync({
+    body = const RadarrCommandRssSync(),
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
@@ -929,6 +1075,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -936,9 +1083,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrCommand>> getCommands() async {
+  Future<List<RadarrCommand>> getCommands({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -952,6 +1100,7 @@ class _RadarrAPI implements RadarrAPI {
               'command',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -961,9 +1110,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCommand> getCommand({required id}) async {
+  Future<RadarrCommand> getCommand({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -977,6 +1130,7 @@ class _RadarrAPI implements RadarrAPI {
               'command/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCommand.fromJson(_result.data!);
@@ -984,9 +1138,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> cancelCommand({required id}) async {
+  Future<void> cancelCommand({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -999,15 +1157,18 @@ class _RadarrAPI implements RadarrAPI {
           'command/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<RadarrDownloadClientConfig> getDownloadClientConfig() async {
+  Future<RadarrDownloadClientConfig> getDownloadClientConfig(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1021,6 +1182,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/downloadclient',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDownloadClientConfig.fromJson(_result.data!);
@@ -1028,10 +1190,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrDownloadClientConfig> updateDownloadClientConfig(
-      {required config}) async {
+  Future<RadarrDownloadClientConfig> updateDownloadClientConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1046,6 +1211,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/downloadclient',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDownloadClientConfig.fromJson(_result.data!);
@@ -1053,9 +1219,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrHostConfig> getHostConfig() async {
+  Future<RadarrHostConfig> getHostConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1069,6 +1236,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/host',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrHostConfig.fromJson(_result.data!);
@@ -1076,9 +1244,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrHostConfig> updateHostConfig({required config}) async {
+  Future<RadarrHostConfig> updateHostConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1093,6 +1265,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/host',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrHostConfig.fromJson(_result.data!);
@@ -1100,9 +1273,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrImportListConfig> getImportListConfig() async {
+  Future<RadarrImportListConfig> getImportListConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1116,6 +1290,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/importlist',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrImportListConfig.fromJson(_result.data!);
@@ -1123,10 +1298,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrImportListConfig> updateImportListConfig(
-      {required config}) async {
+  Future<RadarrImportListConfig> updateImportListConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1141,6 +1319,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/importlist',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrImportListConfig.fromJson(_result.data!);
@@ -1148,9 +1327,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrIndexerConfig> getIndexerConfig() async {
+  Future<RadarrIndexerConfig> getIndexerConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1164,6 +1344,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/indexer',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrIndexerConfig.fromJson(_result.data!);
@@ -1171,9 +1352,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrIndexerConfig> updateIndexerConfig({required config}) async {
+  Future<RadarrIndexerConfig> updateIndexerConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1188,6 +1373,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/indexer',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrIndexerConfig.fromJson(_result.data!);
@@ -1195,9 +1381,11 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMediaManagementConfig> getMediaManagementConfig() async {
+  Future<RadarrMediaManagementConfig> getMediaManagementConfig(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1211,6 +1399,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/mediamanagement',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMediaManagementConfig.fromJson(_result.data!);
@@ -1218,10 +1407,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMediaManagementConfig> updateMediaManagementConfig(
-      {required config}) async {
+  Future<RadarrMediaManagementConfig> updateMediaManagementConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1236,6 +1428,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/mediamanagement',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMediaManagementConfig.fromJson(_result.data!);
@@ -1243,9 +1436,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMetadataConfig> getMetadataConfig() async {
+  Future<RadarrMetadataConfig> getMetadataConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1259,6 +1453,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/metadata',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMetadataConfig.fromJson(_result.data!);
@@ -1266,9 +1461,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMetadataConfig> updateMetadataConfig({required config}) async {
+  Future<RadarrMetadataConfig> updateMetadataConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1283,6 +1482,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/metadata',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMetadataConfig.fromJson(_result.data!);
@@ -1290,9 +1490,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrNamingConfig> getNamingConfig() async {
+  Future<RadarrNamingConfig> getNamingConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1306,6 +1507,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/naming',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNamingConfig.fromJson(_result.data!);
@@ -1313,9 +1515,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrNamingConfig> updateNamingConfig({required config}) async {
+  Future<RadarrNamingConfig> updateNamingConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1330,6 +1536,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/naming',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNamingConfig.fromJson(_result.data!);
@@ -1349,6 +1556,7 @@ class _RadarrAPI implements RadarrAPI {
     numberStyle,
     id,
     resourceName,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -1378,6 +1586,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/naming/examples',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNamingConfigExamples.fromJson(_result.data!);
@@ -1385,9 +1594,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrUiConfig> getUiConfig() async {
+  Future<RadarrUiConfig> getUiConfig({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1401,6 +1611,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/ui',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrUiConfig.fromJson(_result.data!);
@@ -1408,9 +1619,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrUiConfig> updateUiConfig({required config}) async {
+  Future<RadarrUiConfig> updateUiConfig({
+    required config,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(config.toJson());
@@ -1425,6 +1640,7 @@ class _RadarrAPI implements RadarrAPI {
               'config/ui',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrUiConfig.fromJson(_result.data!);
@@ -1435,6 +1651,7 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<RadarrCredit>> getCredits({
     movieId,
     movieMetadataId,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -1455,6 +1672,7 @@ class _RadarrAPI implements RadarrAPI {
               'credit',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1464,9 +1682,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCredit> getCredit({required id}) async {
+  Future<RadarrCredit> getCredit({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1480,6 +1702,7 @@ class _RadarrAPI implements RadarrAPI {
               'credit/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCredit.fromJson(_result.data!);
@@ -1487,9 +1710,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrCustomFilter>> getCustomFilters() async {
+  Future<List<RadarrCustomFilter>> getCustomFilters({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1503,6 +1727,7 @@ class _RadarrAPI implements RadarrAPI {
               'customfilter',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1513,9 +1738,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCustomFilter> createCustomFilter({required filter}) async {
+  Future<RadarrCustomFilter> createCustomFilter({
+    required filter,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(filter.toJson());
@@ -1530,6 +1759,7 @@ class _RadarrAPI implements RadarrAPI {
               'customfilter',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFilter.fromJson(_result.data!);
@@ -1537,9 +1767,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCustomFilter> getCustomFilter({required id}) async {
+  Future<RadarrCustomFilter> getCustomFilter({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1553,6 +1787,7 @@ class _RadarrAPI implements RadarrAPI {
               'customfilter/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFilter.fromJson(_result.data!);
@@ -1563,9 +1798,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrCustomFilter> updateCustomFilter({
     required id,
     required filter,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(filter.toJson());
@@ -1580,6 +1817,7 @@ class _RadarrAPI implements RadarrAPI {
               'customfilter/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFilter.fromJson(_result.data!);
@@ -1587,9 +1825,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteCustomFilter({required id}) async {
+  Future<void> deleteCustomFilter({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1602,15 +1844,17 @@ class _RadarrAPI implements RadarrAPI {
           'customfilter/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrCustomFormat>> getCustomFormats() async {
+  Future<List<RadarrCustomFormat>> getCustomFormats({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1624,6 +1868,7 @@ class _RadarrAPI implements RadarrAPI {
               'customformat',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1634,9 +1879,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCustomFormat> createCustomFormat({required format}) async {
+  Future<RadarrCustomFormat> createCustomFormat({
+    required format,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(format.toJson());
@@ -1651,6 +1900,7 @@ class _RadarrAPI implements RadarrAPI {
               'customformat',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFormat.fromJson(_result.data!);
@@ -1658,9 +1908,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrCustomFormat> getCustomFormat({required id}) async {
+  Future<RadarrCustomFormat> getCustomFormat({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1674,6 +1928,7 @@ class _RadarrAPI implements RadarrAPI {
               'customformat/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFormat.fromJson(_result.data!);
@@ -1684,9 +1939,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrCustomFormat> updateCustomFormat({
     required id,
     required format,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(format.toJson());
@@ -1701,6 +1958,7 @@ class _RadarrAPI implements RadarrAPI {
               'customformat/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrCustomFormat.fromJson(_result.data!);
@@ -1708,9 +1966,11 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrCustomFormatSchema>> getCustomFormatSchemas() async {
+  Future<List<RadarrCustomFormatSchema>> getCustomFormatSchemas(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -1724,6 +1984,7 @@ class _RadarrAPI implements RadarrAPI {
               'customformat/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1734,9 +1995,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteCustomFormat({required id}) async {
+  Future<void> deleteCustomFormat({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1749,15 +2014,17 @@ class _RadarrAPI implements RadarrAPI {
           'customformat/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrDelayProfile>> getDelayProfiles() async {
+  Future<List<RadarrDelayProfile>> getDelayProfiles({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1771,6 +2038,7 @@ class _RadarrAPI implements RadarrAPI {
               'delayprofile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1781,9 +2049,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrDelayProfile> createDelayProfile({required profile}) async {
+  Future<RadarrDelayProfile> createDelayProfile({
+    required profile,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(profile.toJson());
@@ -1798,6 +2070,7 @@ class _RadarrAPI implements RadarrAPI {
               'delayprofile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDelayProfile.fromJson(_result.data!);
@@ -1805,9 +2078,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrDelayProfile> getDelayProfile({required id}) async {
+  Future<RadarrDelayProfile> getDelayProfile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1821,6 +2098,7 @@ class _RadarrAPI implements RadarrAPI {
               'delayprofile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDelayProfile.fromJson(_result.data!);
@@ -1831,9 +2109,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrDelayProfile> updateDelayProfile({
     required id,
     required profile,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(profile.toJson());
@@ -1848,6 +2128,7 @@ class _RadarrAPI implements RadarrAPI {
               'delayprofile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDelayProfile.fromJson(_result.data!);
@@ -1855,9 +2136,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteDelayProfile({required id}) async {
+  Future<void> deleteDelayProfile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -1870,15 +2155,17 @@ class _RadarrAPI implements RadarrAPI {
           'delayprofile/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrDiskSpace>> getDiskSpace() async {
+  Future<List<RadarrDiskSpace>> getDiskSpace({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -1892,6 +2179,7 @@ class _RadarrAPI implements RadarrAPI {
               'diskspace',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1901,9 +2189,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrDownloadClient>> getDownloadClients() async {
+  Future<List<RadarrDownloadClient>> getDownloadClients({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -1917,6 +2206,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -1927,9 +2217,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrDownloadClient> createDownloadClient({required client}) async {
+  Future<RadarrDownloadClient> createDownloadClient({
+    required client,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(client.toJson());
@@ -1944,6 +2238,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDownloadClient.fromJson(_result.data!);
@@ -1951,9 +2246,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrDownloadClient> getDownloadClient({required id}) async {
+  Future<RadarrDownloadClient> getDownloadClient({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -1967,6 +2266,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDownloadClient.fromJson(_result.data!);
@@ -1977,9 +2277,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrDownloadClient> updateDownloadClient({
     required id,
     required client,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(client.toJson());
@@ -1994,6 +2296,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrDownloadClient.fromJson(_result.data!);
@@ -2001,9 +2304,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteDownloadClient({required id}) async {
+  Future<void> deleteDownloadClient({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -2016,15 +2323,18 @@ class _RadarrAPI implements RadarrAPI {
           'downloadclient/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrDownloadClient>> getDownloadClientSchemas() async {
+  Future<List<RadarrDownloadClient>> getDownloadClientSchemas(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -2038,6 +2348,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2048,10 +2359,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrDownloadClientValidationFailure>> testDownloadClient(
-      {required client}) async {
+  Future<List<RadarrDownloadClientValidationFailure>> testDownloadClient({
+    required client,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(client.toJson());
@@ -2066,6 +2380,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient/test',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2076,9 +2391,11 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrDownloadClientTestResult>> testAllDownloadClients() async {
+  Future<List<RadarrDownloadClientTestResult>> testAllDownloadClients(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -2092,6 +2409,7 @@ class _RadarrAPI implements RadarrAPI {
               'downloadclient/testall',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2105,9 +2423,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<void> triggerDownloadClientAction({
     required action,
     required client,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(client.toJson());
@@ -2121,15 +2441,17 @@ class _RadarrAPI implements RadarrAPI {
           'downloadclient/action/${action}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrExclusion>> getExclusions() async {
+  Future<List<RadarrExclusion>> getExclusions({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2143,6 +2465,7 @@ class _RadarrAPI implements RadarrAPI {
               'exclusions',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2152,9 +2475,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrExclusion> createExclusion({required exclusion}) async {
+  Future<RadarrExclusion> createExclusion({
+    required exclusion,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(exclusion.toJson());
@@ -2169,6 +2496,7 @@ class _RadarrAPI implements RadarrAPI {
               'exclusions',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrExclusion.fromJson(_result.data!);
@@ -2176,9 +2504,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrExclusion> getExclusion({required id}) async {
+  Future<RadarrExclusion> getExclusion({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2192,6 +2524,7 @@ class _RadarrAPI implements RadarrAPI {
               'exclusions/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrExclusion.fromJson(_result.data!);
@@ -2202,9 +2535,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrExclusion> updateExclusion({
     required id,
     required exclusion,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(exclusion.toJson());
@@ -2219,6 +2554,7 @@ class _RadarrAPI implements RadarrAPI {
               'exclusions/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrExclusion.fromJson(_result.data!);
@@ -2226,9 +2562,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteExclusion({required id}) async {
+  Future<void> deleteExclusion({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -2241,15 +2581,20 @@ class _RadarrAPI implements RadarrAPI {
           'exclusions/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrExclusion>> createExclusions({required exclusions}) async {
+  Future<List<RadarrExclusion>> createExclusions({
+    required exclusions,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = exclusions.map((e) => e.toJson()).toList();
     final _result = await _dio
@@ -2263,6 +2608,7 @@ class _RadarrAPI implements RadarrAPI {
               'exclusions/bulk',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2272,9 +2618,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrExtraFile>> getExtraFiles({required movieId}) async {
+  Future<List<RadarrExtraFile>> getExtraFiles({
+    required movieId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'movieId': movieId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2288,6 +2638,7 @@ class _RadarrAPI implements RadarrAPI {
               'extrafile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2301,6 +2652,7 @@ class _RadarrAPI implements RadarrAPI {
     path,
     includeFiles,
     allowFoldersWithoutTrailingSlashes,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -2322,6 +2674,7 @@ class _RadarrAPI implements RadarrAPI {
               'filesystem',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrFileSystem.fromJson(_result.data!);
@@ -2329,10 +2682,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrFileSystemMediaFile>> getFileSystemMediaFiles(
-      {required path}) async {
+  Future<List<RadarrFileSystemMediaFile>> getFileSystemMediaFiles({
+    required path,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'path': path};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -2346,6 +2702,7 @@ class _RadarrAPI implements RadarrAPI {
               'filesystem/mediafiles',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2356,9 +2713,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrFileSystemType> getFileSystemType({required path}) async {
+  Future<RadarrFileSystemType> getFileSystemType({
+    required path,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'path': path};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -2372,6 +2733,7 @@ class _RadarrAPI implements RadarrAPI {
               'filesystem/type',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrFileSystemType.fromJson(_result.data!);
@@ -2379,9 +2741,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrHealth>> getAllHealth() async {
+  Future<List<RadarrHealth>> getAllHealth({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2395,6 +2758,7 @@ class _RadarrAPI implements RadarrAPI {
               'health',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2404,9 +2768,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrHealth>> getHealth({required id}) async {
+  Future<List<RadarrHealth>> getHealth({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2420,6 +2788,7 @@ class _RadarrAPI implements RadarrAPI {
               'health/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2437,6 +2806,7 @@ class _RadarrAPI implements RadarrAPI {
     includeMovie = false,
     eventType,
     downloadId,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -2462,6 +2832,7 @@ class _RadarrAPI implements RadarrAPI {
               'history',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrPagedResult<RadarrHistory>.fromJson(
@@ -2476,6 +2847,7 @@ class _RadarrAPI implements RadarrAPI {
     required date,
     eventType,
     includeMovie = false,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -2497,6 +2869,7 @@ class _RadarrAPI implements RadarrAPI {
               'history/since',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2510,6 +2883,7 @@ class _RadarrAPI implements RadarrAPI {
     required movieId,
     eventType,
     includeMovie = false,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -2531,6 +2905,7 @@ class _RadarrAPI implements RadarrAPI {
               'history/movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2540,9 +2915,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> markHistoryAsFailed({required id}) async {
+  Future<void> markHistoryAsFailed({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -2555,15 +2934,17 @@ class _RadarrAPI implements RadarrAPI {
           'history/failed/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrImportList>> getImportLists() async {
+  Future<List<RadarrImportList>> getImportLists({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2577,6 +2958,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2587,9 +2969,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrImportList> createImportList({required list}) async {
+  Future<RadarrImportList> createImportList({
+    required list,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -2604,6 +2990,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrImportList.fromJson(_result.data!);
@@ -2611,9 +2998,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrImportList> getImportList({required id}) async {
+  Future<RadarrImportList> getImportList({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2627,6 +3018,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrImportList.fromJson(_result.data!);
@@ -2637,9 +3029,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrImportList> updateImportList({
     required id,
     required list,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -2654,6 +3048,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrImportList.fromJson(_result.data!);
@@ -2661,9 +3056,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteImportList({required id}) async {
+  Future<void> deleteImportList({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -2676,15 +3075,17 @@ class _RadarrAPI implements RadarrAPI {
           'importlist/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrImportList>> getImportListSchemas() async {
+  Future<List<RadarrImportList>> getImportListSchemas({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2698,6 +3099,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2708,9 +3110,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> testImportList({required list}) async {
+  Future<void> testImportList({
+    required list,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -2724,15 +3130,18 @@ class _RadarrAPI implements RadarrAPI {
           'importlist/test',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrImportListTestResult>> testAllImportLists() async {
+  Future<List<RadarrImportListTestResult>> testAllImportLists(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -2746,6 +3155,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/testall',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2759,9 +3169,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<void> triggerImportListAction({
     required action,
     required list,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -2775,14 +3187,17 @@ class _RadarrAPI implements RadarrAPI {
           'importlist/action/${action}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrMovie>> getImportListMovies(
-      {includeRecommendations}) async {
+  Future<List<RadarrMovie>> getImportListMovies({
+    includeRecommendations,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'includeRecommendations': includeRecommendations
@@ -2801,6 +3216,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2810,9 +3226,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrMovie>> addImportListMovies({required movies}) async {
+  Future<List<RadarrMovie>> addImportListMovies({
+    required movies,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = movies.map((e) => e.toJson()).toList();
     final _result = await _dio
@@ -2826,6 +3246,7 @@ class _RadarrAPI implements RadarrAPI {
               'importlist/movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2835,9 +3256,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrIndexer>> getIndexers() async {
+  Future<List<RadarrIndexer>> getIndexers({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2851,6 +3273,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2860,9 +3283,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrIndexer> createIndexer({required indexer}) async {
+  Future<RadarrIndexer> createIndexer({
+    required indexer,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(indexer.toJson());
@@ -2877,6 +3304,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrIndexer.fromJson(_result.data!);
@@ -2884,9 +3312,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrIndexer> getIndexer({required id}) async {
+  Future<RadarrIndexer> getIndexer({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2900,6 +3332,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrIndexer.fromJson(_result.data!);
@@ -2910,9 +3343,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrIndexer> updateIndexer({
     required id,
     required indexer,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(indexer.toJson());
@@ -2927,6 +3362,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrIndexer.fromJson(_result.data!);
@@ -2934,9 +3370,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteIndexer({required id}) async {
+  Future<void> deleteIndexer({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -2949,15 +3389,17 @@ class _RadarrAPI implements RadarrAPI {
           'indexer/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrIndexer>> getIndexerSchemas() async {
+  Future<List<RadarrIndexer>> getIndexerSchemas({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -2971,6 +3413,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -2980,9 +3423,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> testIndexer({required indexer}) async {
+  Future<void> testIndexer({
+    required indexer,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(indexer.toJson());
@@ -2996,15 +3443,17 @@ class _RadarrAPI implements RadarrAPI {
           'indexer/test',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrIndexerTestResult>> testAllIndexers() async {
+  Future<List<RadarrIndexerTestResult>> testAllIndexers({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -3018,6 +3467,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexer/testall',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3031,9 +3481,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<void> triggerIndexerAction({
     required action,
     required indexer,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(indexer.toJson());
@@ -3047,15 +3499,17 @@ class _RadarrAPI implements RadarrAPI {
           'indexer/action/${action}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrIndexerFlag>> getIndexerFlags() async {
+  Future<List<RadarrIndexerFlag>> getIndexerFlags({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3069,6 +3523,7 @@ class _RadarrAPI implements RadarrAPI {
               'indexerflag',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3079,9 +3534,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrLanguage>> getLanguages() async {
+  Future<List<RadarrLanguage>> getLanguages({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3095,6 +3551,7 @@ class _RadarrAPI implements RadarrAPI {
               'language',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3104,9 +3561,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrLanguage> getLanguage({required id}) async {
+  Future<RadarrLanguage> getLanguage({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3120,6 +3581,7 @@ class _RadarrAPI implements RadarrAPI {
               'language/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrLanguage.fromJson(_result.data!);
@@ -3133,6 +3595,7 @@ class _RadarrAPI implements RadarrAPI {
     sortKey,
     sortDirection,
     level,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -3156,6 +3619,7 @@ class _RadarrAPI implements RadarrAPI {
               'log',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrPagedResult<RadarrLog>.fromJson(
@@ -3166,9 +3630,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrLogFile>> getLogFiles() async {
+  Future<List<RadarrLogFile>> getLogFiles({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3182,6 +3647,7 @@ class _RadarrAPI implements RadarrAPI {
               'log/file',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3191,9 +3657,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<int>> getLogFileData({required name}) async {
+  Future<List<int>> getLogFileData({
+    required name,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
@@ -3208,6 +3678,7 @@ class _RadarrAPI implements RadarrAPI {
               'log/file/${name}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!.cast<int>();
@@ -3215,9 +3686,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrLogFile>> getUpdateLogFiles() async {
+  Future<List<RadarrLogFile>> getUpdateLogFiles({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3231,6 +3703,7 @@ class _RadarrAPI implements RadarrAPI {
               'log/file/update',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3240,9 +3713,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<int>> getUpdateLogFileData({required name}) async {
+  Future<List<int>> getUpdateLogFileData({
+    required name,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
@@ -3257,6 +3734,7 @@ class _RadarrAPI implements RadarrAPI {
               'log/file/update/${name}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!.cast<int>();
@@ -3269,6 +3747,7 @@ class _RadarrAPI implements RadarrAPI {
     downloadId,
     movieId,
     filterExistingFiles = true,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -3291,6 +3770,7 @@ class _RadarrAPI implements RadarrAPI {
               'manualimport',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3304,9 +3784,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<int>> getFanartImage({
     required movieId,
     required size,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
@@ -3321,6 +3803,7 @@ class _RadarrAPI implements RadarrAPI {
               'mediacover/${movieId}/fanart${size.name}.jpg',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!.cast<int>();
@@ -3331,9 +3814,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<int>> getPosterImage({
     required movieId,
     required size,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
@@ -3348,6 +3833,7 @@ class _RadarrAPI implements RadarrAPI {
               'mediacover/${movieId}/poster${size.name}.jpg',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = _result.data!.cast<int>();
@@ -3355,9 +3841,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrMetadataAgent>> getMetadataAgents() async {
+  Future<List<RadarrMetadataAgent>> getMetadataAgents({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3371,6 +3858,7 @@ class _RadarrAPI implements RadarrAPI {
               'metadata',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3381,9 +3869,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMetadataAgent> createMetadataAgent({required agent}) async {
+  Future<RadarrMetadataAgent> createMetadataAgent({
+    required agent,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(agent.toJson());
@@ -3398,6 +3890,7 @@ class _RadarrAPI implements RadarrAPI {
               'metadata',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMetadataAgent.fromJson(_result.data!);
@@ -3405,9 +3898,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMetadataAgent> getMetadataAgent({required id}) async {
+  Future<RadarrMetadataAgent> getMetadataAgent({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -3421,6 +3918,7 @@ class _RadarrAPI implements RadarrAPI {
               'metadata/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMetadataAgent.fromJson(_result.data!);
@@ -3431,9 +3929,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrMetadataAgent> updateMetadataAgent({
     required id,
     required agent,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(agent.toJson());
@@ -3448,6 +3948,7 @@ class _RadarrAPI implements RadarrAPI {
               'metadata/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMetadataAgent.fromJson(_result.data!);
@@ -3455,9 +3956,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteMetadataAgent({required id}) async {
+  Future<void> deleteMetadataAgent({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -3470,15 +3975,18 @@ class _RadarrAPI implements RadarrAPI {
           'metadata/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrMetadataAgent>> getMetadataAgentSchemas() async {
+  Future<List<RadarrMetadataAgent>> getMetadataAgentSchemas(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3492,6 +4000,7 @@ class _RadarrAPI implements RadarrAPI {
               'metadata/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3502,7 +4011,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrMovie>> getMovies({tmdbId}) async {
+  Future<List<RadarrMovie>> getMovies({
+    tmdbId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'tmdbId': tmdbId};
     queryParameters.removeWhere((k, v) => v == null);
@@ -3519,6 +4031,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3528,9 +4041,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovie> createMovie({required movie}) async {
+  Future<RadarrMovie> createMovie({
+    required movie,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(movie.toJson());
@@ -3545,6 +4062,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
@@ -3552,9 +4070,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovie> getMovie({required id}) async {
+  Future<RadarrMovie> getMovie({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3568,6 +4090,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
@@ -3578,9 +4101,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrMovie> updateMovie({
     required id,
     required movie,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(movie.toJson());
@@ -3595,6 +4120,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
@@ -3606,6 +4132,7 @@ class _RadarrAPI implements RadarrAPI {
     required id,
     deleteFiles,
     addImportExclusion,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -3625,15 +4152,20 @@ class _RadarrAPI implements RadarrAPI {
           'movie/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrMovie>> bulkEditMovies({required options}) async {
+  Future<List<RadarrMovie>> bulkEditMovies({
+    required options,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -3648,6 +4180,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/editor',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3657,9 +4190,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> bulkDeleteMovies({required options}) async {
+  Future<void> bulkDeleteMovies({
+    required options,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -3673,15 +4210,20 @@ class _RadarrAPI implements RadarrAPI {
           'movie/editor',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrMovie>> importMovies({required movies}) async {
+  Future<List<RadarrMovie>> importMovies({
+    required movies,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = movies.map((e) => e.toJson()).toList();
     final _result = await _dio
@@ -3695,6 +4237,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/import',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3704,9 +4247,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrMovie>> lookupMovie({required term}) async {
+  Future<List<RadarrMovie>> lookupMovie({
+    required term,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'term': term};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3720,6 +4267,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/lookup',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3729,9 +4277,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovie> lookupMovieOnTmdb({required tmdbId}) async {
+  Future<RadarrMovie> lookupMovieOnTmdb({
+    required tmdbId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'tmdbId': tmdbId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3745,6 +4297,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/lookup/tmdb',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
@@ -3752,9 +4305,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovie> lookupMovieOnImdb({required imdbId}) async {
+  Future<RadarrMovie> lookupMovieOnImdb({
+    required imdbId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'imdbId': imdbId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3768,6 +4325,7 @@ class _RadarrAPI implements RadarrAPI {
               'movie/lookup/imdb',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovie.fromJson(_result.data!);
@@ -3778,6 +4336,7 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<RadarrMovieFile>> getMovieFiles({
     movieId,
     movieFileIds,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -3798,6 +4357,7 @@ class _RadarrAPI implements RadarrAPI {
               'moviefile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3807,9 +4367,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrMovieFile> getMovieFile({required id}) async {
+  Future<RadarrMovieFile> getMovieFile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3823,6 +4387,7 @@ class _RadarrAPI implements RadarrAPI {
               'moviefile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovieFile.fromJson(_result.data!);
@@ -3833,9 +4398,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrMovieFile> updateMovieFile({
     required id,
     required movieFile,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(movieFile.toJson());
@@ -3850,6 +4417,7 @@ class _RadarrAPI implements RadarrAPI {
               'moviefile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrMovieFile.fromJson(_result.data!);
@@ -3857,9 +4425,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteMovieFile({required id}) async {
+  Future<void> deleteMovieFile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -3872,15 +4444,20 @@ class _RadarrAPI implements RadarrAPI {
           'moviefile/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrMovieFile>> editMovieFile({required options}) async {
+  Future<List<RadarrMovieFile>> editMovieFile({
+    required options,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -3895,6 +4472,7 @@ class _RadarrAPI implements RadarrAPI {
               'moviefile/editor',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3904,9 +4482,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrNotification>> getNotificationAgents() async {
+  Future<List<RadarrNotification>> getNotificationAgents({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3920,6 +4499,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -3930,9 +4510,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrNotification> createNotificationAgent({required indexer}) async {
+  Future<RadarrNotification> createNotificationAgent({
+    required indexer,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(indexer.toJson());
@@ -3947,6 +4531,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNotification.fromJson(_result.data!);
@@ -3954,9 +4539,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrNotification> getNotificationAgent({required id}) async {
+  Future<RadarrNotification> getNotificationAgent({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -3970,6 +4559,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNotification.fromJson(_result.data!);
@@ -3980,9 +4570,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrNotification> updateNotificationAgent({
     required id,
     required list,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -3997,6 +4589,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrNotification.fromJson(_result.data!);
@@ -4004,9 +4597,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteNotificationAgent({required id}) async {
+  Future<void> deleteNotificationAgent({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4019,15 +4616,18 @@ class _RadarrAPI implements RadarrAPI {
           'notification/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrNotification>> getNotificationAgentSchemas() async {
+  Future<List<RadarrNotification>> getNotificationAgentSchemas(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4041,6 +4641,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4051,9 +4652,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> testNotificationAgent({required list}) async {
+  Future<void> testNotificationAgent({
+    required list,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -4067,15 +4672,18 @@ class _RadarrAPI implements RadarrAPI {
           'notification/test',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrNotificationTestResult>> testAllNotificationAgents() async {
+  Future<List<RadarrNotificationTestResult>> testAllNotificationAgents(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -4089,6 +4697,7 @@ class _RadarrAPI implements RadarrAPI {
               'notification/testall',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4102,9 +4711,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<void> triggerNotificationAgentAction({
     required action,
     required list,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(list.toJson());
@@ -4118,15 +4729,20 @@ class _RadarrAPI implements RadarrAPI {
           'notification/action/${action}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<RadarrParse> parseMovieTitle({required title}) async {
+  Future<RadarrParse> parseMovieTitle({
+    required title,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'title': title};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4140,6 +4756,7 @@ class _RadarrAPI implements RadarrAPI {
               'parse',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrParse.fromJson(_result.data!);
@@ -4147,9 +4764,11 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrQualityDefinition>> getQualityDefinitions() async {
+  Future<List<RadarrQualityDefinition>> getQualityDefinitions(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -4163,6 +4782,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualitydefinition',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4173,9 +4793,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrQualityDefinition> getQualityDefinition({required id}) async {
+  Future<RadarrQualityDefinition> getQualityDefinition({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -4189,6 +4813,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualitydefinition/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityDefinition.fromJson(_result.data!);
@@ -4199,9 +4824,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrQualityDefinition> updateQualityDefinition({
     required id,
     required definition,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(definition.toJson());
@@ -4216,6 +4843,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualitydefinition/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityDefinition.fromJson(_result.data!);
@@ -4226,9 +4854,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrQualityDefinition> updateQualityDefinitions({
     required id,
     required definitions,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = definitions.map((e) => e.toJson()).toList();
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -4242,6 +4872,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualitydefinition/update',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityDefinition.fromJson(_result.data!);
@@ -4249,9 +4880,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrQualityProfile>> getQualityProfiles() async {
+  Future<List<RadarrQualityProfile>> getQualityProfiles({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -4265,6 +4897,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualityprofile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4275,9 +4908,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrQualityProfile> createQualityProfile({required profile}) async {
+  Future<RadarrQualityProfile> createQualityProfile({
+    required profile,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(profile.toJson());
@@ -4292,6 +4929,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualityprofile',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityProfile.fromJson(_result.data!);
@@ -4299,9 +4937,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrQualityProfile> getQualityProfile({required id}) async {
+  Future<RadarrQualityProfile> getQualityProfile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -4315,6 +4957,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualityprofile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityProfile.fromJson(_result.data!);
@@ -4325,9 +4968,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrQualityProfile> updateQualityProfile({
     required id,
     required profile,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(profile.toJson());
@@ -4342,6 +4987,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualityprofile/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityProfile.fromJson(_result.data!);
@@ -4349,9 +4995,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteQualityProfile({required id}) async {
+  Future<void> deleteQualityProfile({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4364,15 +5014,17 @@ class _RadarrAPI implements RadarrAPI {
           'qualityprofile/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<RadarrQualityProfile> getQualityProfileSchema() async {
+  Future<RadarrQualityProfile> getQualityProfileSchema({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -4386,6 +5038,7 @@ class _RadarrAPI implements RadarrAPI {
               'qualityprofile/schema',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQualityProfile.fromJson(_result.data!);
@@ -4400,6 +5053,7 @@ class _RadarrAPI implements RadarrAPI {
     sortDirection,
     includeMovie = false,
     includeUnknownMovieItems = false,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -4424,6 +5078,7 @@ class _RadarrAPI implements RadarrAPI {
               'queue',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrPagedResult<RadarrQueue>.fromJson(
@@ -4438,12 +5093,14 @@ class _RadarrAPI implements RadarrAPI {
     required id,
     blocklist = false,
     removeFromClient = true,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'blocklist': blocklist,
       r'removeFromClient': removeFromClient,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4456,6 +5113,7 @@ class _RadarrAPI implements RadarrAPI {
           'queue/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4466,12 +5124,14 @@ class _RadarrAPI implements RadarrAPI {
     required options,
     blocklist = false,
     removeFromClient = true,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'blocklist': blocklist,
       r'removeFromClient': removeFromClient,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -4485,6 +5145,7 @@ class _RadarrAPI implements RadarrAPI {
           'queue/bulk',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4495,12 +5156,14 @@ class _RadarrAPI implements RadarrAPI {
     required id,
     blocklist = false,
     removeFromClient = true,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'blocklist': blocklist,
       r'removeFromClient': removeFromClient,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4513,6 +5176,7 @@ class _RadarrAPI implements RadarrAPI {
           'queue/grab/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4523,12 +5187,14 @@ class _RadarrAPI implements RadarrAPI {
     required options,
     blocklist = false,
     removeFromClient = true,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'blocklist': blocklist,
       r'removeFromClient': removeFromClient,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(options.toJson());
@@ -4542,6 +5208,7 @@ class _RadarrAPI implements RadarrAPI {
           'queue/grab/bulk',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4551,6 +5218,7 @@ class _RadarrAPI implements RadarrAPI {
   Future<List<RadarrQueue>> getQueueDetails({
     movieId,
     includeMovie = false,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -4571,6 +5239,7 @@ class _RadarrAPI implements RadarrAPI {
               'queue/details',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4580,9 +5249,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrQueueStatus> getQueueStatus() async {
+  Future<RadarrQueueStatus> getQueueStatus({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4596,6 +5266,7 @@ class _RadarrAPI implements RadarrAPI {
               'queue/status',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrQueueStatus.fromJson(_result.data!);
@@ -4603,9 +5274,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrRelease>> getReleases({required movieId}) async {
+  Future<List<RadarrRelease>> getReleases({
+    required movieId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'movieId': movieId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4619,6 +5294,7 @@ class _RadarrAPI implements RadarrAPI {
               'release',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4628,9 +5304,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRelease> downloadRelease({required release}) async {
+  Future<RadarrRelease> downloadRelease({
+    required release,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(release.toJson());
@@ -4645,6 +5325,7 @@ class _RadarrAPI implements RadarrAPI {
               'release',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRelease.fromJson(_result.data!);
@@ -4652,9 +5333,11 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrRemotePathMapping>> getRemotePathMappings() async {
+  Future<List<RadarrRemotePathMapping>> getRemotePathMappings(
+      {cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -4668,6 +5351,7 @@ class _RadarrAPI implements RadarrAPI {
               'remotepathmapping',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4678,10 +5362,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRemotePathMapping> createRemotePathMapping(
-      {required mapping}) async {
+  Future<RadarrRemotePathMapping> createRemotePathMapping({
+    required mapping,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mapping.toJson());
@@ -4696,6 +5383,7 @@ class _RadarrAPI implements RadarrAPI {
               'remotepathmapping',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRemotePathMapping.fromJson(_result.data!);
@@ -4703,9 +5391,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRemotePathMapping> getRemotePathMapping({required id}) async {
+  Future<RadarrRemotePathMapping> getRemotePathMapping({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -4719,6 +5411,7 @@ class _RadarrAPI implements RadarrAPI {
               'remotepathmapping/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRemotePathMapping.fromJson(_result.data!);
@@ -4726,9 +5419,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteRemotePathMapping({required id}) async {
+  Future<void> deleteRemotePathMapping({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4741,6 +5438,7 @@ class _RadarrAPI implements RadarrAPI {
           'remotepathmapping/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4750,9 +5448,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrRemotePathMapping> updateRemotePathMapping({
     required id,
     required mapping,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(mapping.toJson());
@@ -4767,6 +5467,7 @@ class _RadarrAPI implements RadarrAPI {
               'remotepathmapping/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRemotePathMapping.fromJson(_result.data!);
@@ -4774,10 +5475,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview(
-      {required movieId}) async {
+  Future<List<RadarrMovieRenamePreview>> getMovieRenamePreview({
+    required movieId,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'movieId': movieId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
@@ -4791,6 +5495,7 @@ class _RadarrAPI implements RadarrAPI {
               'rename',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4801,9 +5506,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrRestriction>> getRestrictions() async {
+  Future<List<RadarrRestriction>> getRestrictions({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4817,6 +5523,7 @@ class _RadarrAPI implements RadarrAPI {
               'restriction',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4827,9 +5534,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRestriction> createRestriction({required restriction}) async {
+  Future<RadarrRestriction> createRestriction({
+    required restriction,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(restriction.toJson());
@@ -4844,6 +5555,7 @@ class _RadarrAPI implements RadarrAPI {
               'restriction',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRestriction.fromJson(_result.data!);
@@ -4851,9 +5563,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRestriction> getRestriction({required id}) async {
+  Future<RadarrRestriction> getRestriction({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4867,6 +5583,7 @@ class _RadarrAPI implements RadarrAPI {
               'restriction/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRestriction.fromJson(_result.data!);
@@ -4874,9 +5591,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteRestriction({required id}) async {
+  Future<void> deleteRestriction({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -4889,6 +5610,7 @@ class _RadarrAPI implements RadarrAPI {
           'restriction/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -4898,9 +5620,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrRestriction> updateRestriction({
     required id,
     required restriction,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(restriction.toJson());
@@ -4915,6 +5639,7 @@ class _RadarrAPI implements RadarrAPI {
               'restriction/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRestriction.fromJson(_result.data!);
@@ -4922,9 +5647,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrRootFolder>> getRootFolders() async {
+  Future<List<RadarrRootFolder>> getRootFolders({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4938,6 +5664,7 @@ class _RadarrAPI implements RadarrAPI {
               'rootfolder',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -4948,9 +5675,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRootFolder> createRootFolder({required rootFolder}) async {
+  Future<RadarrRootFolder> createRootFolder({
+    required rootFolder,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(rootFolder.toJson());
@@ -4965,6 +5696,7 @@ class _RadarrAPI implements RadarrAPI {
               'rootfolder',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRootFolder.fromJson(_result.data!);
@@ -4972,9 +5704,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrRootFolder> getRootFolder({required id}) async {
+  Future<RadarrRootFolder> getRootFolder({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -4988,6 +5724,7 @@ class _RadarrAPI implements RadarrAPI {
               'rootfolder/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrRootFolder.fromJson(_result.data!);
@@ -4995,9 +5732,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteRootFolder({required id}) async {
+  Future<void> deleteRootFolder({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5010,15 +5751,17 @@ class _RadarrAPI implements RadarrAPI {
           'rootfolder/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<List<RadarrBackup>> getBackups() async {
+  Future<List<RadarrBackup>> getBackups({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5032,6 +5775,7 @@ class _RadarrAPI implements RadarrAPI {
               'system/backup',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -5041,9 +5785,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteBackup({required id}) async {
+  Future<void> deleteBackup({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5056,15 +5804,20 @@ class _RadarrAPI implements RadarrAPI {
           'system/backup/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> restoreBackup({required id}) async {
+  Future<void> restoreBackup({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5077,15 +5830,17 @@ class _RadarrAPI implements RadarrAPI {
           'system/backup/restore/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> restartInstance() async {
+  Future<void> restartInstance({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5098,15 +5853,17 @@ class _RadarrAPI implements RadarrAPI {
           'system/restart',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<void> shutdownInstance() async {
+  Future<void> shutdownInstance({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5119,15 +5876,17 @@ class _RadarrAPI implements RadarrAPI {
           'system/shutdown',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
   @override
-  Future<RadarrSystemStatus> getSystemStatus() async {
+  Future<RadarrSystemStatus> getSystemStatus({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5141,6 +5900,7 @@ class _RadarrAPI implements RadarrAPI {
               'system/status',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrSystemStatus.fromJson(_result.data!);
@@ -5148,9 +5908,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrTask>> getTasks() async {
+  Future<List<RadarrTask>> getTasks({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5164,6 +5925,7 @@ class _RadarrAPI implements RadarrAPI {
               'system/task',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -5173,9 +5935,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrTask> getTask({required id}) async {
+  Future<RadarrTask> getTask({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5189,6 +5955,7 @@ class _RadarrAPI implements RadarrAPI {
               'system/task/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTask.fromJson(_result.data!);
@@ -5196,9 +5963,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrTag>> getTags() async {
+  Future<List<RadarrTag>> getTags({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
@@ -5212,6 +5980,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -5221,9 +5990,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrTag> createTag({required tag}) async {
+  Future<RadarrTag> createTag({
+    required tag,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(tag.toJson());
@@ -5238,6 +6011,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTag.fromJson(_result.data!);
@@ -5245,9 +6019,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrTag> getTag({required id}) async {
+  Future<RadarrTag> getTag({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5261,6 +6039,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTag.fromJson(_result.data!);
@@ -5268,9 +6047,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<void> deleteTag({required id}) async {
+  Future<void> deleteTag({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     await _dio.fetch<void>(_setStreamType<void>(Options(
@@ -5283,6 +6066,7 @@ class _RadarrAPI implements RadarrAPI {
           'tag/${id}',
           queryParameters: queryParameters,
           data: _data,
+          cancelToken: cancelToken,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
@@ -5292,9 +6076,11 @@ class _RadarrAPI implements RadarrAPI {
   Future<RadarrTag> updateTag({
     required id,
     required tag,
+    cancelToken,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(tag.toJson());
@@ -5309,6 +6095,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTag.fromJson(_result.data!);
@@ -5316,9 +6103,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrTagDetails>> getTagsDetails() async {
+  Future<List<RadarrTagDetails>> getTagsDetails({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5332,6 +6120,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag/detail',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -5342,9 +6131,13 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<RadarrTagDetails> getTagDetails({required id}) async {
+  Future<RadarrTagDetails> getTagDetails({
+    required id,
+    cancelToken,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5358,6 +6151,7 @@ class _RadarrAPI implements RadarrAPI {
               'tag/detail/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = RadarrTagDetails.fromJson(_result.data!);
@@ -5365,9 +6159,10 @@ class _RadarrAPI implements RadarrAPI {
   }
 
   @override
-  Future<List<RadarrUpdate>> getUpdates() async {
+  Future<List<RadarrUpdate>> getUpdates({cancelToken}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -5381,6 +6176,7 @@ class _RadarrAPI implements RadarrAPI {
               'update',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
